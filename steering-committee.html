@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steering Committee | CVIP 2026</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-blue: #003459;
+            --brand-accent: #007EA7;
+            --brand-dark: #00171F;
+            --brand-light: #00A8E8;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-500: #64748b;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--brand-blue); 
+            background-color: var(--slate-50); 
+            overflow-x: hidden;
+        }
+
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+
+        /* UNIFIED NAVIGATION */
+        .navbar { 
+            min-height: 96px; 
+            background: rgba(255, 255, 255, 0.98) !important; 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid var(--slate-100);
+            z-index: 1050;
+        }
+        
+        .nav-link, .dropdown-toggle, .dropdown-item {
+            font-weight: 700 !important;
+            font-size: 18px !important;
+            color: var(--brand-blue) !important;
+            padding: 0.6rem 1rem !important;
+            display: flex !important;
+            align-items: center;
+            transition: all 0.2s ease;
+            background: transparent !important;
+        }
+
+        .nav-link:hover, .dropdown:hover > .nav-link, .dropdown-item:hover, .nav-active {
+            color: var(--brand-accent) !important;
+            background: transparent !important;
+        }
+
+        .dropdown-menu {
+            border: 1px solid var(--slate-100);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 12px 0;
+            border-top: 4px solid var(--brand-accent);
+        }
+
+        /* HERO SECTION */
+        .page-hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--brand-dark);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/images/pagination1.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,23,31,0.4), rgba(0,23,31,0.8));
+            z-index: 2;
+        }
+
+        /* MARQUEE */
+        .marquee-wrapper { background-color: var(--brand-blue); color: white; height: 40px; overflow: hidden; display: flex; align-items: center; }
+        .marquee-content { display: flex; gap: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+
+        /* COMMITTEE GRID STYLES */
+        .section-padding { padding: 80px 0; }
+        
+        .group-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--brand-blue);
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+            font-size: 2.5em;
+        }
+
+        .group-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--brand-light);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--slate-100);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: auto;
+            height: auto;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            max-width: 245px; /* slightly larger compact card */
+            margin: 0 auto;    /* center within column */
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-container {
+            position: relative;
+            height: 220px;    /* slightly taller image area */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 1px 4px 1px; /* space inside the dotted frame */
+            box-sizing: border-box;
+
+            /* dotted blue gradient background with subtle tech-dot overlay */
+            background-image:
+                radial-gradient(rgba(255,255,255,0.10) 1.5px, transparent 1.5px),
+                linear-gradient(135deg, #00171F 0%, #003459 50%, #007EA7 100%);
+            background-size: 10px 10px, cover;
+            background-repeat: repeat, no-repeat;
+            background-position: 0 0, center;
+        }
+
+        .member-photo {
+            width: 96%;
+            height: 96%;
+         
+            display: block;
+            transition: transform 0.45s ease;
+
+            box-sizing: border-box;
+            border-radius: 10px; /* rounded corners for images */
+        }
+
+        .member-card:hover .member-photo {
+            transform: scale(1.02);
+        }
+
+
+        .profile-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 23, 31, 0.3);
+            backdrop-filter: blur(2px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            z-index: 3;
+        }
+
+        .member-card:hover .profile-overlay { opacity: 1; }
+
+        .view-profile-btn {
+            background: white;
+            color: var(--brand-dark);
+            padding: 8px 14px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .member-card:hover .view-profile-btn { transform: translateY(0); }
+
+        .card-body { padding: 1rem; }
+
+        .role-tag {
+            color: var(--brand-accent);
+            font-size: 9px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--brand-dark);
+            margin-bottom: 0;
+            line-height: 1.25;
+        }
+
+        .accent-line {
+            height: 3px;
+            width: 36px;
+            background: var(--brand-light);
+            margin: 10px 0;
+            transition: width 0.5s ease;
+            border-radius: 2px;
+        }
+
+        .member-card:hover .accent-line { width: 100%; }
+
+        .member-affil {
+            font-size: 0.85rem;
+            color: var(--slate-500);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* FOOTER */
+        footer { background: linear-gradient(to bottom right, #00171F, #002A45, #00171F); color: white; padding: 4rem 0; position: relative; }
+
+        .reveal-text { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal-text.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-xl fixed-top shadow-sm">
+        <div class="container-fluid px-lg-5">
+            <div class="d-flex align-items-center gap-3 gap-md-4">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="assets/images/nitc.png" alt="NITC" height="60" class="brightness-0">
+                    <img src="assets/images/ntnu.svg" alt="NTNU" height="55">
+                </div>
+                <div class="vr d-none d-md-block mx-2" style="height: 48px; color: var(--slate-200); opacity: 1;"></div>
+                <a class="logo-text font-inter text-decoration-none" href="index.html" style="color: var(--brand-blue); font-size: 2.2rem; font-weight: 800;">CVIP 2026</a>
+            </div>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link " href="about.html">About</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-active" href="#" id="commDrop" role="button" data-bs-toggle="dropdown">Committee</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item " href="committee.html">Organizing Committee</a></li>
+                            <li><a class="dropdown-item" href="steering-committee.html">Steering Committee</a></li>
+                            <li><a class="dropdown-item" href="advisory.html">International Advisory Committee</a></li>
+                            <li><a class="dropdown-item" href="national-advisory.html">National Advisory Committee</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cfpDrop" role="button" data-bs-toggle="dropdown">Call for Papers</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cfp.html">Topics & Tracks</a></li>
+                            <li><a class="dropdown-item" href="author-guidelines.html">Author Guidelines</a></li>
+                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="sponsors.html">Sponsors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="venue.html">Venue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="archDrop" role="button" data-bs-toggle="dropdown">Archive</a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="https://link.springer.com/conference/cvip" target="_blank">Past Proceedings (Springer)</a></li>
+                            <li><a class="dropdown-item" href="https://iitrpr.ac.in/cvip2025" target="_blank">CVIP 2025 (IIT Ropar)</a></li>
+                            <li><a class="dropdown-item" href="https://cvip2024.iiitdm.ac.in/" target="_blank">CVIP 2024 (IIITDM)</a></li>
+                            <li><a class="dropdown-item" href="https://iitjammu.ac.in/cvip2023/" target="_blank">CVIP 2023 (IIT Jammu)</a></li>
+                            <li><a class="dropdown-item" href="https://vnit.ac.in/cvip2022/index.php" target="_blank">CVIP 2022 (VNIT)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding-top: 96px;"></div>
+
+    <div class="page-hero" style="position: relative; height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #00171F;">
+    
+    <div style="position: absolute; inset: 0; 
+                background-image: url('assets/images/slide4.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                opacity: 0.5; /* Increased opacity to 50% so you can see it better */
+                z-index: 1;">
+    </div>
+    
+    <div style="position: absolute; inset: 0; 
+                background: linear-gradient(rgba(0,23,31,0.4), rgba(0,23,31,0.8)); 
+                z-index: 2;">
+    </div>
+    
+    <div class="container position-relative text-center" style="z-index: 3;">
+        <h1 class="reveal-text font-montserrat" style="font-size: 3.5rem; font-weight: 900; color: white; letter-spacing: -0.02em; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+            Steering Committee
+        </h1>
+        <div class="reveal-text" style="height: 6px; width: 120px; background-color: var(--brand-accent); margin: 1.5rem auto 0; border-radius: 50px;"></div>
+    </div>
+</div>
+
+
+    <section class="section-padding">
+        <div class="container">
+
+            <div class="mb-5 pb-5">
+                <h3 class="group-title">Steering Committee</h3>
+                <div class="row g-4 justify-content-center">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member-card reveal-text">
+                            <div class="image-container">
+                                <img src="assets/images/umapada.jpg" alt="Prof. Umapada Pal" class="member-photo">
+                                <div class="dotted-overlay"></div>
+                                <div class="profile-overlay"><a href="https://www.isical.ac.in/~umapada/index.php" target="_blank" class="view-profile-btn">View Profile</a></div>
+                            </div>
+                            <div class="card-body">
+                                <span class="role-tag">Steering Committee</span>
+                                <h4 class="member-name">Prof. Umapada Pal</h4>
+                                <div class="accent-line"></div>
+                                <p class="member-affil">Indian Statistical Institute (ISI), Kolkata, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member-card reveal-text">
+                            <div class="image-container">
+                                <img src="assets/images/balasubramanian.jpg" alt="Prof. R. Balasubramanian" class="member-photo">
+                                <div class="dotted-overlay"></div>
+                                <div class="profile-overlay"><a href="https://faculty.iitr.ac.in/~balarfma/" target="_blank" class="view-profile-btn">View Profile</a></div>
+                            </div>
+                            <div class="card-body">
+                                <span class="role-tag">Steering Committee</span>
+                                <h4 class="member-name">Prof. R. Balasubramanian</h4>
+                                <div class="accent-line"></div>
+                                <p class="member-affil">Indian Institute of Technology (IIT) Roorkee, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member-card reveal-text">
+                            <div class="image-container">
+                                <img src="assets/images/ananda.jpg" alt="Prof. Ananda Chowdhury" class="member-photo">
+                                <div class="dotted-overlay"></div>
+                                <div class="profile-overlay"><a href="https://jadavpuruniversity.in/faculty-profile/ananda-shankar-chowdhury/" target="_blank" class="view-profile-btn">View Profile</a></div>
+                            </div>
+                            <div class="card-body">
+                                <span class="role-tag">Steering Committee</span>
+                                <h4 class="member-name">Prof. Ananda Chowdhury</h4>
+                                <div class="accent-line"></div>
+                                <p class="member-affil">Jadavpur University, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member-card reveal-text">
+                            <div class="image-container">
+                                <img src="assets/images/deepak.jpg" alt="Prof. Deepak Mishra" class="member-photo">
+                                <div class="dotted-overlay"></div>
+                                <div class="profile-overlay"><a href="https://www.iist.ac.in/people-faculty-profile/deepak-mishra" target="_blank" class="view-profile-btn">View Profile</a></div>
+                            </div>
+                            <div class="card-body">
+                                <span class="role-tag">Steering Committee</span>
+                                <h4 class="member-name">Prof. Deepak Mishra</h4>
+                                <div class="accent-line"></div>
+                                <p class="member-affil">Indian Institute of Space Science and Technology (IIST), Thiruvananthapuram, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member-card reveal-text">
+                            <div class="image-container">
+                                <img src="assets/images/pritee.jpg" alt="Prof. Pritee Khanna" class="member-photo">
+                                <div class="dotted-overlay"></div>
+                                <div class="profile-overlay"><a href="http://faculty.iiitdmj.ac.in/faculty/pkhanna" target="_blank" class="view-profile-btn">View Profile</a></div>
+                            </div>
+                            <div class="card-body">
+                                <span class="role-tag">Steering Committee</span>
+                                <h4 class="member-name">Prof. Pritee Khanna</h4>
+                                <div class="accent-line"></div>
+                                <p class="member-affil">IIITDM Jabalpur, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member-card reveal-text">
+                            <div class="image-container">
+                                <img src="assets/images/Subrahmanyam.jpg" alt="Dr. Subrahmanyam Murala" class="member-photo">
+                                <div class="dotted-overlay"></div>
+                                <div class="profile-overlay"><a href="https://www.tcd.ie/scss/people/academic-staff/muralas/" target="_blank" class="view-profile-btn">View Profile</a></div>
+                            </div>
+                            <div class="card-body">
+                                <span class="role-tag">Steering Committee</span>
+                                <h4 class="member-name">Dr. Subrahmanyam Murala</h4>
+                                <div class="accent-line"></div>
+                                <p class="member-affil">Trinity College Dublin, Ireland</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member-card reveal-text">
+                            <div class="image-container">
+                                <img src="assets/images/puneet.jpg" alt="Dr. Puneet Goyal" class="member-photo">
+                                <div class="dotted-overlay"></div>
+                                <div class="profile-overlay"><a href="https://cse.iitrpr.ac.in/?page_id=75" target="_blank" class="view-profile-btn">View Profile</a></div>
+                            </div>
+                            <div class="card-body">
+                                <span class="role-tag">Steering Committee</span>
+                                <h4 class="member-name">Dr. Puneet Goyal</h4>
+                                <div class="accent-line"></div>
+                                <p class="member-affil">Indian Institute of Technology (IIT) Ropar, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="member-card reveal-text">
+                            <div class="image-container">
+                                <img src="assets/images/sanjeev.jpg" alt="Prof. Sanjeev Kumar" class="member-photo">
+                                <div class="dotted-overlay"></div>
+                                <div class="profile-overlay"><a href="https://www.iitr.ac.in/~MA/Malikfma" target="_blank" class="view-profile-btn">View Profile</a></div>
+                            </div>
+                            <div class="card-body">
+                                <span class="role-tag">Steering Committee</span>
+                                <h4 class="member-name">Prof. Sanjeev Kumar</h4>
+                                <div class="accent-line"></div>
+                                <p class="member-affil">Indian Institute of Technology (IIT) Roorkee, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+   <footer class="position-relative overflow-hidden">
+    <div class="dotted-overlay"></div>
+    <div class="container position-relative z-1">
+        <div class="row g-4 g-lg-5 align-items-center justify-content-center">
+            
+            <div class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                    <img src="assets/images/nitc.png" height="50" alt="NITC Logo">
+                </div>
+                <div>
+                    <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">National Institute of Technology Calicut</h3>
+                    <div class="d-flex gap-3 small opacity-75 justify-content-center justify-content-sm-start">
+                        <a href="#" class="text-white text-decoration-none">IG</a>
+                        <a href="#" class="text-white text-decoration-none">FB</a>
+                        <a href="#" class="text-white text-decoration-none">IN</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                    <img src="assets/images/ntnu.svg" height="40" alt="NTNU Logo">
+                </div>
+                <div>
+                    <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">Norwegian University of Science and Technology</h3>
+                    <div class="d-flex gap-3 small opacity-75 justify-content-center justify-content-sm-start">
+                        <a href="#" class="text-white text-decoration-none">IG</a>
+                        <a href="#" class="text-white text-decoration-none">FB</a>
+                        <a href="#" class="text-white text-decoration-none">IN</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end">
+                <nav class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-4 fs-6 fw-bold">
+                    <a href="cfp.html" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Call for Papers</a>
+                    <a href="registration.html" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Registration</a>
+                    <a href="important-dates.html" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Dates</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="mt-5 pt-4 border-top border-white border-opacity-10 text-center">
+            <p class="small text-uppercase tracking-widest opacity-50 mb-0">
+                &copy; 2026 <span class="text-info fw-bold">CVIP Conference</span>. All rights reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

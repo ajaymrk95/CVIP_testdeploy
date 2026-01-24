@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Spomsors | CVIP 2026</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- BRAND IDENTITY CONFIGURATION --- */
+        :root {
+            --brand-blue: #003459;
+            --brand-accent: #007EA7;
+            --brand-dark: #00171F;
+            --brand-light: #00A8E8;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            color: var(--brand-blue); 
+            background-color: var(--slate-50); 
+            overflow-x: hidden;
+        }
+
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+
+        /* UNIFIED NAVIGATION - COPIED FROM INDEX */
+        .navbar { 
+            min-height: 96px; 
+            background: rgba(255, 255, 255, 0.98) !important; 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid var(--slate-100);
+            z-index: 1050;
+        }
+        
+        .nav-link, .dropdown-toggle, .dropdown-item {
+            font-weight: 700 !important;
+            font-size: 18px !important;
+            color: var(--brand-blue) !important;
+            padding: 0.6rem 1rem !important;
+            display: flex !important;
+            align-items: center;
+            transition: all 0.2s ease;
+            background: transparent !important;
+        }
+
+        .nav-link:hover, .dropdown:hover > .nav-link, .dropdown-item:hover, .nav-active {
+            color: var(--brand-accent) !important;
+            background: transparent !important;
+        }
+
+        .dropdown-toggle::after { margin-left: 8px; vertical-align: middle; }
+
+        .dropdown-menu {
+            border: 1px solid var(--slate-100);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 12px 0;
+            margin-top: 0; 
+            border-top: 4px solid var(--brand-accent);
+        }
+
+        /* ABOUT PAGE HERO (70vh) */
+        .page-hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--brand-dark);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/images/pagination1.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 23, 31, 0.75);
+            z-index: 2;
+        }
+
+        .hero-content-wrap { position: relative; z-index: 10; text-align: center; }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.05em;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+
+        .hero-line { height: 6px; width: 96px; background-color: var(--brand-light); margin: 1rem auto 0; }
+
+        /* MARQUEE */
+        .marquee-wrapper { background-color: var(--brand-blue); color: white; height: 40px; overflow: hidden; display: flex; align-items: center; }
+        .marquee-content { display: flex; gap: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+
+        /* SECTIONS */
+        .section-padding { padding: 80px 0; }
+        .reveal-text { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal-text.visible { opacity: 1; transform: translateY(0); }
+        
+        .highlight-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+            border-top: 8px solid var(--brand-accent);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .highlight-box:hover { transform: translateY(-5px); }
+
+        /* FOOTER STYLES COPIED FROM INDEX */
+        footer { background: linear-gradient(to bottom right, #00171F, #002A45, #00171F); color: white; padding: 4rem 0; position: relative; }
+        .dotted-overlay { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-xl fixed-top shadow-sm">
+        <div class="container-fluid px-lg-5">
+            <div class="d-flex align-items-center gap-3 gap-md-4">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="assets/images/nitc.png" alt="NITC" height="60" class="brightness-0">
+                    <img src="assets/images/ntnu.svg" alt="NTNU" height="55">
+                </div>
+                <div class="vr d-none d-md-block mx-2" style="height: 48px; color: var(--slate-200); opacity: 1;"></div>
+                <a class="logo-text font-inter text-decoration-none" href="index.html" style="color: var(--brand-blue); font-size: 2.2rem; font-weight: 800;">CVIP 2026</a>
+            </div>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link " href="about.html">About</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="commDrop" role="button" data-bs-toggle="dropdown">Committee</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="committee.html">Organizing Committee</a></li>
+                            <li><a class="dropdown-item" href="steering-committee.html">Steering Committee</a></li>
+                            <li><a class="dropdown-item" href="advisory.html">International Advisory Committee</a></li>
+                            <li><a class="dropdown-item" href="national-advisory.html">National Advisory Committee</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cfpDrop" role="button" data-bs-toggle="dropdown">Call for Papers</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cfp.html">Topics & Tracks</a></li>
+                            <li><a class="dropdown-item" href="author-guidelines.html">Author Guidelines</a></li>
+                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link nav-active  " href="sponsors.html">Sponsors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="venue.html">Venue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="archDrop" role="button" data-bs-toggle="dropdown">Archive</a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="https://link.springer.com/conference/cvip" target="_blank">Past Proceedings (Springer)</a></li>
+                            <li><a class="dropdown-item" href="https://iitrpr.ac.in/cvip2025" target="_blank">CVIP 2025 (IIT Ropar)</a></li>
+                            <li><a class="dropdown-item" href="https://cvip2024.iiitdm.ac.in/" target="_blank">CVIP 2024 (IIITDM)</a></li>
+                            <li><a class="dropdown-item" href="https://iitjammu.ac.in/cvip2023/" target="_blank">CVIP 2023 (IIT Jammu)</a></li>
+                            <li><a class="dropdown-item" href="https://vnit.ac.in/cvip2022/index.php" target="_blank">CVIP 2022 (VNIT)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding-top: 96px;"></div>
+
+    <div class="page-hero" style="position: relative; height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #00171F;">
+    
+    <div style="position: absolute; inset: 0; 
+                background-image: url('assets/images/slide4.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                opacity: 0.5; /* Increased opacity to 50% so you can see it better */
+                z-index: 1;">
+    </div>
+    
+    <div style="position: absolute; inset: 0; 
+                background: linear-gradient(rgba(0,23,31,0.4), rgba(0,23,31,0.8)); 
+                z-index: 2;">
+    </div>
+    
+    <div class="container position-relative text-center" style="z-index: 3;">
+        <h1 class="reveal-text font-montserrat" style="font-size: 3.5rem; font-weight: 900; color: white; letter-spacing: -0.023em; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+            Our Sponsors
+        </h1>
+        <div style="height: 6px; width: 100px; background-color: var(--brand-accent); margin: 15px auto; border-radius: 50px;"></div>
+    </div>
+</div>
+
+        <section class="section-padding bg-white">
+            <div class="container">
+                <div class="text-center mb-16 reveal-text">
+                    <h2 class="font-inter fw-bold tracking-tight mb-3" style="color: var(--brand-blue); font-size: 2.8rem;">
+                        Conference Sponsors
+                    </h2>
+                    
+                    <p class="text-secondary fs-5 mt-4 max-w-2xl mx-auto">
+                        We are honored to have the support of these prestigious projects and organizations driving innovation in Computer Vision and Image Processing.
+                    </p>
+                </div>
+
+                <div class="row g-5 justify-content-center align-items-center reveal-text mb-5">
+                    
+                    <div class="col-lg-4 col-md-6 text-center">
+                        <div class="p-5 rounded-4 shadow-sm border border-slate-100 bg-white h-100 d-flex flex-column align-items-center justify-content-center transition-all hover-translate-y" style="transition: transform 0.3s ease;">
+                            <img src="assets/images/capsnet.png" alt="Capsnetwork Project" class="img-fluid" style="max-height: 120px; width: auto;">
+                          
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 text-center">
+                        <div class="p-5 rounded-4 shadow-sm border border-slate-100 bg-light h-100 d-flex flex-column align-items-center justify-content-center transition-all hover-translate-y" style="transition: transform 0.3s ease; border-top: 6px solid var(--brand-accent) !important;">
+                            <h3 class="font-inter fw-bold mb-0" style="color: var(--brand-blue); font-size: 1.8rem; letter-spacing: -0.02em;">
+                                Capstrain Project
+                            </h3>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-20 p-5 rounded-5 text-center reveal-text" style="background-color: var(--brand-dark); color: white; position: relative; overflow: hidden;">
+                    <div style="position: absolute; inset: 0; opacity: 0.1; background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+                    
+                    <div class="position-relative z-1">
+                        <h4 class="font-inter fw-bold mb-3">Interested in Sponsoring CVIP 2026?</h4>
+                        <p class="opacity-75 mb-4 max-w-xl mx-auto">Join a global community of researchers and industry leaders. Showcase your brand to over 500+ international delegates.</p>
+                        <a href="mailto:cvip_2026@nitc.ac.in" class="btn btn-info text-white fw-bold px-5 py-3 rounded-pill text-uppercase tracking-wider">
+                            Get in Touch
+                        </a>        
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <style>
+            /* Professional Hover Effect */
+            .hover-translate-y:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0, 52, 89, 0.1) !important;
+                border-color: var(--brand-accent) !important;
+            }
+        </style>
+
+
+    <footer class="position-relative overflow-hidden">
+        <div class="dotted-overlay"></div>
+        <div class="container position-relative z-1">
+            <div class="row g-4 g-lg-5 align-items-center justify-content-center">
+                <div class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                    <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                        <img src="assets/images/nitc.png" height="50" alt="NITC Logo">
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">National Institute of Technology Calicut</h3>
+                        <div class="d-flex gap-3 small opacity-75 justify-content-center justify-content-sm-start">
+                            <a href="#" class="text-white text-decoration-none">IG</a>
+                            <a href="#" class="text-white text-decoration-none">FB</a>
+                            <a href="#" class="text-white text-decoration-none">IN</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                    <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                        <img src="assets/images/ntnu.svg" height="40" alt="NTNU Logo">
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">Norwegian University of Science and Technology</h3>
+                        <div class="d-flex gap-3 small opacity-75 justify-content-center justify-content-sm-start">
+                            <a href="#" class="text-white text-decoration-none">IG</a>
+                            <a href="#" class="text-white text-decoration-none">FB</a>
+                            <a href="#" class="text-white text-decoration-none">IN</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end">
+                    <nav class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-4 small fw-bold">
+                        <a href="cfp.html" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Call for Papers</a>
+                        <a href="registration.html" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Registration</a>
+                        <a href="important-dates.html" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Dates</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-top border-white border-opacity-10 text-center">
+                <p class="small text-uppercase tracking-widest opacity-50 mb-0">
+                    &copy; 2026 <span class="text-info fw-bold">CVIP Conference</span>. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
