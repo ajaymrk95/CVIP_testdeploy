@@ -220,79 +220,74 @@
 <section class="section-padding bg-white">
     <div class="container">
         <div class="text-center mb-5 reveal-text">
-            <h2 class="font-inter fw-bold tracking-tight mb-4" style="color: var(--brand-blue); font-size: 2.24rem;">
-                Registration Information
-            </h2>
-       
-        </div>
-
-        <div class="reveal-text text-center p-5 rounded-4 shadow-sm" style="background: #f8f9fa; border: 2px dashed var(--brand-accent);">
-            <h3 class="font-inter fw-bold mb-4" style="color: var(--brand-accent);">Details Coming Soon</h3>
-            <p class="fs-5 text-secondary lh-lg mx-auto" style="max-width: 750px;">
-                The registration fee structure, categories, and payment deadlines for CVIP 2026 are currently being finalized.
-            </p>
-            <p class="mt-4 fw-semibold fs-5" style="color: var(--brand-blue);">
-                Please check back later for updates.
-            </p>
-        </div>
-
-       
-</section>
-
-<!-- Fee Structure Section -->
-<section class="section-padding bg-white"> <!-- Added bg-white for white background -->
-    <div class="container">
-        <div class="text-center mb-5 reveal-text">
             <h3 class="font-inter fw-bold tracking-tight" style="color: var(--brand-blue); font-size: 2rem; opacity: 0.85;">
                 Proposed Fee Structure (TBD)
             </h3>
-         
         </div>
 
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="reveal-text">
-                    <div class="table-responsive rounded-4 shadow-md border border-slate-200 overflow-hidden bg-white" style="opacity: 0.7;">
+                    <div class="table-responsive rounded-4 shadow-md border border-slate-200 overflow-hidden bg-white" style="opacity: 0.8;">
                         <table class="table table-hover mb-0">
                             <thead style="background-color: var(--brand-blue); color: white;">
                                 <tr>
-                                    <th class="py-4 px-4 font-inter text-uppercase small tracking-wider border-0">Category</th>
-                                    <th class="py-4 px-4 font-inter text-uppercase small tracking-wider border-0">Early Bird</th>
-                                    <th class="py-4 px-4 font-inter text-uppercase small tracking-wider border-0">Regular</th>
+                                    <th class="py-3 py-md-4 px-3 px-md-4 font-inter text-uppercase small tracking-wider border-0">Category</th>
+                                    <th class="py-3 py-md-4 px-3 px-md-4 font-inter text-uppercase small tracking-wider border-0">Early Bird</th>
+                                    <th class="py-3 py-md-4 px-3 px-md-4 font-inter text-uppercase small tracking-wider border-0">Regular</th>
                                 </tr>
                             </thead>
                             <tbody class="text-secondary">
                                 <tr>
-                                    <td class="py-4 px-4 fw-medium text-dark">Author (Academia/Industry)</td>
-                                    <td class="py-4 px-4 fst-italic text-muted">TBD</td>
-                                    <td class="py-4 px-4 fst-italic text-muted">TBD</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fw-medium text-dark">Author (Academia/Industry)</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-4 px-4 fw-medium text-dark">Author (Student)</td>
-                                    <td class="py-4 px-4 fst-italic text-muted">TBD</td>
-                                    <td class="py-4 px-4 fst-italic text-muted">TBD</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fw-medium text-dark">Author (Student)</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-4 px-4 fw-medium text-dark">Attendee (Non-Author)</td>
-                                    <td class="py-4 px-4 fst-italic text-muted">TBD</td>
-                                    <td class="py-4 px-4 fst-italic text-muted">TBD</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fw-medium text-dark">Attendee (Non-Author)</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-4 px-4 fw-medium text-dark">International Delegate</td>
-                                    <td class="py-4 px-4 fst-italic text-muted">TBD</td>
-                                    <td class="py-4 px-4 fst-italic text-muted">TBD</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fw-medium text-dark">International Delegate</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-               
-               
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    .table-responsive {
+        -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
+    }
+    
+    .table th, .table td {
+        white-space: normal; /* Allows text like "Academia/Industry" to wrap if needed */
+        vertical-align: middle;
+        min-width: 120px; /* Ensures columns don't get squashed too much */
+    }
+
+    /* Target specifically the first column for better mobile layout */
+    .table td:first-child {
+        min-width: 180px;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: rgba(0, 126, 167, 0.03) !important;
+    }
+</style>
 
         <footer class="position-relative overflow-hidden">
             <div class="dotted-overlay"></div>
