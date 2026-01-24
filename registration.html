@@ -218,9 +218,8 @@
     </div>
 
 <section class="section-padding bg-white">
-    <div class="container">
-        <div class="text-center mb-5 reveal-text">
-            <h3 class="font-inter fw-bold tracking-tight" style="color: var(--brand-blue); font-size: 2rem; opacity: 0.85;">
+    <div class="container px-3"> <div class="text-center mb-4 mb-md-5 reveal-text">
+            <h3 class="font-inter fw-bold tracking-tight" style="color: var(--brand-blue); font-size: calc(1.3rem + 0.6vw); opacity: 0.85;">
                 Proposed Fee Structure (TBD)
             </h3>
         </div>
@@ -228,35 +227,35 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="reveal-text">
-                    <div class="table-responsive rounded-4 shadow-md border border-slate-200 overflow-hidden bg-white" style="opacity: 0.8;">
-                        <table class="table table-hover mb-0">
+                    <div class="table-responsive rounded-4 shadow-md border border-slate-200 overflow-hidden bg-white">
+                        <table class="table table-hover mb-0" style="width: 100%;">
                             <thead style="background-color: var(--brand-blue); color: white;">
                                 <tr>
-                                    <th class="py-3 py-md-4 px-3 px-md-4 font-inter text-uppercase small tracking-wider border-0">Category</th>
-                                    <th class="py-3 py-md-4 px-3 px-md-4 font-inter text-uppercase small tracking-wider border-0">Early Bird</th>
-                                    <th class="py-3 py-md-4 px-3 px-md-4 font-inter text-uppercase small tracking-wider border-0">Regular</th>
+                                    <th class="p-2 p-md-4 font-inter text-uppercase small-text tracking-wider border-0">Category</th>
+                                    <th class="p-2 p-md-4 font-inter text-uppercase small-text tracking-wider border-0">Early Bird</th>
+                                    <th class="p-2 p-md-4 font-inter text-uppercase small-text tracking-wider border-0">Regular</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-secondary">
+                            <tbody class="text-secondary small-text-body">
                                 <tr>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fw-medium text-dark">Author (Academia/Industry)</td>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="p-2 p-md-4 fw-medium text-dark">Author (Academia/Industry)</td>
+                                    <td class="p-2 p-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="p-2 p-md-4 fst-italic text-muted">TBD</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fw-medium text-dark">Author (Student)</td>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="p-2 p-md-4 fw-medium text-dark">Author (Student)</td>
+                                    <td class="p-2 p-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="p-2 p-md-4 fst-italic text-muted">TBD</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fw-medium text-dark">Attendee (Non-Author)</td>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="p-2 p-md-4 fw-medium text-dark">Attendee (Non-Author)</td>
+                                    <td class="p-2 p-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="p-2 p-md-4 fst-italic text-muted">TBD</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fw-medium text-dark">International Delegate</td>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
-                                    <td class="py-3 py-md-4 px-3 px-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="p-2 p-md-4 fw-medium text-dark">International Delegate</td>
+                                    <td class="p-2 p-md-4 fst-italic text-muted">TBD</td>
+                                    <td class="p-2 p-md-4 fst-italic text-muted">TBD</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -268,20 +267,44 @@
 </section>
 
 <style>
+    /* 1. Reset width and handle scroll */
     .table-responsive {
         -webkit-overflow-scrolling: touch;
         overflow-x: auto;
+        width: 100%;
     }
     
-    .table th, .table td {
-        white-space: normal; /* Allows text like "Academia/Industry" to wrap if needed */
-        vertical-align: middle;
-        min-width: 120px; /* Ensures columns don't get squashed too much */
+    /* 2. Mobile-specific typography (iPhone 8, XR, etc) */
+    .small-text {
+        font-size: 0.75rem !important; /* Smaller headers on mobile */
+    }
+    .small-text-body {
+        font-size: 0.85rem !important; /* Smaller body text on mobile */
     }
 
-    /* Target specifically the first column for better mobile layout */
+    /* 3. Column Sizing */
+    .table th, .table td {
+        white-space: normal; 
+        vertical-align: middle;
+        min-width: 80px; /* Lowered from 120px to allow better fit */
+    }
+
+    /* Ensure first column is readable but doesn't take 100% width */
     .table td:first-child {
-        min-width: 180px;
+        min-width: 140px; 
+    }
+
+    /* 4. Desktop Adjustments (Scale back up) */
+    @media (min-width: 768px) {
+        .small-text {
+            font-size: 0.875rem !important;
+        }
+        .small-text-body {
+            font-size: 1rem !important;
+        }
+        .table td:first-child {
+            min-width: 200px;
+        }
     }
 
     .table-hover tbody tr:hover {
