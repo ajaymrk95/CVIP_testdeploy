@@ -1,18 +1,18 @@
-    <!DOCTYPE html>
-    <html lang="en" class="scroll-smooth">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About | CVIP 2026</title>
-        
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-        <style>
-            /* --- BRAND IDENTITY CONFIGURATION --- */
-            :root {
-                --brand-blue: #003459;
-                --brand-accent: #007EA7;
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | CVIP 2026</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+
+    :root {
+        --brand-blue: #003459;
+        --brand-accent: #007EA7;
                 --brand-dark: #00171F;
                 --brand-light: #00A8E8;
                 --slate-50: #f8fafc;
@@ -29,6 +29,7 @@
 
             .font-montserrat { font-family: 'Montserrat', sans-serif; }
             .font-inter { font-family: 'Inter', sans-serif; }
+            .logo-text { white-space: nowrap; display: inline-block; }
 
             /* UNIFIED NAVIGATION - COPIED FROM INDEX */
             .navbar { 
@@ -66,7 +67,7 @@
                 border-top: 4px solid var(--brand-accent);
             }
 
-            /* ABOUT PAGE HERO (70vh) */
+           
             .page-hero {
                 position: relative;
                 height: 70vh;
@@ -105,7 +106,7 @@
 
             .hero-line { height: 6px; width: 96px; background-color: var(--brand-light); margin: 1rem auto 0; }
 
-            /* MARQUEE */
+     
             .marquee-wrapper { background-color: var(--brand-blue); color: white; height: 40px; overflow: hidden; display: flex; align-items: center; }
             .marquee-content { display: flex; gap: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; }
             @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
@@ -126,10 +127,190 @@
             }
             .highlight-box:hover { transform: translateY(-5px); }
 
-            /* FOOTER STYLES COPIED FROM INDEX */
+         
             footer { background: linear-gradient(to bottom right, #00171F, #002A45, #00171F); color: white; padding: 4rem 0; position: relative; }
             .dotted-overlay { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; }
-        </style>
+
+        @media (max-width: 768px) {
+        .navbar {
+            min-height: 80px; 
+        }
+        .navbar .logo-text {
+       
+            font-size: 1.7rem !important; 
+        }
+        .navbar img[alt="NITC"] {
+            height: 48px !important; 
+        }
+        .navbar img[alt="NTNU"] {
+            height: 42px !important; 
+        }
+        .navbar .vr {
+            height: 38px !important; 
+            margin-left: 5px !important;
+            margin-right: 5px !important;
+        }
+        .navbar .container-fluid {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .navbar .logo-text {
+            font-size: 1.5rem !important;
+        }
+    
+    }
+
+
+    /* --- ABOUT & INFO SECTION RESPONSIVENESS --- */
+
+@media (max-width: 992px) {
+    /* Stack the About row */
+    .row.align-items-center {
+        flex-direction: column;
+        text-align: center;
+    }
+    .col-lg-5 img {
+        margin-top: 2rem;
+        max-width: 80%;
+    }
+    .section-title {
+        font-size: 2rem !important;
+    }
+}
+
+    @media (max-width: 768px) {
+        /* Refine section headings */
+        .section-title {
+            font-size: 1.75rem !important;
+            margin-bottom: 2rem !important;
+        }
+
+        /* Scaling Highlight Boxes */
+        .highlight-box {
+            padding: 1.5rem 1rem !important;
+        }
+        .highlight-box h3 {
+            font-size: 2rem !important; /* Professional reduction, not too small */
+        }
+        .highlight-box p {
+            font-size: 0.75rem !important;
+            letter-spacing: 0.1em !important;
+        }
+
+        /* Scaling Info Section (Organizers/Publication) */
+        .col-lg-6 h3.h5 {
+            font-size: 1.1rem !important;
+            padding-bottom: 0.75rem !important;
+        }
+        .col-lg-6 h4.fs-6 {
+            font-size: 0.95rem !important;
+            line-height: 1.4;
+        }
+        .col-lg-6 p.text-secondary {
+            font-size: 0.95rem !important;
+        }
+    }
+
+
+    .img-fluid {
+        height: auto;
+        object-fit: cover;
+    }
+    @media (max-width: 992px) {
+        .section-padding {
+            padding: 4rem 1rem; 
+        }
+        
+        .hero-slider, .page-hero {
+            height: 60vh !important; 
+            min-height: 500px;
+        }
+
+        .hero-title, .page-hero h1 {
+            font-size: 2.8rem !important; 
+        }
+        .hero-slider p.fs-3 {
+            font-size: 1.5rem !important;
+        }
+    }
+
+
+    @media (max-width: 768px) {
+    
+        .hero-slider, .page-hero {
+            height: auto !important; 
+            min-height: 55vh;
+            padding-top: 130px !important; 
+            padding-bottom: 60px !important;
+        }
+        
+        .hero-title, .page-hero h1 {
+            font-size: 2.8rem !important;
+            line-height: 1.2;
+        }
+
+        .hero-slider p.fs-5, .hero-slider p.fs-3 {
+            font-size: 1.1rem !important;
+        }
+
+
+        .display-5, .section-title {
+            font-size: 1.75rem !important;
+        }
+
+
+        .fs-5, .text-secondary {
+            font-size: 1rem !important;
+            line-height: 1.6;
+        }
+
+    
+        .highlight-box {
+            padding: 1.5rem !important;
+        }
+        .highlight-box .display-3 {
+            font-size: 2.5rem !important;
+        }
+
+
+        .important-dates-card .fs-3, 
+        .important-dates-card .fs-4 {
+            font-size: 1.1rem !important;
+        }
+        .important-dates-card .fs-5 {
+            font-size: 0.95rem !important;
+        }
+        .important-dates-card .p-4 {
+            padding: 1rem !important;
+        }
+
+
+        .submission-card {
+            padding: 2rem 1.5rem !important;
+        }
+        .submission-card .fs-3 {
+            font-size: 1.4rem !important;
+        }
+    }
+
+
+    .slide-bg, .hero-bg, div[style*="background-image"] {
+        background-attachment: scroll !important; 
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+
+    .table-responsive {
+        border-radius: 1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        display: block;
+        width: 100%;
+    }
+    </style>
     </head>
     <body>
 
@@ -210,78 +391,75 @@
         </div>
         
         <div class="container position-relative text-center" style="z-index: 3;">
-            <h1 class="reveal-text font-montserrat" style="font-size: 3.5rem; font-weight: 900; color: white; letter-spacing: -0.023em; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+            <h1 class="reveal-text font-montserrat" style="font-size: 3.25rem; font-weight: 900; color: white; letter-spacing: -0.023em; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
                 About the Conference
             </h1>
             <div class="reveal-text" style="height: 6px; width: 100px; background-color: #00A8E8; margin: 1.5rem auto 0; border-radius: 50px;"></div>
         </div>
     </div>
 
-        <section class="section-padding bg-white">
-            <div class="container">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-7 reveal-text">
-                        <h2 class="font-montserrat fw-black text-uppercase tracking-tight mb-4" style="color: var(--brand-blue); font-size: 2.5rem;">CVIP 2026</h2>
-                        <p class="fs-5 text-secondary lh-lg text-justify">
-                            The <strong>11<sup>th</sup> International Conference on Computer Vision and Image Processing (CVIP 2026)</strong> will be held from December 9–12, 2026, at the National Institute of Technology Calicut (NITC), India. This prestigious event is organized jointly by NIT Calicut and the Norwegian University of Science and Technology (NTNU), Norway.
-                        </p>
-                    </div>
-                    <div class="col-lg-5 reveal-text">
-                        <img src="assets/images/slide4.jpg" alt="Conference Context" class="img-fluid rounded-4 shadow-lg border border-slate-200">
-                    </div>
+    <section class="section-padding bg-white">
+    <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-7 reveal-text">
+                <h2 class="font-montserrat fw-bold text-uppercase tracking-tight mb-4 section-title" style="color: var(--brand-blue);">CVIP 2026</h2>
+                <p class="text-secondary lh-lg text-justify" style="font-size: 1.05rem;">
+                    The <strong>11<sup>th</sup> International Conference on Computer Vision and Image Processing (CVIP 2026)</strong> will be held from December 9–12, 2026, at the National Institute of Technology Calicut (NITC), India. This prestigious event is organized jointly by NIT Calicut and the Norwegian University of Science and Technology (NTNU), Norway.
+                </p>
+            </div>
+            <div class="col-lg-5 reveal-text">
+                <img src="assets/images/slide4.jpg" alt="Conference Context" class="img-fluid rounded-4 shadow-sm border border-slate-200">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding" style="background-color: var(--slate-50);">
+    <div class="container">
+        <h2 class="text-center font-montserrat fw-bold text-uppercase tracking-tight mb-5 section-title" style="color: var(--brand-blue);">Key Highlights</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-5 col-lg-4 reveal-text">
+                <div class="highlight-box">
+                    <h3 class="fs-1 fw-bold font-montserrat mb-1" style="color: var(--brand-blue);">LNCS</h3>
+                    <p class="fw-bold text-muted text-uppercase small tracking-widest mb-0">Springer Proceedings</p>
                 </div>
             </div>
-        </section>
-
-        <section class="section-padding" style="background-color: var(--slate-50);">
-            <div class="container">
-                <h2 class="text-center font-montserrat fw-black text-uppercase tracking-tight mb-5" style="color: var(--brand-blue);">Key Highlights</h2>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-5 reveal-text">
-                        <div class="highlight-box">
-                            <h3 class="display-3 fw-black font-montserrat" style="color: var(--brand-blue);">LNCS</h3>
-                            <p class="fw-bold text-muted text-uppercase tracking-widest">Springer Proceedings</p>
-                        </div>
-                    </div>
-                    <div class="col-md-5 reveal-text">
-                        <div class="highlight-box" style="border-top-color: var(--brand-blue);">
-                            <h3 class="display-3 fw-black font-montserrat" style="color: var(--brand-accent);">Scopus</h3>
-                            <p class="fw-bold text-muted text-uppercase tracking-widest">Indexed Publication</p>
-                        </div>
-                    </div>
+            <div class="col-6 col-md-5 col-lg-4 reveal-text">
+                <div class="highlight-box" style="border-top-color: var(--brand-blue);">
+                    <h3 class="fs-1 fw-bold font-montserrat mb-1" style="color: var(--brand-accent);">Scopus</h3>
+                    <p class="fw-bold text-muted text-uppercase small tracking-widest mb-0">Indexed Publication</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section class="section-padding bg-white">
-            <div class="container">
-                <div class="row g-5">
-                    <div class="col-lg-6 reveal-text">
-                        <h3 class="font-montserrat fw-bold mb-4 pb-3 border-bottom text-uppercase tracking-tight" style="color: var(--brand-blue);">Jointly Organized By</h3>
-                        <div class="mb-4">
-                            <h4 class="fw-bold text-dark fs-5 mb-1 d-flex align-items-center gap-2">
-                                <span style="width: 8px; height: 8px; background: var(--brand-accent); border-radius: 50%;"></span>
-                                National Institute of Technology Calicut (NITC)
-                            </h4>
-                        </div>
-                        <div>
-                            <h4 class="fw-bold text-dark fs-5 mb-1 d-flex align-items-center gap-2">
-                                <span style="width: 8px; height: 8px; background: var(--brand-accent); border-radius: 50%;"></span>
-                                Norwegian University of Science and Technology (NTNU)
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 reveal-text">
-                        <h3 class="font-montserrat fw-bold mb-4 pb-3 border-bottom text-uppercase tracking-tight" style="color: var(--brand-blue);">Publication</h3>
-                        <p class="fs-5 text-secondary lh-lg">
-                            All accepted and presented papers will be published in the <strong>Springer Lecture Notes in Computer Science (LNCS)</strong> series.
-                        </p>
-                    </div>
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6 reveal-text">
+                <h3 class="font-montserrat fw-bold mb-4 pb-3 border-bottom text-uppercase tracking-wider h5" style="color: var(--brand-blue);">Jointly Organized By</h3>
+                <div class="d-flex flex-column gap-3">
+                    <h4 class="fw-semibold text-dark fs-6 mb-0 d-flex align-items-center gap-3">
+                        <span style="width: 8px; height: 8px; background: var(--brand-accent); border-radius: 50%; flex-shrink: 0;"></span>
+                        National Institute of Technology Calicut (NITC)
+                    </h4>
+                    <h4 class="fw-semibold text-dark fs-6 mb-0 d-flex align-items-center gap-3">
+                        <span style="width: 8px; height: 8px; background: var(--brand-accent); border-radius: 50%; flex-shrink: 0;"></span>
+                        Norwegian University of Science and Technology (NTNU)
+                    </h4>
                 </div>
             </div>
-        </section>
-
-    <footer class="position-relative overflow-hidden">
+            <div class="col-lg-6 reveal-text">
+                <h3 class="font-montserrat fw-bold mb-4 pb-3 border-bottom text-uppercase tracking-wider h5" style="color: var(--brand-blue);">Publication</h3>
+                <p class="text-secondary lh-lg" style="font-size: 1.05rem;">
+                    All accepted and presented papers will be published in the <strong>Springer Lecture Notes in Computer Science (LNCS)</strong> series.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>   
+        <footer class="position-relative overflow-hidden">
     <div class="dotted-overlay"></div>
     <div class="container position-relative z-1">
         <div class="row g-4 g-lg-5 align-items-center justify-content-center">
@@ -291,9 +469,9 @@
                     <img src="assets/images/nitc.png" height="50" alt="NITC Logo">
                 </div>
 
-                 <div>
+                <div>
                     <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">National Institute of Technology Calicut</h3>
-                     <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
+                    <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
                     <a href="https://www.instagram.com/nitcofficial" target="_blank" class="text-white opacity-75 hover-opacity-100">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
@@ -343,7 +521,7 @@
             </p>
         </div>
     </div>
-    </footer>
+        </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script>

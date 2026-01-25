@@ -7,7 +7,7 @@
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
         <style>
             /* --- BRAND IDENTITY CONFIGURATION --- */
             :root {
@@ -29,6 +29,7 @@
 
             .font-montserrat { font-family: 'Montserrat', sans-serif; }
             .font-inter { font-family: 'Inter', sans-serif; }
+            .logo-text { white-space: nowrap; display: inline-block; }
 
             /* UNIFIED NAVIGATION - COPIED FROM INDEX */
             .navbar { 
@@ -129,6 +130,116 @@
             /* FOOTER STYLES COPIED FROM INDEX */
             footer { background: linear-gradient(to bottom right, #00171F, #002A45, #00171F); color: white; padding: 4rem 0; position: relative; }
             .dotted-overlay { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; }
+
+            
+            @media (max-width: 768px) {
+            .navbar {
+                min-height: 80px; 
+            }
+            .navbar .logo-text {
+        
+                font-size: 1.7rem !important; 
+            }
+            .navbar img[alt="NITC"] {
+                height: 48px !important; 
+            }
+            .navbar img[alt="NTNU"] {
+                height: 42px !important; 
+            }
+            .navbar .vr {
+                height: 38px !important; 
+                margin-left: 5px !important;
+                margin-right: 5px !important;
+            }
+            .navbar .container-fluid {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .navbar .logo-text {
+                font-size: 1.5rem !important;
+            }
+        
+        }
+
+        @media (max-width: 992px) {
+            .section-padding {
+                padding: 4rem 1rem; 
+            }
+            
+            .hero-slider, .page-hero {
+                height: 60vh !important; 
+                min-height: 500px;
+            }
+
+            .hero-title, .page-hero h1 {
+                font-size: 2.8rem !important; 
+            }
+            .hero-slider p.fs-3 {
+                font-size: 1.5rem !important;
+            }
+        }
+
+
+        @media (max-width: 768px) {
+        
+            .hero-slider, .page-hero {
+                height: auto !important; 
+                min-height: 55vh;
+                padding-top: 130px !important; 
+                padding-bottom: 60px !important;
+            }
+            
+            .hero-title, .page-hero h1 {
+                font-size: 2.8rem !important;
+                line-height: 1.2;
+            }
+
+            .hero-slider p.fs-5, .hero-slider p.fs-3 {
+                font-size: 1.1rem !important;
+            }
+
+
+            .display-5, .section-title {
+                font-size: 1.75rem !important;
+            }
+
+
+            .fs-5, .text-secondary {
+                font-size: 1rem !important;
+                line-height: 1.6;
+            }
+
+        
+            .highlight-box {
+                padding: 1.5rem !important;
+            }
+            .highlight-box .display-3 {
+                font-size: 2.5rem !important;
+            }
+
+
+            .important-dates-card .fs-3, 
+            .important-dates-card .fs-4 {
+                font-size: 1.1rem !important;
+            }
+            .important-dates-card .fs-5 {
+                font-size: 0.95rem !important;
+            }
+            .important-dates-card .p-4 {
+                padding: 1rem !important;
+            }
+
+
+            .submission-card {
+                padding: 2rem 1.5rem !important;
+            }
+            .submission-card .fs-3 {
+                font-size: 1.4rem !important;
+            }
+        }   
         </style>
     </head>
     <body>
@@ -217,7 +328,7 @@
         </div>
     </div>
 
-            <section class="section-padding bg-white">
+                <section class="section-padding bg-white">
     <div class="container">
         <div class="row reveal-text">
             <div class="col-lg-10 mx-auto">
@@ -310,7 +421,7 @@
     }
 </style>
 
-   <footer class="position-relative overflow-hidden">
+       <footer class="position-relative overflow-hidden">
     <div class="dotted-overlay"></div>
     <div class="container position-relative z-1">
         <div class="row g-4 g-lg-5 align-items-center justify-content-center">
@@ -374,12 +485,12 @@
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
-</script>
-</body>
-</html>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+        </script>
+    </body>
+    </html>

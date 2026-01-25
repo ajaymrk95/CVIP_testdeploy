@@ -8,245 +8,443 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <style>
-        :root {
-            --brand-blue: #003459;
-            --brand-accent: #007EA7;
-            --brand-dark: #00171F;
-            --brand-light: #00A8E8;
-            --slate-50: #f8fafc;
-            --slate-100: #f1f5f9;
-            --slate-200: #e2e8f0;
-            --slate-500: #64748b;
-        }
+     <style>
+            :root {
+                --brand-blue: #003459;
+                --brand-accent: #007EA7;
+                --brand-dark: #00171F;
+                --brand-light: #00A8E8;
+                --slate-50: #f8fafc;
+                --slate-100: #f1f5f9;
+                --slate-200: #e2e8f0;
+                --slate-500: #64748b;
+            }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            color: var(--brand-blue); 
-            background-color: var(--slate-50); 
-            overflow-x: hidden;
-        }
+            body { 
+                font-family: 'Inter', sans-serif; 
+                color: var(--brand-blue); 
+                background-color: var(--slate-50); 
+                overflow-x: hidden;
+            }
 
-        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+            .font-montserrat { font-family: 'Montserrat', sans-serif; }
 
-        /* UNIFIED NAVIGATION */
-        .navbar { 
-            min-height: 96px; 
-            background: rgba(255, 255, 255, 0.98) !important; 
-            backdrop-filter: blur(12px); 
-            border-bottom: 1px solid var(--slate-100);
-            z-index: 1050;
-        }
+            /* UNIFIED NAVIGATION */
+            .navbar { 
+                min-height: 96px; 
+                background: rgba(255, 255, 255, 0.98) !important; 
+                backdrop-filter: blur(12px); 
+                border-bottom: 1px solid var(--slate-100);
+                z-index: 1050;
+            }
+            
+            .nav-link, .dropdown-toggle, .dropdown-item {
+                font-weight: 700 !important;
+                font-size: 18px !important;
+                color: var(--brand-blue) !important;
+                padding: 0.6rem 1rem !important;
+                display: flex !important;
+                align-items: center;
+                transition: all 0.2s ease;
+                background: transparent !important;
+            }
+            .logo-text { white-space: nowrap; display: inline-block; }      
+            .nav-link:hover, .dropdown:hover > .nav-link, .dropdown-item:hover, .nav-active {
+                color: var(--brand-accent) !important;
+                background: transparent !important;
+            }
+
+            .dropdown-menu {
+                border: 1px solid var(--slate-100);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                padding: 12px 0;
+                border-top: 4px solid var(--brand-accent);
+            }
+
+            /* HERO SECTION */
+            .page-hero {
+                position: relative;
+                height: 60vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                background-color: var(--brand-dark);
+            }
+
+            .hero-bg {
+                position: absolute;
+                inset: 0;
+                background-image: url('assets/images/pagination1.jpg');
+                background-size: cover;
+                background-position: center;
+                opacity: 0.4;
+                z-index: 1;
+            }
+
+            .hero-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(rgba(0,23,31,0.4), rgba(0,23,31,0.8));
+                z-index: 2;
+            }
+
+            /* MARQUEE */
+            .marquee-wrapper { background-color: var(--brand-blue); color: white; height: 40px; overflow: hidden; display: flex; align-items: center; }
+            .marquee-content { display: flex; gap: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; }
+            @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+
+            /* COMMITTEE GRID STYLES */
+            .section-padding { padding: 80px 0; }
+            
+            .group-title {
+                font-family: 'Inter', sans-serif;
+                font-weight: 800;
+                color: var(--brand-blue);
+                margin-bottom: 4rem;
+                text-align: center;
+                position: relative;
+                font-size: 2.5em;
+            }
+
+            .group-title::after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 4px;
+                background: var(--brand-light);
+                margin: 15px auto 0;
+                border-radius: 2px;
+            }
+
+            .member-card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                border: 1px solid var(--slate-100);
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                width: auto;
+                height: auto;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+                max-width: 245px; /* slightly larger compact card */
+                margin: 0 auto;    /* center within column */
+            }
+
+            .member-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            }
+
+            .image-container {
+                position: relative;
+                height: 220px;    /* slightly taller image area */
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 4px 1px 4px 1px; /* space inside the dotted frame */
+                box-sizing: border-box;
+
+                /* dotted blue gradient background with subtle tech-dot overlay */
+                background-image:
+                    radial-gradient(rgba(255,255,255,0.10) 1.5px, transparent 1.5px),
+                    linear-gradient(135deg, #00171F 0%, #003459 50%, #007EA7 100%);
+                background-size: 10px 10px, cover;
+                background-repeat: repeat, no-repeat;
+                background-position: 0 0, center;
+            }
+
+            .member-photo {
+                width: 96%;
+                height: 96%;
+            
+                display: block;
+                transition: transform 0.45s ease;
+
+                box-sizing: border-box;
+                border-radius: 10px; /* rounded corners for images */
+            }
+
+            .member-card:hover .member-photo {
+                transform: scale(1.02);
+            }
+
+
+            .profile-overlay {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 23, 31, 0.3);
+                backdrop-filter: blur(2px);
+                opacity: 0;
+                transition: all 0.5s ease;
+                z-index: 3;
+            }
+
+            .member-card:hover .profile-overlay { opacity: 1; }
+
+            .view-profile-btn {
+                background: white;
+                color: var(--brand-dark);
+                padding: 8px 14px;
+                font-size: 10px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                text-decoration: none;
+                transform: translateY(20px);
+                transition: all 0.5s ease;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+            }
+
+            .member-card:hover .view-profile-btn { transform: translateY(0); }
+
+            .card-body { padding: 1rem; }
+
+            .role-tag {
+                color: var(--brand-accent);
+                font-size: 9px;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: -0.05em;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            .member-name {
+                font-size: 1.05rem;
+                font-weight: 700;
+                color: var(--brand-dark);
+                margin-bottom: 0;
+                line-height: 1.25;
+            }
+
+            .accent-line {
+                height: 3px;
+                width: 36px;
+                background: var(--brand-light);
+                margin: 10px 0;
+                transition: width 0.5s ease;
+                border-radius: 2px;
+            }
+
+            .member-card:hover .accent-line { width: 100%; }
+
+            .member-affil {
+                font-size: 0.85rem;
+                color: var(--slate-500);
+                font-weight: 500;
+                line-height: 1.4;
+            }
+
+            /* FOOTER */
+            footer { background: linear-gradient(to bottom right, #00171F, #002A45, #00171F); color: white; padding: 4rem 0; position: relative; }
+
+            .reveal-text { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+            .reveal-text.visible { opacity: 1; transform: translateY(0); }
+
+
+            @media (max-width: 768px) {
+            .navbar {
+                min-height: 80px; 
+            }
+            .navbar .logo-text {
         
-        .nav-link, .dropdown-toggle, .dropdown-item {
-            font-weight: 700 !important;
-            font-size: 18px !important;
-            color: var(--brand-blue) !important;
-            padding: 0.6rem 1rem !important;
-            display: flex !important;
-            align-items: center;
-            transition: all 0.2s ease;
-            background: transparent !important;
+                font-size: 1.7rem !important; 
+            }
+            .navbar img[alt="NITC"] {
+                height: 48px !important; 
+            }
+            .navbar img[alt="NTNU"] {
+                height: 42px !important; 
+            }
+            .navbar .vr {
+                height: 38px !important; 
+                margin-left: 5px !important;
+                margin-right: 5px !important;
+            }
+            .navbar .container-fluid {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
         }
 
-        .nav-link:hover, .dropdown:hover > .nav-link, .dropdown-item:hover, .nav-active {
-            color: var(--brand-accent) !important;
-            background: transparent !important;
-        }
-
-        .dropdown-menu {
-            border: 1px solid var(--slate-100);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            padding: 12px 0;
-            border-top: 4px solid var(--brand-accent);
-        }
-
-        /* HERO SECTION */
-        .page-hero {
-            position: relative;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background-color: var(--brand-dark);
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('assets/images/pagination1.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.4;
-            z-index: 1;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(0,23,31,0.4), rgba(0,23,31,0.8));
-            z-index: 2;
-        }
-
-        /* MARQUEE */
-        .marquee-wrapper { background-color: var(--brand-blue); color: white; height: 40px; overflow: hidden; display: flex; align-items: center; }
-        .marquee-content { display: flex; gap: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; }
-        @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
-
-        /* COMMITTEE GRID STYLES */
-        .section-padding { padding: 80px 0; }
+        @media (max-width: 400px) {
+            .navbar .logo-text {
+                font-size: 1.5rem !important;
+            }
         
-        .group-title {
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: var(--brand-blue);
-            margin-bottom: 4rem;
-            text-align: center;
-            position: relative;
-            font-size: 2.5em;
         }
 
-        .group-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--brand-light);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
+            @media (max-width: 992px) {
+            .section-padding {
+                padding: 4rem 1rem; 
+            }
+            
+            .hero-slider, .page-hero {
+                height: 60vh !important; 
+                min-height: 500px;
+            }
 
-        .member-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--slate-100);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            width: auto;
-            height: auto;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            max-width: 245px; /* slightly larger compact card */
-            margin: 0 auto;    /* center within column */
-        }
-
-        .member-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-        }
-
-        .image-container {
-            position: relative;
-            height: 220px;    /* slightly taller image area */
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 4px 1px 4px 1px; /* space inside the dotted frame */
-            box-sizing: border-box;
-
-            /* dotted blue gradient background with subtle tech-dot overlay */
-            background-image:
-                radial-gradient(rgba(255,255,255,0.10) 1.5px, transparent 1.5px),
-                linear-gradient(135deg, #00171F 0%, #003459 50%, #007EA7 100%);
-            background-size: 10px 10px, cover;
-            background-repeat: repeat, no-repeat;
-            background-position: 0 0, center;
-        }
-
-        .member-photo {
-            width: 96%;
-            height: 96%;
-         
-            display: block;
-            transition: transform 0.45s ease;
-
-            box-sizing: border-box;
-            border-radius: 10px; /* rounded corners for images */
-        }
-
-        .member-card:hover .member-photo {
-            transform: scale(1.02);
+            .hero-title, .page-hero h1 {
+                font-size: 2.8rem !important; 
+            }
+            .hero-slider p.fs-3 {
+                font-size: 1.5rem !important;
+            }
         }
 
 
-        .profile-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 23, 31, 0.3);
-            backdrop-filter: blur(2px);
-            opacity: 0;
-            transition: all 0.5s ease;
-            z-index: 3;
+        @media (max-width: 768px) {
+        
+            .hero-slider, .page-hero {
+                height: auto !important; 
+                min-height: 55vh;
+                padding-top: 130px !important; 
+                padding-bottom: 60px !important;
+            }
+            
+            .hero-title, .page-hero h1 {
+                font-size: 2.8rem !important;
+                line-height: 1.2;
+            }
+
+            .hero-slider p.fs-5, .hero-slider p.fs-3 {
+                font-size: 1.1rem !important;
+            }
+
+
+            .display-5, .section-title {
+                font-size: 1.75rem !important;
+            }
+
+
+            .fs-5, .text-secondary {
+                font-size: 1rem !important;
+                line-height: 1.6;
+            }
+
+        
+            .highlight-box {
+                padding: 1.5rem !important;
+            }
+            .highlight-box .display-3 {
+                font-size: 2.5rem !important;
+            }
+
+
+            .important-dates-card .fs-3, 
+            .important-dates-card .fs-4 {
+                font-size: 1.1rem !important;
+            }
+            .important-dates-card .fs-5 {
+                font-size: 0.95rem !important;
+            }
+            .important-dates-card .p-4 {
+                padding: 1rem !important;
+            }
+
+
+            .submission-card {
+                padding: 2rem 1.5rem !important;
+            }
+            .submission-card .fs-3 {
+                font-size: 1.4rem !important;
+            }   
         }
 
-        .member-card:hover .profile-overlay { opacity: 1; }
 
-        .view-profile-btn {
-            background: white;
-            color: var(--brand-dark);
-            padding: 8px 14px;
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            text-decoration: none;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        .slide-bg, .hero-bg, div[style*="background-image"] {
+            background-attachment: scroll !important; 
+            background-size: cover !important;
+            background-position: center center !important;
         }
 
-        .member-card:hover .view-profile-btn { transform: translateY(0); }
 
-        .card-body { padding: 1rem; }
+        /* --- COMMITTEE CARD MOBILE OPTIMIZATION --- */
 
-        .role-tag {
-            color: var(--brand-accent);
-            font-size: 9px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
+/* Tablet & Smaller Laptops */
+@media (max-width: 992px) {
+    .group-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+}
 
-        .member-name {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--brand-dark);
-            margin-bottom: 0;
-            line-height: 1.25;
-        }
+/* Mobile Phones (Standard) */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .group-title {
+        font-size: 1.6rem;
+        margin-bottom: 2.5rem;
+    }
 
-        .accent-line {
-            height: 3px;
-            width: 36px;
-            background: var(--brand-light);
-            margin: 10px 0;
-            transition: width 0.5s ease;
-            border-radius: 2px;
-        }
+    /* Reduce card size for better fit */
+    .member-card {
+        max-width: 180px; /* Scaled down from 245px */
+    }
 
-        .member-card:hover .accent-line { width: 100%; }
+    .image-container {
+        height: 170px; /* Scaled down from 220px */
+    }
 
-        .member-affil {
-            font-size: 0.85rem;
-            color: var(--slate-500);
-            font-weight: 500;
-            line-height: 1.4;
-        }
+    .card-body {
+        padding: 0.75rem;
+    }
 
-        /* FOOTER */
-        footer { background: linear-gradient(to bottom right, #00171F, #002A45, #00171F); color: white; padding: 4rem 0; position: relative; }
+    .member-name {
+        font-size: 0.9rem !important; /* Smaller, sharper font */
+    }
 
-        .reveal-text { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
-        .reveal-text.visible { opacity: 1; transform: translateY(0); }
-    </style>
+    .member-affil {
+        font-size: 0.75rem !important;
+        line-height: 1.3;
+    }
+
+    .role-tag {
+        font-size: 8px;
+        margin-bottom: 0.25rem;
+    }
+
+    .accent-line {
+        margin: 8px 0;
+    }
+
+    /* Force 2 cards per row on mobile to save vertical space */
+    .row.g-4 > * {
+        width: 50% !important;
+        padding: 8px;
+    }
+}
+
+/* Very Small Devices (iPhone SE, etc) */
+@media (max-width: 400px) {
+    .member-card {
+        max-width: 155px;
+    }
+    
+    .image-container {
+        height: 145px;
+    }
+    
+    .member-name {
+        font-size: 0.8rem !important;
+    }
+    
+    .member-affil {
+        display: -webkit-box;
+        -webkit-line-clamp: 3; 
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+        </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-xl fixed-top shadow-sm">
@@ -348,7 +546,7 @@
                         </div>
                         <div class="card-body">
                             <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Dr. Alan Bovik</h4>
+                            <h4 class="member-name">Alan Bovik</h4>
                             <div class="accent-line"></div>
                             <p class="member-affil">The University of Texas at Austin, USA</p>
                         </div>
@@ -363,7 +561,7 @@
                         </div>
                         <div class="card-body">
                             <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Dr. Henning Müller</h4>
+                            <h4 class="member-name">Henning Müller</h4>
                             <div class="accent-line"></div>
                             <p class="member-affil">University of Geneva, Switzerland</p>
                         </div>
@@ -378,7 +576,7 @@
                         </div>
                         <div class="card-body">
                             <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Dr. Jonathan Wu</h4>
+                            <h4 class="member-name">Jonathan Wu</h4>
                             <div class="accent-line"></div>
                             <p class="member-affil">University of Windsor, Canada</p>
                         </div>
@@ -393,7 +591,7 @@
                         </div>
                         <div class="card-body">
                             <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Dr. Ondrej Krejcar</h4>
+                            <h4 class="member-name">Ondrej Krejcar</h4>
                             <div class="accent-line"></div>
                             <p class="member-affil">University of Hradec Kralove, Czechia</p>
                         </div>
@@ -408,7 +606,7 @@
                         </div>
                         <div class="card-body">
                             <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Dr. Daniel P. Lopresti</h4>
+                            <h4 class="member-name">Daniel P. Lopresti</h4>
                             <div class="accent-line"></div>
                             <p class="member-affil">Lehigh University, Pennsylvania, USA</p>
                         </div>
@@ -423,7 +621,7 @@
                         </div>
                         <div class="card-body">
                             <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Dr. Ishwar K. Sethi</h4>
+                            <h4 class="member-name">Ishwar K. Sethi</h4>
                             <div class="accent-line"></div>
                             <p class="member-affil">Oakland University, Michigan, USA</p>
                         </div>
@@ -438,7 +636,7 @@
                         </div>
                         <div class="card-body">
                             <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Dr. Vladimír Mařík</h4>
+                            <h4 class="member-name">Vladimír Mařík</h4>
                             <div class="accent-line"></div>
                             <p class="member-affil">Czech Technical University, Czechia</p>
                         </div>
@@ -453,7 +651,7 @@
                         </div>
                         <div class="card-body">
                             <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Dr. Barbara Zitova</h4>
+                            <h4 class="member-name">Barbara Zitova</h4>
                             <div class="accent-line"></div>
                             <p class="member-affil">Inst. of Info. Theory and Automation, Czechia</p>
                         </div>
@@ -464,8 +662,7 @@
         </div>
     </div>
 </section>
-
- <footer class="position-relative overflow-hidden">
+   <footer class="position-relative overflow-hidden">
     <div class="dotted-overlay"></div>
     <div class="container position-relative z-1">
         <div class="row g-4 g-lg-5 align-items-center justify-content-center">
@@ -527,7 +724,10 @@
             </p>
         </div>
     </div>
-    </footer>
+</footer>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const observer = new IntersectionObserver((entries) => {
