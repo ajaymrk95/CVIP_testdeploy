@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="assets/css/zoom-fix.css">
     <style>
         /* --- BRAND IDENTITY CONFIGURATION --- */
         :root {
@@ -223,54 +224,29 @@
         
         }
 
-        @media (max-width: 992px) {
-            .section-padding {
-                padding: 4rem 1rem; 
-            }
-            
-            .hero-slider, .page-hero {
-                height: 60vh !important; 
-                min-height: 500px;
-            }
+          @media (max-width: 992px) {
+            .section-padding { padding: 4rem 1rem; }
+            .hero-title, .page-hero h1 { font-size: 2.5rem !important; }
+            .page-hero { height: 60vh !important; min-height: 500px; }
+        }
 
-            .hero-title, .page-hero h1 {
-                font-size: 2.8rem !important; 
+        @media (max-width: 768px) {
+            
+            .page-hero { 
+                height: auto !important; 
+                min-height: 55vh; 
+                padding-top: 130px !important; 
+                padding-bottom: 60px !important; 
             }
-            .hero-slider p.fs-3 {
-                font-size: 1.5rem !important;
-            }
+            .hero-title, .page-hero h1 { font-size: 2rem !important; line-height: 1.2; }
+            
+            /* Table Sizing scaling for general mobile */
+            .small-text { font-size: 0.75rem !important; padding: 12px 10px !important; }
+            .small-text-body { font-size: 0.85rem !important; }
         }
 
 
         @media (max-width: 768px) {
-        
-            .hero-slider, .page-hero {
-                height: auto !important; 
-                min-height: 55vh;
-                padding-top: 130px !important; 
-                padding-bottom: 60px !important;
-            }
-            
-            .hero-title, .page-hero h1 {
-                font-size: 2.8rem !important;
-                line-height: 1.2;
-            }
-
-            .hero-slider p.fs-5, .hero-slider p.fs-3 {
-                font-size: 1.1rem !important;
-            }
-
-
-            .display-5, .section-title {
-                font-size: 1.75rem !important;
-            }
-
-
-            .fs-5, .text-secondary {
-                font-size: 1rem !important;
-                line-height: 1.6;
-            }
-
         
             .highlight-box {
                 padding: 1.5rem !important;
@@ -278,7 +254,6 @@
             .highlight-box .display-3 {
                 font-size: 2.5rem !important;
             }
-
 
             .important-dates-card .fs-3, 
             .important-dates-card .fs-4 {
@@ -299,6 +274,85 @@
                 font-size: 1.4rem !important;
             }
         }
+
+
+   /* --- LAPTOP OPTIMIZATION (1200px - 1400px) --- */
+@media (min-width: 1200px) and (max-width: 1400px) {
+    /* Reduce Title size so it doesn't feel like it's screaming */
+    .section-padding h2 {
+        font-size: 2.2rem !important;
+    }
+
+    /* Shrink the column gaps so cards don't hit the screen edges */
+    .row.g-5 {
+        --bs-gutter-x: 2rem !important; 
+    }
+
+    /* Tweak the card padding for a tighter look */
+    .row.g-5 .col-lg-4 > div {
+        padding: 3rem 2rem !important; 
+    }
+
+    /* Adjust paragraph font size to look more natural */
+    .text-secondary.fs-5 {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* --- SPONSORS CARD MOBILE QUERIES (Under 992px) --- */
+@media (max-width: 992px) {
+    .section-padding {
+        padding: 4rem 1.5rem !important;
+    }
+
+    /* Fix the "Get in Touch" box margin for mobile */
+    .mt-20 {
+        margin-top: 4rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. Section Header Font */
+    .section-padding h2 {
+        font-size: 1.8rem !important;
+    }
+
+    /* 2. Individual Sponsor Cards */
+    .row.g-5 .col-lg-4 > div {
+        padding: 2.5rem 1.5rem !important; /* Smaller padding inside cards */
+        min-height: 180px !important;
+        margin-bottom: 10px; /* Space between stacked cards */
+    }
+
+    .row.g-5 img {
+        max-height: 90px !important; /* Scale down logos */
+    }
+
+    .row.g-5 h3 {
+        font-size: 1.5rem !important;
+    }
+
+    /* 3. The Black "Call to Action" Box */
+    .mt-20.p-5.rounded-5 {
+        padding: 2.5rem 1.25rem !important;
+        border-radius: 1.5rem !important; /* Soften the circle-look of rounded-5 */
+    }
+
+    .mt-20 h4 {
+        font-size: 1.4rem !important;
+        line-height: 1.3;
+    }
+
+    .mt-20 p {
+        font-size: 0.95rem !important;
+    }
+
+    /* 4. Button scaling */
+    .btn-lg, .btn-info {
+        padding: 12px 30px !important;
+        font-size: 0.9rem !important;
+    }
+}
     </style>
 </head>
 <body>
