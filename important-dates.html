@@ -127,10 +127,47 @@
             }
             .highlight-box:hover { transform: translateY(-5px); }
 
-            /* FOOTER STYLES COPIED FROM INDEX */
+            
             footer { background: linear-gradient(to bottom right, #00171F, #002A45, #00171F); color: white; padding: 4rem 0; position: relative; }
             .dotted-overlay { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; }
 
+                        
+            @media (min-width: 1200px) and (max-width: 1440px) {
+               
+                .navbar .logo-text {
+                    font-size: 1.8rem !important;
+                }
+                
+                .navbar img[alt="NITC"] {
+                    height: 50px !important;
+                }
+                
+                .navbar img[alt="NTNU"] {
+                    height: 45px !important;
+                }
+
+               
+                .navbar .d-flex.align-items-center.gap-3.gap-md-4 {
+                    gap: 0.75rem !important;
+                }
+
+          
+                .nav-link, .dropdown-toggle {
+                    font-size: 16px !important; 
+                    padding: 0.5rem 0.6rem !important; 
+                }
+
+                
+                .navbar-nav {
+                    gap: 2px !important;
+                }
+
+            
+                .container-fluid.px-lg-5 {
+                    padding-left: 20px !important;
+                    padding-right: 20px !important;
+                }
+            }
             
             @media (max-width: 768px) {
             .navbar {
