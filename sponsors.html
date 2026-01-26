@@ -132,8 +132,8 @@
         .dotted-overlay { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; }
         
    
-          @media (min-width: 1200px) and (max-width: 1435px) {
-                /* 1. Reduce the logo size slightly to gain horizontal space */
+             @media (min-width: 1200px) and (max-width: 1435px) {
+              
                 .navbar .logo-text {
                     font-size: 1.8rem !important;
                 }
@@ -146,29 +146,35 @@
                     height: 45px !important;
                 }
 
-                /* 2. Tighten the gap between logos and the "CVIP 2026" text */
+        
                 .navbar .d-flex.align-items-center.gap-3.gap-md-4 {
                     gap: 0.75rem !important;
                 }
 
-                /* 3. Reduce the font size and padding of the Nav Links */
+           
                 .nav-link, .dropdown-toggle {
-                    font-size: 15px !important; /* Smaller but still bold */
-                    padding: 0.5rem 0.6rem !important; /* Less horizontal padding */
+                    font-size: 16px !important; 
+                    padding: 0.5rem 0.6rem !important; 
                 }
 
-                /* 4. Reduce the gap between the nav items */
+              
                 .navbar-nav {
                     gap: 2px !important;
                 }
 
-                /* 5. Reduce the outer container padding */
+         
                 .container-fluid.px-lg-5 {
                     padding-left: 20px !important;
                     padding-right: 20px !important;
                 }
-            }
 
+                .navbar-collapse .dropdown-item {
+                font-size: 16px !important;      
+                padding: 0.5rem 1rem !important;  
+                 
+            }
+            }
+            
           @media (max-width: 768px) {
             .navbar {
                 min-height: 80px; 
@@ -192,6 +198,22 @@
                 padding-left: 15px !important;
                 padding-right: 15px !important;
             }
+
+            
+            .nav-link, .dropdown-toggle {
+                    font-size: 15px !important; 
+                    padding: 0.4rem 0.5rem !important; 
+                }
+
+                
+            .navbar-collapse .dropdown-item {
+                font-size: 15px !important;      
+                padding: 0.5rem 1rem !important;  
+                 
+            }
+
+
+            
         }
 
         @media (max-width: 400px) {

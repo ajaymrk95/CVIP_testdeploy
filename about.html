@@ -132,77 +132,98 @@
             .dotted-overlay { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; }
 
             
-        @media (min-width: 1200px) and (max-width: 1435px) {
-   
-            .navbar .logo-text {
-                font-size: 1.8rem !important;
-            }
-            
-            .navbar img[alt="NITC"] {
-                height: 50px !important;
-            }
-            
-            .navbar img[alt="NTNU"] {
-                height: 45px !important;
-            }
+             @media (min-width: 1200px) and (max-width: 1435px) {
+              
+                .navbar .logo-text {
+                    font-size: 1.8rem !important;
+                }
+                
+                .navbar img[alt="NITC"] {
+                    height: 50px !important;
+                }
+                
+                .navbar img[alt="NTNU"] {
+                    height: 45px !important;
+                }
 
+        
+                .navbar .d-flex.align-items-center.gap-3.gap-md-4 {
+                    gap: 0.75rem !important;
+                }
+
+           
+                .nav-link, .dropdown-toggle {
+                    font-size: 16px !important; 
+                    padding: 0.5rem 0.6rem !important; 
+                }
+
+              
+                .navbar-nav {
+                    gap: 2px !important;
+                }
+
+         
+                .container-fluid.px-lg-5 {
+                    padding-left: 20px !important;
+                    padding-right: 20px !important;
+                }
+
+                .navbar-collapse .dropdown-item {
+                font-size: 16px !important;      
+                padding: 0.5rem 1rem !important;  
+                 
+            }
+            }
             
-            .navbar .d-flex.align-items-center.gap-3.gap-md-4 {
-                gap: 0.75rem !important;
+          @media (max-width: 768px) {
+            .navbar {
+                min-height: 80px; 
+            }
+            .navbar .logo-text {
+        
+                font-size: 1.7rem !important; 
+            }
+            .navbar img[alt="NITC"] {
+                height: 48px !important; 
+            }
+            .navbar img[alt="NTNU"] {
+                height: 42px !important; 
+            }
+            .navbar .vr {
+                height: 38px !important; 
+                margin-left: 5px !important;
+                margin-right: 5px !important;
+            }
+            .navbar .container-fluid {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
             }
 
             
             .nav-link, .dropdown-toggle {
-                font-size: 15px !important; 
-                padding: 0.5rem 0.6rem !important; 
+                    font-size: 15px !important; 
+                    padding: 0.4rem 0.5rem !important; 
+                }
+
+                
+            .navbar-collapse .dropdown-item {
+                font-size: 15px !important;      
+                padding: 0.5rem 1rem !important;  
+                 
             }
 
+
+            
+        }
+
+        @media (max-width: 400px) {
+            .navbar .logo-text {
+                font-size: 1.5rem !important;
+            }
         
-            .navbar-nav {
-                gap: 2px !important;
-            }
-
-
-            .container-fluid.px-lg-5 {
-                padding-left: 20px !important;
-                padding-right: 20px !important;
-            }
         }
 
-        @media (max-width: 768px) {
-        .navbar {
-            min-height: 80px; 
-        }
-        .navbar .logo-text {
-       
-            font-size: 1.7rem !important; 
-        }
-        .navbar img[alt="NITC"] {
-            height: 48px !important; 
-        }
-        .navbar img[alt="NTNU"] {
-            height: 42px !important; 
-        }
-        .navbar .vr {
-            height: 38px !important; 
-            margin-left: 5px !important;
-            margin-right: 5px !important;
-        }
-        .navbar .container-fluid {
-            padding-left: 15px !important;
-            padding-right: 15px !important;
-        }
-    }
-
-    @media (max-width: 400px) {
-        .navbar .logo-text {
-            font-size: 1.5rem !important;
-        }
-    
-    }
-
-
-    /* --- ABOUT & INFO SECTION RESPONSIVENESS --- */
+/* --- ABOUT & INFO SECTION RESPONSIVENESS --- */
 
 @media (max-width: 992px) {
     /* Stack the About row */
