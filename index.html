@@ -126,6 +126,44 @@
         footer { background: linear-gradient(to bottom right, #00171F, #002A45, #00171F); color: white; padding: 4rem 0; position: relative; }
         .dotted-overlay { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; }
 
+        .sponsors-section {
+            background: #ffffff;
+
+            background-size: 25px 25px;
+            padding: 80px 0;
+        }
+
+        .sponsor-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+            padding: 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 160px; 
+            transition: all 0.3s ease;
+            width: 100%; 
+        }
+
+        .sponsor-card img {
+            max-width: 100%;
+            max-height: 100px; 
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+       
+        .sponsor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 126, 167, 0.15); 
+        }
+
+        .sponsor-card:hover img {
+            transform: scale(1.10); 
+        }
+
         /* --- LAPTOP OPTIMIZATION (1200px to 1440px) --- */
             @media (min-width: 1200px) and (max-width: 1435px) {
               
@@ -309,6 +347,38 @@
                 overflow-y: scroll;
             }
         }
+
+        /* --- PARTNER LOGO CONSISTENCY --- */
+@media (min-width: 992px) {
+    /* Forces 3 per row on laptop/desktop */
+    .col-lg-4 {
+        width: 33.333% !important;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    /* 2 per row on tablets */
+    .col-md-6 {
+        width: 50% !important;
+    }
+}
+
+        @media (max-width: 767px) {
+            /* 1 per row on mobile */
+            .col-sm-12 {
+                width: 100% !important;
+            }
+            .member-card {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Ensure images within these containers don't stretch */
+        .member-card .image-container img {
+            width: auto;
+            height: auto;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
@@ -417,14 +487,14 @@
                                 <td class="p-4 fw-bold fs-5 text-dark">Conference Dates</td>
                                 <td class="p-4 fw-bold fs-5" style="color: var(--brand-accent);">December 9–12, 2026</td>
                             </tr>
-                            <tr><td class="p-4 fw-medium fs-6 ">Paper Submission Opens (Round 1)</td><td class="p-4 fs-6">26 January 2026</td></tr>
-                            <tr><td class="p-4 fw-medium fs-6">Paper Submission Deadline (Round 1)</td><td class="p-4 fs-6">15 April 2026</td></tr>
-                            <tr><td class="p-4 fw-medium fs-6">Acceptance Notification (Round 1)</td><td class="p-4 fs-6">15 June 2026</td></tr>
-                            <tr><td class="p-4 fw-medium fs-6">Camera Ready Submission (Round 1)</td><td class="p-4 fs-6">15 July 2026</td></tr>
-                            <tr><td class="p-4 fw-medium fs-6">Paper Submission Deadline (Round 2)</td><td class="p-4 fs-6">31 July 2026</td></tr>
-                            <tr><td class="p-4 fw-medium fs-6">Acceptance Notification (Round 2)</td><td class="p-4 fs-6">31 September 2026</td></tr>
-                            <tr><td class="p-4 fw-medium fs-6">Camera Ready Submission (Round 2)</td><td class="p-4 fs-6">23 October 2026</td></tr>
-                            <tr class="fst-italic fs-5 text-muted"><td class="p-4">Registration Deadline</td><td class="p-4 fs-6">To be notified soon</td></tr>
+                            <tr><td class="p-4 fw-medium fs-5 ">Paper Submission Opens (Round 1)</td><td class="p-4 fs-5">26 January 2026</td></tr>
+                            <tr><td class="p-4 fw-medium fs-5">Paper Submission Deadline (Round 1)</td><td class="p-4 fs-5">15 April 2026</td></tr>
+                            <tr><td class="p-4 fw-medium fs-5">Acceptance Notification (Round 1)</td><td class="p-4 fs-5">15 June 2026</td></tr>
+                            <tr><td class="p-4 fw-medium fs-5">Camera Ready Submission (Round 1)</td><td class="p-4 fs-5">15 July 2026</td></tr>
+                            <tr><td class="p-4 fw-medium fs-5">Paper Submission Deadline (Round 2)</td><td class="p-4 fs-5">31 July 2026</td></tr>
+                            <tr><td class="p-4 fw-medium fs-5">Acceptance Notification (Round 2)</td><td class="p-4 fs-5">31 September 2026</td></tr>
+                            <tr><td class="p-4 fw-medium fs-5">Camera Ready Submission (Round 2)</td><td class="p-4 fs-5">23 October 2026</td></tr>
+                            <tr class="fst-italic fs-5 text-muted"><td class="p-4">Registration Deadline</td><td class="p-4 fs-5">To be notified soon</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -467,6 +537,34 @@
             </div>
         </div>
     </section>
+
+   <section class="sponsors-section" style="background-color: #eef2f5;">
+    <div class="container">
+
+        <div class="row justify-content-center g-4 row-cols-3 row-cols-md-3 row-cols-lg-3">
+            <div class="col">
+                <div class="sponsor-card">
+                    <a href="https://nitc.ac.in/" target="_blank"><img src="assets/images/nitc.png" alt="NITC"></a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="sponsor-card">
+                    <a href="https://www.ntnu.edu/" target="_blank"><img src="assets/images/NTNU_Brandmark" alt="NTNU"></a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="sponsor-card">
+                    <a href="https://iapr.org/" target="_blank"><img src="assets/images/IAPR.png" alt="IAPR"></a>
+                </div>
+            </div>
+            
+        </div>
+
+            
+    </div>
+    </div>
+</section>
 
     <footer class="position-relative overflow-hidden">
     <div class="dotted-overlay"></div>
