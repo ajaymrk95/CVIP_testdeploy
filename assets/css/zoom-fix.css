@@ -1,7 +1,10 @@
-/* Global zoom / sizing fixes: set visually ~90% scale on desktop while preserving mobile legibility */
+/* Global zoom / sizing fixes: set visually ~88% scale on desktop while preserving mobile legibility */
 html {
-    /* Reduce base font-size to achieve ~90% zoom effect in modern browsers that respect rem sizing */
-    font-size: 90%;
+    /* Reduce base font-size to achieve ~88% zoom effect — slightly tighter content sizing */
+    font-size: 88%;
     -webkit-text-size-adjust: 95%;
+    /* Apple-style font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
-
