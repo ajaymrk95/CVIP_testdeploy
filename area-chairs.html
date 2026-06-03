@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>International Advisory Committee | CVIP 2026</title>
+    <title>Area Chairs | CVIP 2026</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="stylesheet" href="assets/css/zoom-fix.css">
-     <style>
+    
+   <style>
             :root {
                 --brand-blue: #003459;
                 --brand-accent: #007EA7;
@@ -29,6 +30,7 @@
             }
 
             .font-montserrat { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'DM Sans', 'Helvetica Neue', Arial, sans-serif; }
+            .logo-text { white-space: nowrap; display: inline-block; }
 
             /* UNIFIED NAVIGATION */
             .navbar { 
@@ -49,7 +51,7 @@
                 transition: all 0.2s ease;
                 background: transparent !important;
             }
-            .logo-text { white-space: nowrap; display: inline-block; }      
+
             .nav-link:hover, .dropdown:hover > .nav-link, .dropdown-item:hover, .nav-active {
                 color: var(--brand-accent) !important;
                 background: transparent !important;
@@ -247,8 +249,7 @@
             .reveal-text { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
             .reveal-text.visible { opacity: 1; transform: translateY(0); }
 
-                       
-              @media (min-width: 1200px) and (max-width: 1435px) {
+               @media (min-width: 1200px) and (max-width: 1435px) {
               
                 .navbar .logo-text {
                     font-size: 1.8rem !important;
@@ -340,27 +341,42 @@
         }
 
             @media (max-width: 992px) {
-            .section-padding { padding: 4rem 1rem; }
-            .hero-title, .page-hero h1 { font-size: 2.8rem !important; }
-            .page-hero { height: 60vh !important; min-height: 500px; }
-        }
-
-        @media (max-width: 768px) {
-            
-            .page-hero { 
-                height: auto !important; 
-                min-height: 55vh; 
-                padding-top: 130px !important; 
-                padding-bottom: 60px !important; 
+            .section-padding {
+                padding: 4rem 1rem; 
             }
-            .hero-title, .page-hero h1 { font-size: 2rem !important; line-height: 1.2; }
             
-            /* Table Sizing scaling for general mobile */
-            .small-text { font-size: 0.75rem !important; padding: 12px 10px !important; }
-            .small-text-body { font-size: 0.85rem !important; }
+            .hero-slider, .page-hero {
+                height: 60vh !important; 
+                min-height: 500px;
+            }
+
+            .hero-title, .page-hero h1 {
+                font-size: 3rem !important; 
+            }
+            .hero-slider p.fs-3 {
+                font-size: 1.5rem !important;
+            }
         }
 
+
         @media (max-width: 768px) {
+        
+            .hero-slider, .page-hero {
+                height: auto !important; 
+                min-height: 55vh;
+                padding-top: 130px !important; 
+                padding-bottom: 60px !important;
+            }
+            
+            .hero-title, .page-hero h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+            }
+
+            .hero-slider p.fs-5, .hero-slider p.fs-3 {
+                font-size: 1.1rem !important;
+            }
+
 
             .display-5, .section-title {
                 font-size: 1.75rem !important;
@@ -409,7 +425,7 @@
         }
 
 
-      
+        /* --- COMMITTEE CARD MOBILE OPTIMIZATION --- */
 
 /* Tablet & Smaller Laptops */
 @media (max-width: 992px) {
@@ -489,7 +505,7 @@
         overflow: hidden;
     }
 }
-        </style>
+</style>
 </head>
 <body>
 <nav class="navbar navbar-expand-xl fixed-top shadow-sm">
@@ -539,18 +555,20 @@
                             <li><a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdqojPoT-AQWQFLswwtOcFY9wKVv9l2XtiwMitJC2wQxZD72Q/viewform" target="_blank">Call for Reviews</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="program.html">Program</a></li>
+
 
                     <li class="nav-item"><a class="nav-link" href="sponsors.html">Sponsors</a></li>
                     <li class="nav-item"><a class="nav-link" href="venue.html">Venue</a></li>
-                    <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="program.html">Program</a></li>
+        
                     <li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="archDrop" role="button" data-bs-toggle="dropdown">Archive</a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="https://link.springer.com/conference/cvip" >Past Proceedings (Springer)</a></li>
-                            <li><a class="dropdown-item" href="https://iitrpr.ac.in/cvip2025" >CVIP 2025 (IIT Ropar)</a></li>
+                            <li><a class="dropdown-item" href="https://iitrpr.ac.in/cvip2025">CVIP 2025 (IIT Ropar)</a></li>
                             <li><a class="dropdown-item" href="https://cvip2024.iiitdm.ac.in/" >CVIP 2024 (IIITDM)</a></li>
                             <li><a class="dropdown-item" href="https://iitjammu.ac.in/cvip2023/" >CVIP 2023 (IIT Jammu)</a></li>
                             <li><a class="dropdown-item" href="https://vnit.ac.in/cvip2022/index.php" >CVIP 2022 (VNIT)</a></li>
@@ -580,160 +598,457 @@
     
     <div class="container position-relative text-center" style="z-index: 3;">
         <h1 class="reveal-text font-montserrat" style="font-size: 3.5rem; font-weight: 900; color: white; letter-spacing: -0.02em; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
-            International Advisory Committee
+            Area Chairs
         </h1>
-        <div class="reveal-text" style="height: 6px; width: 150px; background-color:var(--brand-accent); margin: 1.5rem auto 0; border-radius: 50px;"></div>
+        <div class="reveal-text" style="height: 6px; width: 120px; background-color: var(--brand-accent); margin: 1.5rem auto 0; border-radius: 50px;"></div>
     </div>
 </div>
 
 
-<section class="section-padding">
+  <section class="section-padding">
     <div class="container">
         <div class="mb-5 pb-5">
-            <h3 class="group-title">International Advisory Committee</h3>
-            <div class="row g-4 justify-content-center">
+            <h3 class="group-title">Area Chairs</h3>
+                <div class="row g-4 justify-content-center">
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="member-card reveal-text">
-                        <div class="image-container">
-                            <img src="assets/images/Bovik.jpg" alt="Dr. Alan Bovik" class="member-photo">
-                            <div class="profile-overlay"><a href="https://www.ece.utexas.edu/people/faculty/alan-bovik" class="view-profile-btn">View Profile</a></div>
-                        </div>
-                        <div class="card-body">
-                            <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Alan Bovik</h4>
-                            <div class="accent-line"></div>
-                            <p class="member-affil">The University of Texas at Austin, USA</p>
-                        </div>
-                    </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/IshwaraBhat.jpg" alt="Dr. A. Ishwara Bhat" class="member-photo">
+                    <div class="profile-overlay"><a href="https://spices.res.in/staff/detail/dr-a-ishwara-bhat" class="view-profile-btn">View Profile</a></div>
                 </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member-card reveal-text">
-                        <div class="image-container">
-                            <img src="assets/images/Barbara.jpg" alt="Dr. Barbara Zitova" class="member-photo">
-                            <div class="profile-overlay"><a href="https://utia.cas.cz/en/people/?pid=222"  class="view-profile-btn">View Profile</a></div>
-                        </div>
-                        <div class="card-body">
-                            <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Barbara Zitova</h4>
-                            <div class="accent-line"></div>
-                            <p class="member-affil">Inst. of Info. Theory and Automation, Czechia</p>
-                        </div>
-                    </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">A. Ishwara Bhat</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">ICAR - IISR, Kozhikode, India</p>
                 </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member-card reveal-text">
-                        <div class="image-container">
-                            <img src="assets/images/Daniellopresti.jpg" alt="Dr. Daniel P. Lopresti" class="member-photo">
-                            <div class="profile-overlay"><a href="https://www.cse.lehigh.edu/~lopresti/" class="view-profile-btn">View Profile</a></div>
-                        </div>
-                        <div class="card-body">
-                            <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Daniel P. Lopresti</h4>
-                            <div class="accent-line"></div>
-                            <p class="member-affil">Lehigh University, Pennsylvania, USA</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member-card reveal-text">
-                        <div class="image-container">
-                            <img src="assets/images/HenningMuller.png" alt="Dr. Henning MÃ¼ller" class="member-photo">
-                            <div class="profile-overlay"><a href="https://www.hevs.ch/en/collaborateurs/muller-1609"  class="view-profile-btn">View Profile</a></div>
-                        </div>
-                        <div class="card-body">
-                            <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Henning MÃ¼ller</h4>
-                            <div class="accent-line"></div>
-                            <p class="member-affil">University of Geneva, Switzerland</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member-card reveal-text">
-                        <div class="image-container">
-                            <img src="assets/images/IshwarKsethi.jpg" alt="Dr. Ishwar K. Sethi" class="member-photo">
-                            <div class="profile-overlay"><a href="https://www.oakland.edu/secs/directory/sethi/"  class="view-profile-btn">View Profile</a></div>
-                        </div>
-                        <div class="card-body">
-                            <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Ishwar K. Sethi</h4>
-                            <div class="accent-line"></div>
-                            <p class="member-affil">Oakland University, Michigan, USA</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member-card reveal-text">
-                        <div class="image-container">
-                            <img src="assets/images/jonathan_wu_cei.jpg" alt="Dr. Jonathan Wu" class="member-photo">
-                            <div class="profile-overlay"><a href="https://www.uwindsor.ca/engineering/electrical/317/dr-jonathan-wu"  class="view-profile-btn">View Profile</a></div>
-                        </div>
-                        <div class="card-body">
-                            <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Jonathan Wu</h4>
-                            <div class="accent-line"></div>
-                            <p class="member-affil">University of Windsor, Canada</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member-card reveal-text">
-                        <div class="image-container">
-                            <img src="assets/images/mohitbansal.jpg" alt="Prof. Mohit Bansal" class="member-photo">
-                            <div class="dotted-overlay"></div>
-                            <div class="profile-overlay"><a href="https://cs.unc.edu/person/mohit-bansal/"  class="view-profile-btn">View Profile</a></div>
-                        </div>
-                        <div class="card-body">
-                            <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Mohit Bansal</h4>
-                            <div class="accent-line"></div>
-                            <p class="member-affil">University of North Carolina, USA</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member-card reveal-text">
-                        <div class="image-container">
-                            <img src="assets/images/Ondrej.jpg" alt="Dr. Ondrej Krejcar" class="member-photo">
-                            <div class="profile-overlay"><a href="https://www.uhk.cz/en/person/3321/ondrej-krejcar"  class="view-profile-btn">View Profile</a></div>
-                        </div>
-                        <div class="card-body">
-                            <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">Ondrej Krejcar</h4>
-                            <div class="accent-line"></div>
-                            <p class="member-affil">University of Hradec KrÃ¡lovÃ©, Czechia</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <div class="member-card reveal-text">
-                        <div class="image-container">
-                            <img src="assets/images/VladimirMarik.jpg" alt="Dr. VladimÃ­r MaÅ™Ã­k" class="member-photo">
-                            <div class="profile-overlay"><a href="#" class="view-profile-btn">View Profile</a></div>
-                        </div>
-                        <div class="card-body">
-                            <span class="role-tag">Advisory Committee</span>
-                            <h4 class="member-name">VladimÃ­r MaÅ™Ã­k</h4>
-                            <div class="accent-line"></div>
-                            <p class="member-affil">Czech Technical University, Czechia</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/AjitaRattani.jpg" alt="Prof. Ajita Rattani" class="member-photo">
+                    <div class="profile-overlay"><a href="https://engineering.unt.edu/people/ajita-rattani.html" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Ajita Rattani</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">University of North Texas, USA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Amina.jpg" alt="Dr. Amina Bassit" class="member-photo">
+                    <div class="profile-overlay"><a href="https://hal.cse.msu.edu/team/amina-bassit/" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Amina Bassit</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">Michigan State University, USA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Amitesh.jpg" alt="Dr. Amitesh Rajput" class="member-photo">
+                    <div class="profile-overlay"><a href="https://nliu.ac.in/dr-amitesh-singh-rajput/"  class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Amitesh Rajput</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">NLIU, Bhopal, India</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Ananda.jpg" alt="Prof. Anand Shankar Chowdary" class="member-photo">
+                    <div class="profile-overlay"><a href="https://jadavpuruniversity.in/faculty-profile/ananda-shankar-chowdhury/" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Anand Shankar Chowdary</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">Jadavpur University, India</p>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/AnoopNamboodiri.jpg" alt="Prof. Anoop Nambodiri" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.iiit.ac.in/faculty/anoop-namboodiri/"  class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Anoop M Namboodiri</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">IIIT Hyderabad, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/BapiRaju.jpg" alt="Prof. Bapi Raju" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.iiit.ac.in/faculty/bapi-raju-s/"  class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Bapi Raju</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">IIIT Hyderabad, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Kesavadas.jpg" alt="Dr. C. Kesavadas" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.sctimst.ac.in/people/kesav" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">C. Kesavadas</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">SCTIMST, Thiruvananthapuram, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Senthil.jpg" alt="Dr. C. M. Senthil Kumar" class="member-photo">
+                    <div class="profile-overlay"><a href="https://spices.res.in/staff/detail/dr-c-m-senthil-kumar" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">C. M. Senthil Kumar</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">ICAR - IISR, Kozhikode, India</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Chiara.jpg" alt="Prof. Chiara Galdi" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.eurecom.fr/en/people/galdi-chiara"  class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Chiara Galdi</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">Eurecom, France</p>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/DeepakKJain.jpg" alt="Dr. Deepak K Jain" class="member-photo">
+                    <div class="profile-overlay"><a href="#" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Deepak K Jain</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">Dalian University of Technology, China</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Diksha.jpg" alt="Prof. Diksha Shukla" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.uwyo.edu/eecs/faculty-staff/faculty/diksha-shukla/index.html"  class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Diksha Shukla</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">Wyoming University, USA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Harkeerat.jpg" alt="Dr. Harkeerat Kaur" class="member-photo">
+                    <div class="profile-overlay"><a href="https://iitjammu.ac.in/computer_science_engineering/faculty-list/~harkeeratkaur" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Harkeerat Kaur</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">IIT Jammu, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Hau.jpg" alt="Dr. Hau Ngo" class="member-photo">
+                    <div class="profile-overlay"><a href="https://sites.google.com/site/hautngo/" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Hau Ngo</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">US Naval Academy, USA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/JohnThomas.jpg" alt="Dr. John Thomas" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.rit.edu/directory/jmtiee-john-thomas" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">John Thomas</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">RIT, USA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Lijiya.jpg" alt="Dr. Lijiya A" class="member-photo">
+                    <div class="profile-overlay"><a href="https://nitc.ac.in/department/computer-science-amp-engineering/faculty-and-staff/faculty/bf2c4c95-d0e3-425e-a052-3133c0ebe8de"  class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Lijiya A</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">NIT Calicut, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/MaheshPanicker.jpg" alt="Prof. Mahesh Panicker" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.singaporetech.edu.sg/directory/faculty/mahesh-raveendranatha-panicker" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Mahesh Panicker</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">Singapore Institute of Technology</p>
+                </div>
+            </div>
+        </div>
+
+
+
+         <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Maheshkumar.jpg" alt="Prof. Maheshkumar Kolekar" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.iitp.ac.in/?option=com_content&amp;view=article&amp;id=165:view-profile" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Maheshkumar Kolekar</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">IIT Patna,India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/drnisanthkartheek.png "Dr. Mukku Nisanth Kartheek" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.iiitdm.ac.in/people/faculty/drnisanthkartheek@iiitdm.ac.in" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Mukku Nisanth Kartheek</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">IIITDM Kancheepuram, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Philipp.jpg" alt="Prof. Philipp TerhÃ¶rst" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.uni-paderborn.de/en/person/97123"  class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Philipp TerhÃ¶rst</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">University of Paderborn, Germany</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/PrashantPatil.jpg" alt="Dr. Prashant Patil" class="member-photo">
+                    <div class="profile-overlay"><a href="https://iitg.ac.in/iitg_faculty_details?fac=emE0eXp4VEpTLy9CSmVJeVo0TmRxUT09" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Prashant Patil</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">IIT Guwahati, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/priyanka.png" alt="Dr. Priyanka Singh" class="member-photo">
+                    <div class="profile-overlay"><a href="https://scholar.google.co.in/citations?user=n1pfC-0AAAAJ" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Priyanka Singh</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">University of Queensland, Australia</p>
+                </div>
+            </div>
+        </div>
+
+
+        
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Puneet.png" alt="Dr. Puneet Kumar" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.iitrpr.ac.in/saide/profile.faculty.php?mail=puneet.kumar%40iitrpr.ac.in" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Puneet Kumar</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">IIT Ropar, India</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/DrPushpendra.jpg" alt="Dr. Pushpendra Kumar" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.manit.ac.in/content/dr-pushpendra-kumar" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Pushpendra Kumar</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">MANIT Bhopal, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/rejeshkumar.jpg" alt="Prof. Rajesh Kumar" class="member-photo">
+                    <div class="profile-overlay"><a href="https://www.bucknell.edu/fac-staff/rajesh-kumar" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Rajesh Kumar</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">Bucknell University, USA</p>
+                </div>
+            </div>
+        </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/shitala.jpg" alt="Prof. Shitala Prasad" class="member-photo">
+                    <div class="profile-overlay"><a href="https://iitgoa.ac.in/CS-faculty-profile/?uid=shitala&&exp=CS" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Shitala Prasad</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">IIT Goa, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Vijayan.jpg" alt="Dr. Vijayan K Asari" class="member-photo">
+                    <div class="profile-overlay"><a href="https://udayton.edu/directory/engineering/electrical-and-computer/asari_vijayan.php" target="_blank" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Vijayan K Asari</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">University of Dayton, Ohio, USA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="member-card reveal-text">
+                <div class="image-container">
+                    <img src="assets/images/Vivekraj.jpg" alt="Dr. Vivekraj V. K." class="member-photo">
+                    <div class="profile-overlay"><a href="https://vivekrajvk.github.io/" class="view-profile-btn">View Profile</a></div>
+                </div>
+                <div class="card-body">
+                    <span class="role-tag">TPC / Area Chair</span>
+                    <h4 class="member-name">Vivekraj V. K.</h4>
+                    <div class="accent-line"></div>
+                    <p class="member-affil">IIIT Dharwad, India</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        
+
+    </div>
     </div>
 </section>
-   <footer class="position-relative overflow-hidden">
+
+ <footer class="position-relative overflow-hidden">
     <div class="dotted-overlay"></div>
     <div class="container position-relative z-1">
         <div class="row g-4 g-lg-5 align-items-center justify-content-center">
@@ -798,8 +1113,6 @@
     </div>
 </footer>
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const observer = new IntersectionObserver((entries) => {
@@ -809,3 +1122,4 @@
     </script>
 </body>
 </html>
+
