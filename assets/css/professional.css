@@ -1,0 +1,626 @@
+/* =========================================================================
+   PROFESSIONAL POLISH — Shared design upgrade layer for CVIP 2026
+   Inspired by photography-workshop.co.uk's clean, minimal aesthetic.
+   Load AFTER Bootstrap and BEFORE page-specific inline styles.
+   ========================================================================= */
+
+/* --- FONT IMPORTS --- */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- DESIGN TOKENS --- */
+:root {
+    /* Type Scale (1.25 ratio) */
+    --font-heading: 'DM Serif Display', 'Georgia', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --fs-hero: clamp(2.25rem, 5vw, 3.5rem);
+    --fs-h2: clamp(1.5rem, 3vw, 2.25rem);
+    --fs-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+    --fs-body: clamp(0.95rem, 1.2vw, 1.05rem);
+    --fs-nav: 0.875rem;
+    --fs-small: 0.8rem;
+
+    /* Spacing */
+    --section-py: clamp(5rem, 8vw, 7.5rem);
+    --section-py-sm: clamp(3rem, 5vw, 4.5rem);
+
+    /* Easing */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Shadows (subtler) */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 14px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.08);
+    --shadow-xl: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* --- GLOBAL RESETS & SMOOTHING --- */
+html {
+    font-size: 100% !important; /* Override zoom-fix.css 90% */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body) !important;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    color: #1e293b;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4, h5, h6,
+.font-montserrat,
+.font-inter.fw-bold.display-5,
+.hero-title,
+.section-title,
+.section-header {
+    font-family: var(--font-heading) !important;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+/* Section headings get the serif treatment */
+.display-5 {
+    font-family: var(--font-heading) !important;
+    font-size: var(--fs-h2) !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.02em;
+}
+
+.section-header {
+    font-size: var(--fs-h2) !important;
+    font-weight: 400 !important;
+}
+
+/* Body text refinements */
+.fs-5 {
+    font-size: var(--fs-body) !important;
+    line-height: 1.75 !important;
+}
+
+.text-secondary {
+    color: #475569 !important;
+}
+
+p {
+    line-height: 1.75;
+}
+
+/* --- NAVBAR REFINEMENTS --- */
+.navbar {
+    min-height: 80px !important;
+    transition: all 0.4s var(--ease-smooth);
+    border-bottom: 1px solid rgba(0,0,0,0.04) !important;
+    box-shadow: none !important;
+}
+
+/* Scrolled navbar gets a subtle shadow */
+.navbar.shadow-sm {
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.nav-link,
+.dropdown-toggle {
+    font-family: var(--font-body) !important;
+    font-weight: 500 !important;
+    font-size: var(--fs-nav) !important;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.85rem !important;
+    position: relative;
+    transition: color 0.3s var(--ease-smooth) !important;
+}
+
+.dropdown-item {
+    font-family: var(--font-body) !important;
+    font-weight: 500 !important;
+    font-size: 0.85rem !important;
+    text-transform: none;
+    letter-spacing: 0;
+    padding: 0.6rem 1.25rem !important;
+}
+
+/* Animated underline on hover */
+.nav-link::after,
+.dropdown-toggle::after {
+    /* Reset Bootstrap caret for dropdowns — handled separately */
+}
+
+.navbar-nav > .nav-item > .nav-link:not(.dropdown-toggle)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--brand-accent, #007EA7);
+    transition: width 0.3s var(--ease-out-expo), left 0.3s var(--ease-out-expo);
+}
+
+.navbar-nav > .nav-item > .nav-link:not(.dropdown-toggle):hover::after,
+.navbar-nav > .nav-item > .nav-link.nav-active:not(.dropdown-toggle)::after {
+    width: 70%;
+    left: 15%;
+}
+
+/* Active state — clean accent color, no background */
+.nav-active {
+    color: var(--brand-accent, #007EA7) !important;
+}
+
+/* Dropdown polish */
+.dropdown-menu {
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 8px !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-top: 3px solid var(--brand-accent, #007EA7) !important;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.25s var(--ease-smooth), transform 0.25s var(--ease-smooth);
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    border-radius: 8px !important;
+    margin: 2px 0;
+    transition: background-color 0.2s var(--ease-smooth), color 0.2s var(--ease-smooth) !important;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(0, 126, 167, 0.06) !important;
+}
+
+/* Logo text refinement */
+.logo-text {
+    font-family: var(--font-body) !important;
+    font-weight: 700 !important;
+    font-size: 1.75rem !important;
+    letter-spacing: -0.03em;
+}
+
+/* --- HERO SECTIONS (Sub-pages) --- */
+.page-hero {
+    height: 50vh !important;
+    min-height: 380px !important;
+}
+
+.page-hero h1,
+.page-hero .hero-title {
+    font-family: var(--font-heading) !important;
+    font-size: var(--fs-hero) !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+
+/* Hero slider (homepage) */
+.hero-slider .hero-title {
+    font-family: var(--font-heading) !important;
+    font-weight: 400 !important;
+}
+
+.hero-slider h1.fs-3,
+.hero-slider h1.h5 {
+    font-family: var(--font-body) !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+
+/* --- SECTION SPACING --- */
+.section-padding {
+    padding: var(--section-py) 1.5rem !important;
+}
+
+/* Section title underline accent */
+.section-padding h2,
+.section-padding h4,
+.section-padding h5 {
+    font-family: var(--font-heading) !important;
+}
+
+/* Underline pill beneath headings */
+span.rounded-pill[style*="height: 6px"] {
+    height: 3px !important;
+    width: 60px !important;
+    border-radius: 2px !important;
+}
+
+/* --- SCROLL REVEAL ANIMATION --- */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo) !important;
+}
+
+.reveal-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered children reveal */
+.reveal-text:nth-child(2) { transition-delay: 0.1s !important; }
+.reveal-text:nth-child(3) { transition-delay: 0.2s !important; }
+.reveal-text:nth-child(4) { transition-delay: 0.3s !important; }
+.reveal-text:nth-child(5) { transition-delay: 0.4s !important; }
+
+/* AOS overrides for smoother feel */
+[data-aos] {
+    transition-duration: 800ms !important;
+    transition-timing-function: var(--ease-out-expo) !important;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(30px) !important;
+}
+
+/* --- CARDS & SURFACES --- */
+.important-dates-card {
+    box-shadow: var(--shadow-md) !important;
+    border: 1px solid rgba(0,0,0,0.04) !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+}
+
+.highlight-box {
+    box-shadow: var(--shadow-md) !important;
+    border-radius: 16px !important;
+    border-top-width: 4px !important;
+    transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo) !important;
+}
+
+.highlight-box:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: var(--shadow-xl) !important;
+}
+
+.sponsor-card {
+    box-shadow: var(--shadow-sm) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo) !important;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.submission-card,
+div[class*="submission-card"] {
+    box-shadow: var(--shadow-lg) !important;
+    border-radius: 20px !important;
+}
+
+/* Publication box */
+.publication-box,
+div[class*="publication-box"] {
+    border-radius: 12px !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+/* Keynote cards */
+.keynote-card {
+    box-shadow: var(--shadow-md) !important;
+    border-radius: 16px !important;
+    border-left-width: 4px !important;
+    transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo) !important;
+}
+
+.keynote-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-xl) !important;
+}
+
+/* --- TABLES --- */
+.table {
+    --bs-table-hover-bg: rgba(0, 126, 167, 0.03);
+}
+
+.table thead {
+    border-radius: 16px 16px 0 0;
+}
+
+.table th {
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.table td {
+    font-size: var(--fs-body) !important;
+    padding: 1rem 1.25rem !important;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s var(--ease-smooth);
+}
+
+/* --- BUTTONS --- */
+.btn {
+    font-family: var(--font-body) !important;
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 50px !important;
+    padding: 0.8rem 2rem !important;
+    transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo), background-color 0.3s var(--ease-smooth) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98) !important;
+}
+
+.btn-lg {
+    padding: 0.9rem 2.5rem !important;
+    font-size: 0.85rem !important;
+}
+
+/* Outline buttons */
+.btn-outline-light {
+    border-width: 1.5px !important;
+}
+
+.btn-outline-info {
+    border-width: 1.5px !important;
+    border-radius: 50px !important;
+}
+
+/* --- MARQUEE --- */
+.marquee-wrapper {
+    height: 38px !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.06em !important;
+}
+
+.marquee-content {
+    font-weight: 600 !important;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 5rem 0 !important;
+}
+
+footer h3 {
+    font-family: var(--font-body) !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em;
+}
+
+footer nav a {
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    transition: opacity 0.3s var(--ease-smooth) !important;
+}
+
+footer nav a:hover {
+    opacity: 0.7 !important;
+}
+
+footer .small {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.12em;
+}
+
+/* Social icons */
+footer a.opacity-75 {
+    transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-out-expo) !important;
+}
+
+footer a.opacity-75:hover {
+    opacity: 1 !important;
+    transform: translateY(-2px);
+}
+
+/* --- IMAGES --- */
+.img-fluid {
+    border-radius: 12px;
+}
+
+.rounded-4 {
+    border-radius: 16px !important;
+}
+
+/* Subtle image hover zoom */
+.hover-scale {
+    transition: transform 0.6s var(--ease-out-expo) !important;
+}
+
+.hover-scale:hover {
+    transform: scale(1.04) !important;
+}
+
+/* --- PARALLAX HERO BACKGROUNDS --- */
+@media (min-width: 769px) {
+    .page-hero > div[style*="background-image"],
+    .hero-bg {
+        transition: transform 0.1s linear;
+    }
+}
+
+/* --- MEMBER CARDS (Committee pages) --- */
+.member-card {
+    border-radius: 12px !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo) !important;
+}
+
+.member-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.member-name {
+    font-family: var(--font-heading) !important;
+    font-weight: 400 !important;
+}
+
+.member-affil {
+    font-size: 0.85rem !important;
+    color: #64748b !important;
+}
+
+/* --- RESPONSIVE REFINEMENTS --- */
+
+/* Laptop (1200–1435px) */
+@media (min-width: 1200px) and (max-width: 1435px) {
+    .nav-link, .dropdown-toggle {
+        font-size: 0.8rem !important;
+        padding: 0.5rem 0.6rem !important;
+    }
+    .dropdown-item {
+        font-size: 0.8rem !important;
+    }
+    .logo-text {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .section-padding {
+        padding: var(--section-py-sm) 1rem !important;
+    }
+    .page-hero {
+        height: 45vh !important;
+        min-height: 350px !important;
+    }
+    .page-hero h1 {
+        font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        min-height: 70px !important;
+    }
+    .logo-text {
+        font-size: 1.4rem !important;
+    }
+    .nav-link, .dropdown-toggle {
+        font-size: 0.85rem !important;
+        padding: 0.5rem 0.7rem !important;
+        text-transform: none;
+        letter-spacing: 0;
+    }
+    .dropdown-item {
+        font-size: 0.85rem !important;
+    }
+    .page-hero {
+        height: auto !important;
+        min-height: 45vh !important;
+        padding-top: 100px !important;
+        padding-bottom: 50px !important;
+    }
+    .page-hero h1 {
+        font-size: 2rem !important;
+    }
+    .hero-slider {
+        min-height: 55vh;
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+    .hero-slider .hero-title {
+        font-size: 2rem !important;
+    }
+    .display-5 {
+        font-size: 1.5rem !important;
+    }
+    .section-header {
+        font-size: 1.5rem !important;
+    }
+    .btn-lg {
+        padding: 0.75rem 1.75rem !important;
+        font-size: 0.75rem !important;
+    }
+    footer {
+        padding: 3.5rem 0 !important;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 400px) {
+    .logo-text {
+        font-size: 1.2rem !important;
+    }
+    .hero-slider .hero-title {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* --- SMOOTH GLOBAL TRANSITIONS --- */
+a, .btn, .sponsor-card, .highlight-box, .member-card, .keynote-card {
+    transition-timing-function: var(--ease-out-expo) !important;
+}
+
+/* --- SCROLL PARALLAX (lightweight JS-driven via data attribute) --- */
+[data-parallax] {
+    will-change: transform;
+}
+
+/* --- SELECTION COLOR --- */
+::selection {
+    background: rgba(0, 126, 167, 0.15);
+    color: inherit;
+}
+
+/* --- BETTER FOCUS STATES --- */
+:focus-visible {
+    outline: 2px solid var(--brand-accent, #007EA7);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* --- LINE HEIGHT FOR READABILITY --- */
+.text-justify,
+.lh-lg {
+    line-height: 1.85 !important;
+}
+
+/* --- CONTENT CARD REFINEMENTS (CFP/Author Guidelines pages) --- */
+.content-card,
+.track-card {
+    border-radius: 16px !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.custom-list li,
+.track-list li {
+    font-size: var(--fs-body) !important;
+}
+
+/* --- DARK SECTION REFINEMENTS --- */
+.dark-gradient-section {
+    margin-top: 0 !important;
+}
+
+/* --- ACCENT LINE POLISH --- */
+.accent-line,
+.hero-line,
+div[style*="height: 6px"][style*="background-color"] {
+    height: 3px !important;
+    border-radius: 2px !important;
+}
