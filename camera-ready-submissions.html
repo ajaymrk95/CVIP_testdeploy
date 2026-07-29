@@ -1,113 +1,143 @@
-    <!DOCTYPE html>
-    <html lang="en" class="scroll-smooth">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Camera-Ready Submissions | CVIP 2026</title>
-        
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-        <link rel="stylesheet" href="assets/css/zoom-fix.css">
-        <style>
-            /* --- BRAND IDENTITY CONFIGURATION --- */
-            :root {
-                --brand-blue: #003459;
-                --brand-accent: #007EA7;
-                --brand-dark: #00171F;
-                --brand-light: #00A8E8;
-                --slate-50: #f8fafc;
-                --slate-100: #f1f5f9;
-                --slate-200: #e2e8f0;
-            }
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 
-            body { 
-                font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif; 
-                color: var(--brand-blue); 
-                background-color: var(--slate-50); 
-                overflow-x: hidden;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Camera-Ready Submissions | CVIP 2026</title>
 
-            .font-montserrat { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'DM Sans', 'Helvetica Neue', Arial, sans-serif; }
-            .font-inter { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif; }
-            .logo-text { white-space: nowrap; display: inline-block; }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/zoom-fix.css">
+    <link rel="stylesheet" href="assets/css/revamp.css">
+    <style>
+        /* --- BRAND IDENTITY CONFIGURATION --- */
+        :root {
+            --brand-blue: #003459;
+            --brand-accent: #007EA7;
+            --brand-dark: #00171F;
+            --brand-light: #00A8E8;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+        }
 
-            /* UNIFIED NAVIGATION - COPIED FROM INDEX */
-            .navbar { 
-                min-height: 96px; 
-                background: rgba(255, 255, 255, 0.98) !important; 
-                backdrop-filter: blur(12px); 
-                border-bottom: 1px solid var(--slate-100);
-                z-index: 1050;
-            }
-            
-            .nav-link, .dropdown-toggle, .dropdown-item {
-                font-weight: 700 !important;
-                font-size: 17px !important;
-                color: var(--brand-blue) !important;
-                padding: 0.5rem 0.75rem !important;
-                display: flex !important;
-                align-items: center;
-                transition: all 0.2s ease;
-                background: transparent !important;
-            }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--brand-blue);
+            background-color: var(--slate-50);
+            overflow-x: hidden;
+        }
 
-            .nav-link:hover, .dropdown:hover > .nav-link, .dropdown-item:hover, .nav-active {
-                color: var(--brand-accent) !important;
-                background: transparent !important;
-            }
+        .font-montserrat {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+        }
 
-            .dropdown-toggle::after { margin-left: 8px; vertical-align: middle; }
+        .font-inter {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
 
-            .dropdown-menu {
-                border: 1px solid var(--slate-100);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                border-radius: 8px;
-                padding: 12px 0;
-                margin-top: 0; 
-                border-top: 4px solid var(--brand-accent);
-            }
+        .logo-text {
+            white-space: nowrap;
+            display: inline-block;
+        }
 
-            /* ABOUT PAGE HERO (70vh) */
-            .page-hero {
-                position: relative;
-                height: 70vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: hidden;
-                background-color: var(--brand-dark);
-            }
+        /* UNIFIED NAVIGATION - COPIED FROM INDEX */
+        .navbar {
+            min-height: 96px;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--slate-100);
+            z-index: 1050;
+        }
 
-            .hero-bg {
-                position: absolute;
-                inset: 0;
-                background-image: url('assets/images/pagination1.jpg');
-                background-size: cover;
-                background-position: center;
-                opacity: 0.4;
-            }
+        .nav-link,
+        .dropdown-toggle,
+        .dropdown-item {
+            font-weight: 700 !important;
+            font-size: 17px !important;
+            color: var(--brand-blue) !important;
+            padding: 0.5rem 0.75rem !important;
+            display: flex !important;
+            align-items: center;
+            transition: all 0.2s ease;
+            background: transparent !important;
+        }
 
-            .hero-overlay {
-                position: absolute;
-                inset: 0;
-                background-color: rgba(0, 23, 31, 0.75);
-                z-index: 2;
-            }
+        .nav-link:hover,
+        .dropdown:hover>.nav-link,
+        .dropdown-item:hover,
+        .nav-active {
+            color: var(--brand-accent) !important;
+            background: transparent !important;
+        }
 
-            .hero-content-wrap { position: relative; z-index: 10; text-align: center; }
+        .dropdown-toggle::after {
+            margin-left: 8px;
+            vertical-align: middle;
+        }
 
-            .hero-title {
-                font-size: 4rem;
-                font-weight: 900;
-                color: white;
-                letter-spacing: -0.05em;
-                text-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            }
+        .dropdown-menu {
+            border: 1px solid var(--slate-100);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 12px 0;
+            margin-top: 0;
+            border-top: 4px solid var(--brand-accent);
+        }
 
-            .hero-line { height: 6px; width: 96px; background-color: var(--brand-light); margin: 1rem auto 0; }
+        /* ABOUT PAGE HERO (70vh) */
+        .page-hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--brand-dark);
+        }
 
-             
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/images/pagination1.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 23, 31, 0.75);
+            z-index: 2;
+        }
+
+        .hero-content-wrap {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.05em;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-line {
+            height: 6px;
+            width: 96px;
+            background-color: var(--brand-light);
+            margin: 1rem auto 0;
+        }
+
+
         .dark-gradient-section {
             background: linear-gradient(to bottom right, #00171F, #002A45, #00171F);
             color: white;
@@ -116,182 +146,263 @@
             margin-top: 10vh;
         }
 
-        .dotted-overlay { 
-            position: absolute; 
-            inset: 0; 
-            background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); 
-            background-size: 20px 20px; 
-            pointer-events: none; 
+        .dotted-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
         }
 
-            /* MARQUEE */
-            .marquee-wrapper { background-color: var(--brand-blue); color: white; height: 40px; overflow: hidden; display: flex; align-items: center; }
-            .marquee-content { display: flex; gap: 2rem; white-space: nowrap; animation: marquee 30s linear infinite; }
-            @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+        /* MARQUEE */
+        .marquee-wrapper {
+            background-color: var(--brand-blue);
+            color: white;
+            height: 40px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
 
-            /* SECTIONS */
-            .section-padding { padding: 80px 0; }
-            .reveal-text { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
-            .reveal-text.visible { opacity: 1; transform: translateY(0); }
-            
-            .highlight-box {
-                background: white;
-                padding: 2.5rem;
-                border-radius: 1rem;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-                border-top: 8px solid var(--brand-accent);
-                text-align: center;
-                transition: transform 0.3s ease;
+        .marquee-content {
+            display: flex;
+            gap: 2rem;
+            white-space: nowrap;
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
             }
-            .highlight-box:hover { transform: translateY(-5px); }
 
-            /* FOOTER STYLES COPIED FROM INDEX */
-            footer { background: linear-gradient(to bottom right, #00171F, #002A45, #00171F); color: white; padding: 4rem 0; position: relative; }
-            .dotted-overlay { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none; }
-
-
-
-           @media (min-width: 1200px) and (max-width: 1435px) {
-              
-                .navbar .logo-text {
-                    font-size: 1.8rem !important;
-                }
-                
-                .navbar img[alt="NITC"] {
-                    height: 50px !important;
-                }
-                
-                .navbar img[alt="NTNU"] {
-                    height: 45px !important;
-                }
-
-        
-                .navbar .d-flex.align-items-center.gap-3.gap-md-4 {
-                    gap: 0.75rem !important;
-                }
-
-           
-                .nav-link, .dropdown-toggle {
-                    font-size: 15px !important;
-                    padding: 0.4rem 0.5rem !important; 
-                }
-
-              
-                .navbar-nav {
-                    gap: 2px !important;
-                }
-
-         
-                .container-fluid.px-lg-5 {
-                    padding-left: 20px !important;
-                    padding-right: 20px !important;
-                }
-
-                .navbar-collapse .dropdown-item {
-                font-size: 14px !important;      
-                padding: 0.5rem 1rem !important;  
-                 
+            100% {
+                transform: translateX(-50%);
             }
-            }
-            
-          @media (max-width: 768px) {
-            .navbar {
-                min-height: 80px; 
-            }
+        }
+
+        /* SECTIONS */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .highlight-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+            border-top: 8px solid var(--brand-accent);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-5px);
+        }
+
+        /* FOOTER STYLES COPIED FROM INDEX */
+        footer {
+            background: linear-gradient(to bottom right, #00171F, #002A45, #00171F);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .dotted-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+
+
+        @media (min-width: 1200px) and (max-width: 1435px) {
+
             .navbar .logo-text {
-        
-                font-size: 1.7rem !important; 
+                font-size: 1.8rem !important;
             }
+
             .navbar img[alt="NITC"] {
-                height: 48px !important; 
+                height: 50px !important;
             }
+
             .navbar img[alt="NTNU"] {
-                height: 42px !important; 
+                height: 45px !important;
             }
+
+
+            .navbar .d-flex.align-items-center.gap-3.gap-md-4 {
+                gap: 0.75rem !important;
+            }
+
+
+            .nav-link,
+            .dropdown-toggle {
+                font-size: 15px !important;
+                padding: 0.4rem 0.5rem !important;
+            }
+
+
+            .navbar-nav {
+                gap: 2px !important;
+            }
+
+
+            .container-fluid.px-lg-5 {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .navbar-collapse .dropdown-item {
+                font-size: 14px !important;
+                padding: 0.5rem 1rem !important;
+
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                min-height: 80px;
+            }
+
+            .navbar .logo-text {
+
+                font-size: 1.7rem !important;
+            }
+
+            .navbar img[alt="NITC"] {
+                height: 48px !important;
+            }
+
+            .navbar img[alt="NTNU"] {
+                height: 42px !important;
+            }
+
             .navbar .vr {
-                height: 38px !important; 
+                height: 38px !important;
                 margin-left: 5px !important;
                 margin-right: 5px !important;
             }
+
             .navbar .container-fluid {
                 padding-left: 15px !important;
                 padding-right: 15px !important;
             }
 
-            
-            .nav-link, .dropdown-toggle {
-                    font-size: 16px !important; 
-                    padding: 0.4rem 0.5rem !important; 
-                }
 
-                
-            .navbar-collapse .dropdown-item {
-                font-size: 16px !important;      
-                padding: 0.5rem 1rem !important;  
-                 
+            .nav-link,
+            .dropdown-toggle {
+                font-size: 16px !important;
+                padding: 0.4rem 0.5rem !important;
             }
 
 
-            
+            .navbar-collapse .dropdown-item {
+                font-size: 16px !important;
+                padding: 0.5rem 1rem !important;
+
+            }
+
+
+
         }
 
         @media (max-width: 400px) {
             .navbar .logo-text {
                 font-size: 1.5rem !important;
             }
-        
-        }
-        
-         @media (max-width: 992px) {
-            .section-padding { padding: 4rem 1rem; }
-            .hero-title, .page-hero h1 { font-size: 2.8rem !important; }
-            .page-hero { height: 60vh !important; min-height: 500px; }
+
         }
 
-        @media (max-width: 768px) {
-            
-            .page-hero { 
-                height: auto !important; 
-                min-height: 55vh; 
-                padding-top: 130px !important; 
-                padding-bottom: 60px !important; 
+        @media (max-width: 992px) {
+            .section-padding {
+                padding: 4rem 1rem;
             }
-            .hero-title, .page-hero h1 { font-size: 2rem !important; line-height: 1.2; }
-            
+
+            .hero-title,
+            .page-hero h1 {
+                font-size: 2.8rem !important;
+            }
+
+            .page-hero {
+                height: 60vh !important;
+                min-height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .page-hero {
+                height: auto !important;
+                min-height: 55vh;
+                padding-top: 130px !important;
+                padding-bottom: 60px !important;
+            }
+
+            .hero-title,
+            .page-hero h1 {
+                font-size: 2rem !important;
+                line-height: 1.2;
+            }
+
             /* Table Sizing scaling for general mobile */
-            .small-text { font-size: 0.75rem !important; padding: 12px 10px !important; }
-            .small-text-body { font-size: 0.85rem !important; }
+            .small-text {
+                font-size: 0.75rem !important;
+                padding: 12px 10px !important;
+            }
+
+            .small-text-body {
+                font-size: 0.85rem !important;
+            }
         }
 
 
         @media (max-width: 768px) {
-        
-            .display-5, .section-title {
+
+            .display-5,
+            .section-title {
                 font-size: 1.75rem !important;
             }
 
 
-            .fs-5, .text-secondary {
+            .fs-5,
+            .text-secondary {
                 font-size: 1rem !important;
                 line-height: 1.6;
             }
 
-        
+
             .highlight-box {
                 padding: 1.5rem !important;
             }
+
             .highlight-box .display-3 {
                 font-size: 2.5rem !important;
             }
 
 
-            .important-dates-card .fs-3, 
+            .important-dates-card .fs-3,
             .important-dates-card .fs-4 {
                 font-size: 1.1rem !important;
             }
+
             .important-dates-card .fs-5 {
                 font-size: 0.95rem !important;
             }
+
             .important-dates-card .p-4 {
                 padding: 1rem !important;
             }
@@ -300,28 +411,34 @@
             .submission-card {
                 padding: 2rem 1.5rem !important;
             }
+
             .submission-card .fs-3 {
                 font-size: 1.4rem !important;
             }
         }
 
 
-        .slide-bg, .hero-bg, div[style*="background-image"] {
-            background-attachment: scroll !important; 
+        .slide-bg,
+        .hero-bg,
+        div[style*="background-image"] {
+            background-attachment: scroll !important;
             background-size: cover !important;
             background-position: center center !important;
         }
 
 
 
-            
+
         /* --- SYNCHRONIZED CONTENT SIZING (MATCHES AUTHOR GUIDELINES) --- */
         .section-header {
             font-size: clamp(1.8rem, 4vw, 2.2rem) !important;
         }
 
         /* Paragraph and Base text consistency */
-        .section-body-text, .custom-list, .sub-text, .track-list {
+        .section-body-text,
+        .custom-list,
+        .sub-text,
+        .track-list {
             font-size: 1.2rem !important;
         }
 
@@ -341,105 +458,151 @@
         }
 
         /* Content card padding consistency */
-        .content-card, .track-card {
+        .content-card,
+        .track-card {
             padding: 1.5rem 1.25rem;
         }
 
         /* --- RESPONSIVENESS --- */
         @media (max-width: 992px) {
-            .section-header { font-size: 2rem !important; }
+            .section-header {
+                font-size: 2rem !important;
+            }
         }
 
         @media (max-width: 768px) {
-            .section-padding { padding: 4rem 15px !important; }
-            .section-header { font-size: 1.7rem !important; margin-bottom: 2rem !important; }
-            .section-body-text, .custom-list, .track-list, .sub-text { font-size: 1rem !important; line-height: 1.6 !important; }
-            .custom-list li, .track-list li { margin-bottom: 1.2rem !important; }
-            .content-card, .track-card { padding: 1.5rem 1.25rem !important; }
+            .section-padding {
+                padding: 4rem 15px !important;
+            }
+
+            .section-header {
+                font-size: 1.7rem !important;
+                margin-bottom: 2rem !important;
+            }
+
+            .section-body-text,
+            .custom-list,
+            .track-list,
+            .sub-text {
+                font-size: 1rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .custom-list li,
+            .track-list li {
+                margin-bottom: 1.2rem !important;
+            }
+
+            .content-card,
+            .track-card {
+                padding: 1.5rem 1.25rem !important;
+            }
         }
 
         @media (max-width: 480px) {
-            .section-header { font-size: 1.5rem !important; }
-            .section-body-text, .custom-list { font-size: 0.95rem !important; }
+            .section-header {
+                font-size: 1.5rem !important;
+            }
+
+            .section-body-text,
+            .custom-list {
+                font-size: 0.95rem !important;
+            }
         }
-        </style>
-    </head>
-    <body>
+    </style>
+</head>
 
-        <nav class="navbar navbar-expand-xl fixed-top shadow-sm">
-            <div class="container-fluid px-lg-5">
-                <div class="d-flex align-items-center gap-3 gap-md-4">
-                    <div class="d-flex align-items-center gap-2">
-                        <img src="assets/images/nitc.png" alt="NITC" height="60" class="brightness-0">
-                        <img src="assets/images/ntnu.svg" alt="NTNU" height="55">
-                    </div>
-                    <div class="vr d-none d-md-block mx-2" style="height: 48px; color: var(--slate-200); opacity: 1;"></div>
-                    <a class="logo-text font-inter text-decoration-none" href="index.html" style="color: var(--brand-blue); font-size: 2rem; font-weight: 800;">CVIP 2026</a>
+<body>
+
+    <nav class="navbar navbar-expand-xl fixed-top shadow-sm">
+        <div class="container-fluid px-lg-5">
+            <div class="d-flex align-items-center gap-3 gap-md-4">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="assets/images/nitc.png" alt="NITC" height="60" class="brightness-0">
+                    <img src="assets/images/ntnu.svg" alt="NTNU" height="55">
                 </div>
-
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="mainNav">
-                    <ul class="navbar-nav ms-auto align-items-center text-center">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <!-- <li class="nav-item"><a class="nav-link " href="about.html">About</a></li> -->
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="keynoteDrop" role="button" data-bs-toggle="dropdown">Keynotes & Tutorials</a>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="keynotes.html">Keynotes</a></li>
-        <li><a class="dropdown-item" href="tutorials.html">Tutorials</a></li>
-    </ul>
-</li>
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="commDrop" role="button" data-bs-toggle="dropdown">Committee</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="committee.html">Organizing Committee</a></li>
-                                <li><a class="dropdown-item" href="steering-committee.html">Steering Committee</a></li>
-                                <li><a class="dropdown-item" href="advisory.html">International Advisory Committee</a></li>
-                                <li><a class="dropdown-item" href="national-advisory.html">National Advisory Committee</a></li>
-                            <li><a class="dropdown-item" href="area-chairs.html">Area Chairs</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link nav-active dropdown-toggle" href="#" id="cfpDrop" role="button" data-bs-toggle="dropdown">Submissions</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="cfp.html">Topics & Tracks</a></li>
-                                <li><a class="dropdown-item" href="author-guidelines.html">Author Guidelines</a></li>
-                                <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-                            <li><a class="dropdown-item" href="https://docs.google.com/forms/d/e/1FAIpQLSdqojPoT-AQWQFLswwtOcFY9wKVv9l2XtiwMitJC2wQxZD72Q/viewform" target="_blank">Call for Reviews</a></li>
-                            <li><a class="dropdown-item" href="camera-ready-submissions.html">Camera-Ready Submissions</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="program.html">Program</a></li>
-                        <li class="nav-item"><a class="nav-link" href="sponsors.html">Sponsors</a></li>
-                        <li class="nav-item"><a class="nav-link" href="venue.html">Venue</a></li>
-                       
-                        <li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="archDrop" role="button" data-bs-toggle="dropdown">Archive</a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="https://link.springer.com/conference/cvip" >Past Proceedings (Springer)</a></li>
-                                <li><a class="dropdown-item" href="https://iitrpr.ac.in/cvip2025">CVIP 2025 (IIT Ropar)</a></li>
-                                <li><a class="dropdown-item" href="https://cvip2024.iiitdm.ac.in/" >CVIP 2024 (IIITDM)</a></li>
-                                <li><a class="dropdown-item" href="https://iitjammu.ac.in/cvip2023/" >CVIP 2023 (IIT Jammu)</a></li>
-                                <li><a class="dropdown-item" href="https://vnit.ac.in/cvip2022/index.php" >CVIP 2022 (VNIT)</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <div class="vr d-none d-md-block mx-2" style="height: 48px; color: var(--slate-200); opacity: 1;"></div>
+                <a class="logo-text font-inter text-decoration-none" href="index.html"
+                    style="color: var(--brand-blue); font-size: 2rem; font-weight: 800;">CVIP 2026</a>
             </div>
-        </nav>
 
-        <div style="padding-top: 96px;"></div>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="page-hero" style="position: relative; height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #00171F;">
-        
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link " href="about.html">About</a></li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="keynoteDrop" role="button"
+                            data-bs-toggle="dropdown">Keynotes & Tutorials</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="keynotes.html">Keynotes</a></li>
+                            <li><a class="dropdown-item" href="tutorials.html">Tutorials</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="commDrop" role="button"
+                            data-bs-toggle="dropdown">Committee</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="committee.html">Organizing Committee</a></li>
+                            <li><a class="dropdown-item" href="steering-committee.html">Steering Committee</a></li>
+                            <li><a class="dropdown-item" href="advisory.html">International Advisory Committee</a></li>
+                            <li><a class="dropdown-item" href="national-advisory.html">National Advisory Committee</a>
+                            </li>
+                            <li><a class="dropdown-item" href="area-chairs.html">Area Chairs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-active dropdown-toggle" href="#" id="cfpDrop" role="button"
+                            data-bs-toggle="dropdown">Submissions</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cfp.html">Topics & Tracks</a></li>
+                            <li><a class="dropdown-item" href="author-guidelines.html">Author Guidelines</a></li>
+                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                            <li><a class="dropdown-item"
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqojPoT-AQWQFLswwtOcFY9wKVv9l2XtiwMitJC2wQxZD72Q/viewform"
+                                    target="_blank">Call for Reviews</a></li>
+                            <li><a class="dropdown-item" href="camera-ready-submissions.html">Camera-Ready
+                                    Submissions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="program.html">Program</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sponsors.html">Sponsors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="venue.html">Venue</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="archDrop" role="button"
+                            data-bs-toggle="dropdown">Archive</a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="https://link.springer.com/conference/cvip">Past
+                                    Proceedings (Springer)</a></li>
+                            <li><a class="dropdown-item" href="https://iitrpr.ac.in/cvip2025">CVIP 2025 (IIT Ropar)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://cvip2024.iiitdm.ac.in/">CVIP 2024 (IIITDM)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://iitjammu.ac.in/cvip2023/">CVIP 2023 (IIT
+                                    Jammu)</a></li>
+                            <li><a class="dropdown-item" href="https://vnit.ac.in/cvip2022/index.php">CVIP 2022
+                                    (VNIT)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding-top: 96px;"></div>
+
+    <div class="page-hero"
+        style="position: relative; height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #00171F;">
+
         <div style="position: absolute; inset: 0; 
                     background-image: url('assets/images/slide4.jpg'); 
                     background-size: cover; 
@@ -447,17 +610,20 @@
                     opacity: 0.5; /* Increased opacity to 50% so you can see it better */
                     z-index: 1;">
         </div>
-        
+
         <div style="position: absolute; inset: 0; 
                     background: linear-gradient(rgba(0,23,31,0.4), rgba(0,23,31,0.8)); 
                     z-index: 2;">
         </div>
-        
+
         <div class="container position-relative text-center" style="z-index: 3;">
-            <h1 class="reveal-text font-montserrat" style="font-size: 3.5rem; font-weight: 900; color: white; letter-spacing: -0.023em; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+            <h1 class="reveal-text font-montserrat"
+                style="font-size: 3.5rem; font-weight: 900; color: white; letter-spacing: -0.023em; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
                 Camera-Ready Submissions
             </h1>
-            <div class="reveal-text" style="height: 6px; width: 100px; background-color:var(--brand-accent); margin: 1.5rem auto 0; border-radius: 50px;"></div>
+            <div class="reveal-text"
+                style="height: 6px; width: 100px; background-color:var(--brand-accent); margin: 1.5rem auto 0; border-radius: 50px;">
+            </div>
         </div>
     </div>
 
@@ -468,15 +634,20 @@
                 <div class="col-lg-11 mx-auto">
                     <div class="text-secondary lh-lg text-justify mb-5" style="font-size: 1.2rem;">
                         <p class="mb-4">
-                            Authors of papers accepted for presentation at the 11th International Conference on Computer Vision and Image Processing (CVIP 2026) are requested to prepare and submit the final camera-ready version of their manuscripts by following the instructions given below.
+                            Authors of papers accepted for presentation at the 11th International Conference on Computer
+                            Vision and Image Processing (CVIP 2026) are requested to prepare and submit the final
+                            camera-ready version of their manuscripts by following the instructions given below.
                         </p>
                         <p class="mb-4">
-                            The proceedings of CVIP 2026 will be published in the Springer Lecture Notes in Computer Science (LNCS) or Communications in Computer and Information Science (CCIS) series.
+                            The proceedings of CVIP 2026 will be published in the Springer Lecture Notes in Computer
+                            Science (LNCS) or Communications in Computer and Information Science (CCIS) series.
                         </p>
                         <h4 class="mb-3 fw-bold" style="color: var(--brand-blue);">Important Deadlines</h4>
                         <div class="table-responsive mb-4">
-                            <table class="table table-bordered table-striped" style="font-size: 1.1rem; border-color: var(--slate-200);">
-                                <thead class="table-primary" style="background-color: var(--slate-100); color: var(--brand-blue);">
+                            <table class="table table-bordered table-striped"
+                                style="font-size: 1.1rem; border-color: var(--slate-200);">
+                                <thead class="table-primary"
+                                    style="background-color: var(--slate-100); color: var(--brand-blue);">
                                     <tr>
                                         <th>Submission Round</th>
                                         <th>Camera-Ready Submission Deadline</th>
@@ -495,10 +666,14 @@
                             </table>
                         </div>
                         <p class="mb-4">
-                            The conference will be held from 9–12 December 2026 at the National Institute of Technology Calicut, Kerala, India.
+                            The conference will be held from 9–12 December 2026 at the National Institute of Technology
+                            Calicut, Kerala, India.
                         </p>
                         <p>
-                            The camera-ready submission must be completed through the <a href="https://cmt3.research.microsoft.com/CVIP2026" target="_blank" style="color: var(--brand-accent); font-weight: 600;">CVIP 2026 Microsoft CMT Author Console</a> on or before the applicable deadline.
+                            The camera-ready submission must be completed through the <a
+                                href="https://cmt3.research.microsoft.com/CVIP2026" target="_blank"
+                                style="color: var(--brand-accent); font-weight: 600;">CVIP 2026 Microsoft CMT Author
+                                Console</a> on or before the applicable deadline.
                         </p>
                     </div>
                 </div>
@@ -508,13 +683,15 @@
 
     <section class="section-padding" style="background-color: var(--slate-50);">
         <div class="container">
-            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header" style="color: var(--brand-blue);">
+            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header"
+                style="color: var(--brand-blue);">
                 1. Revision of the Accepted Manuscript
             </h2>
             <div class="row reveal-text">
                 <div class="col-lg-11 mx-auto">
                     <p class="text-secondary lh-lg mb-4 text-justify" style="font-size: 1.2rem;">
-                        Authors must carefully revise their papers by addressing all comments and recommendations provided by the reviewers and meta reviewers.
+                        Authors must carefully revise their papers by addressing all comments and recommendations
+                        provided by the reviewers and meta reviewers.
                         While preparing the final manuscript, authors must ensure that:
                     </p>
                     <div class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white">
@@ -523,45 +700,64 @@
                                 <span><strong>1.</strong> All reviewer comments have been adequately addressed.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>2.</strong> The final manuscript does not contain highlighting, tracked changes, annotations, or comments.</span>
+                                <span><strong>2.</strong> The final manuscript does not contain highlighting, tracked
+                                    changes, annotations, or comments.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>3.</strong> The paper is no longer anonymous and contains the complete author and affiliation details.</span>
+                                <span><strong>3.</strong> The paper is no longer anonymous and contains the complete
+                                    author and affiliation details.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>4.</strong> Author names, affiliations, email addresses, and author order are accurate and final.</span>
+                                <span><strong>4.</strong> Author names, affiliations, email addresses, and author order
+                                    are accurate and final.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>5.</strong> One author is clearly identified as the corresponding author.</span>
+                                <span><strong>5.</strong> One author is clearly identified as the corresponding
+                                    author.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>6.</strong> ORCID identifiers should be included wherever available.</span>
+                                <span><strong>6.</strong> ORCID identifiers should be included wherever
+                                    available.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>7.</strong> The title and scope of the paper remain consistent with the accepted submission.</span>
+                                <span><strong>7.</strong> The title and scope of the paper remain consistent with the
+                                    accepted submission.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>8.</strong> No author may be added, removed, or reordered without obtaining prior written approval from the CVIP 2026 Program Chairs.</span>
+                                <span><strong>8.</strong> No author may be added, removed, or reordered without
+                                    obtaining prior written approval from the CVIP 2026 Program Chairs.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>9.</strong> All figures, tables, equations, citations, and references are correctly numbered and cross-referenced.</span>
+                                <span><strong>9.</strong> All figures, tables, equations, citations, and references are
+                                    correctly numbered and cross-referenced.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>10.</strong> The manuscript has been thoroughly checked for language, grammar, spelling, and formatting errors.</span>
+                                <span><strong>10.</strong> The manuscript has been thoroughly checked for language,
+                                    grammar, spelling, and formatting errors.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>11.</strong> Please make sure that the similarity index of your camera-ready submission is below 20% (excluding the bibliography/references) and below 15% for single source similarities, using standard plagiarism checking software (e.g., Turnitin, etc.), before submitting the camera-ready paper.</span>
+                                <span><strong>11.</strong> Please make sure that the similarity index of your
+                                    camera-ready submission is below 20% (excluding the bibliography/references) and
+                                    below 15% for single source similarities, using standard plagiarism checking
+                                    software (e.g., Turnitin, etc.), before submitting the camera-ready paper.</span>
                             </li>
                             <li class="mb-3">
-                                <span><strong>12.</strong> Papers with a similarity score greater than 20% in total and/or greater than 15% for a single source will not be included in the conference proceedings.</span>
+                                <span><strong>12.</strong> Papers with a similarity score greater than 20% in total
+                                    and/or greater than 15% for a single source will not be included in the conference
+                                    proceedings.</span>
                             </li>
                             <li class="mb-0">
-                                <span><strong>13.</strong> Authors must carefully verify all AI-assisted content. Substantive AI-generated content, fabricated or unverifiable references, false information, plagiarism, manipulated results, or any other improper use of AI will be treated as a violation of publication ethics and may result in the paper being excluded from the proceedings.</span>
+                                <span><strong>13.</strong> Authors must carefully verify all AI-assisted content.
+                                    Substantive AI-generated content, fabricated or unverifiable references, false
+                                    information, plagiarism, manipulated results, or any other improper use of AI will
+                                    be treated as a violation of publication ethics and may result in the paper being
+                                    excluded from the proceedings.</span>
                             </li>
                         </ul>
                     </div>
                     <p class="text-secondary lh-lg mt-4 text-justify" style="font-size: 1.2rem;">
-                        <strong>Note:</strong> The final author information submitted through CMT must exactly match the information appearing in the camera-ready manuscript.
+                        <strong>Note:</strong> The final author information submitted through CMT must exactly match the
+                        information appearing in the camera-ready manuscript.
                     </p>
                 </div>
             </div>
@@ -570,29 +766,60 @@
 
     <section class="section-padding bg-white">
         <div class="container">
-            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header" style="color: var(--brand-blue);">
+            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header"
+                style="color: var(--brand-blue);">
                 2. Manuscript Formatting Requirements
             </h2>
             <div class="row reveal-text">
                 <div class="col-lg-11 mx-auto">
                     <p class="text-secondary lh-lg mb-4 text-justify" style="font-size: 1.2rem;">
-                        Authors must prepare the final manuscript strictly using the official Springer Computer Science Proceedings template (<a href="https://link.springer.com/series/558/information-for-authors-and-editors" target="_blank" style="color: var(--brand-accent); font-weight: 600;">link</a>) applicable to LNCS and CCIS publications. The following requirements must be followed:
+                        Authors must prepare the final manuscript strictly using the official Springer Computer Science
+                        Proceedings template (<a
+                            href="https://link.springer.com/series/558/information-for-authors-and-editors"
+                            target="_blank" style="color: var(--brand-accent); font-weight: 600;">link</a>) applicable
+                        to LNCS and CCIS publications. The following requirements must be followed:
                     </p>
-                    <div class="p-4 p-md-5 rounded-4 shadow-sm border border-slate-100 content-card" style="background-color: var(--slate-50);">
+                    <div class="p-4 p-md-5 rounded-4 shadow-sm border border-slate-100 content-card"
+                        style="background-color: var(--slate-50);">
                         <ul class="list-unstyled lh-base text-secondary custom-list m-0">
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The page limit for all papers is <strong>21</strong> pages including figures, tables, equations, references, acknowledgments, etc. Note that there are extra-page charges if the page limit exceeds <strong>15</strong> pages. If the final manuscript in Springer provided format exceeds <strong>15</strong> pages, <strong>INR 2600</strong> or <strong>USD 40</strong> per extra page will be charged. No paper more than <strong>21</strong> pages will be considered.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The final manuscript must be submitted in PDF format.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The PDF file size must not exceed <strong>10 MB</strong>.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>All fonts must be embedded in the PDF.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>Only scalable fonts should be used.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The PDF must not contain document protection, password protection, or other security restrictions.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>Images must not contain transparent pixels or unsupported alpha channels.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>Line drawings, diagrams, and plots should preferably be provided as vector graphics.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>All figures and tables must be clearly legible when printed.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>Colour figures should also remain understandable when viewed or printed in grayscale.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The manuscript must not contain page numbers, conference-specific headers, or manually inserted footers.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The Springer template margins, fonts, heading styles, spacing, and reference style must not be modified.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>The acknowledgement and funding information, where applicable, must be included in the final paper.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The
+                                    page limit for all papers is <strong>21</strong> pages including figures, tables,
+                                    equations, references, acknowledgments, etc. Note that there are extra-page charges
+                                    if the page limit exceeds <strong>15</strong> pages. If the final manuscript in
+                                    Springer provided format exceeds <strong>15</strong> pages, <strong>INR
+                                        2600</strong> or <strong>USD 40</strong> per extra page will be charged. No
+                                    paper more than <strong>21</strong> pages will be considered.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The
+                                    final manuscript must be submitted in PDF format.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The
+                                    PDF file size must not exceed <strong>10 MB</strong>.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>All
+                                    fonts must be embedded in the PDF.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>Only
+                                    scalable fonts should be used.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The
+                                    PDF must not contain document protection, password protection, or other security
+                                    restrictions.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span
+                                    class="list-bullet"></span><span>Images must not contain transparent pixels or
+                                    unsupported alpha channels.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>Line
+                                    drawings, diagrams, and plots should preferably be provided as vector
+                                    graphics.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>All
+                                    figures and tables must be clearly legible when printed.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span
+                                    class="list-bullet"></span><span>Colour figures should also remain understandable
+                                    when viewed or printed in grayscale.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The
+                                    manuscript must not contain page numbers, conference-specific headers, or manually
+                                    inserted footers.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The
+                                    Springer template margins, fonts, heading styles, spacing, and reference style must
+                                    not be modified.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>The
+                                    acknowledgement and funding information, where applicable, must be included in the
+                                    final paper.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -602,86 +829,134 @@
 
     <section class="section-padding" style="background-color: var(--slate-50);">
         <div class="container">
-            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header" style="color: var(--brand-blue);">
+            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header"
+                style="color: var(--brand-blue);">
                 3. Files to Be Prepared
             </h2>
             <div class="row reveal-text">
                 <div class="col-lg-11 mx-auto">
                     <p class="text-secondary lh-lg mb-4 text-justify" style="font-size: 1.2rem;">
-                        Let <strong>XXX</strong> represent the three-digit CMT paper ID. Paper IDs containing fewer than three digits must be padded with leading zeros.<br>
-                        <em>For example: Paper ID 7 becomes 007, Paper ID 48 becomes 048, Paper ID 326 remains 326.</em><br>
+                        Let <strong>XXX</strong> represent the three-digit CMT paper ID. Paper IDs containing fewer than
+                        three digits must be padded with leading zeros.<br>
+                        <em>For example: Paper ID 7 becomes 007, Paper ID 48 becomes 048, Paper ID 326 remains
+                            326.</em><br>
                         Authors must prepare the following files:
                     </p>
 
                     <h4 class="mb-4 mt-5 fw-bold" style="color: var(--brand-blue);">A. Final Camera-Ready Paper</h4>
-                    <div class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white mb-4">
+                    <div
+                        class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white mb-4">
                         <p class="text-secondary m-0" style="font-size: 1.2rem;">
-                            The final camera-ready PDF must be named: <strong>XXX.pdf</strong> (Example: <strong>048.pdf</strong>)<br>
-                            The PDF must be generated directly from the final source manuscript and carefully checked before submission.
+                            The final camera-ready PDF must be named: <strong>XXX.pdf</strong> (Example:
+                            <strong>048.pdf</strong>)<br>
+                            The PDF must be generated directly from the final source manuscript and carefully checked
+                            before submission.
                         </p>
                     </div>
 
                     <h4 class="mb-4 mt-5 fw-bold" style="color: var(--brand-blue);">B. Editable Source Files</h4>
-                    <div class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white mb-4">
+                    <div
+                        class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white mb-4">
                         <p class="text-secondary mb-4" style="font-size: 1.2rem;">
-                            The complete editable source package must be compressed into one ZIP file named: <strong>XXX.zip</strong> (Example: <strong>048.zip</strong>)
+                            The complete editable source package must be compressed into one ZIP file named:
+                            <strong>XXX.zip</strong> (Example: <strong>048.zip</strong>)
                         </p>
-                        <p class="text-secondary fw-bold mb-2">For papers prepared using LaTeX, the ZIP package must contain:</p>
+                        <p class="text-secondary fw-bold mb-2">For papers prepared using LaTeX, the ZIP package must
+                            contain:</p>
                         <ul class="list-unstyled lh-base text-secondary custom-list mb-4">
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Main .tex file;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>All supporting .tex files;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Bibliography .bib and/or compiled .bbl files;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>All figure and image files;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Any required style or class files;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Any supplementary files required for successful compilation; and</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>A PDF copy generated from the submitted source.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Main
+                                    .tex file;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>All
+                                    supporting .tex files;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span
+                                    class="list-bullet"></span><span>Bibliography .bib and/or compiled .bbl
+                                    files;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>All
+                                    figure and image files;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Any
+                                    required style or class files;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Any
+                                    supplementary files required for successful compilation; and</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>A PDF
+                                    copy generated from the submitted source.</span></li>
                         </ul>
-                        <p class="text-secondary fst-italic mb-4">The LaTeX source must compile successfully without missing-file or missing-package errors.</p>
-                        
-                        <p class="text-secondary fw-bold mb-2">For papers prepared using Microsoft Word, the ZIP package must contain:</p>
+                        <p class="text-secondary fst-italic mb-4">The LaTeX source must compile successfully without
+                            missing-file or missing-package errors.</p>
+
+                        <p class="text-secondary fw-bold mb-2">For papers prepared using Microsoft Word, the ZIP package
+                            must contain:</p>
                         <ul class="list-unstyled lh-base text-secondary custom-list mb-3">
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Final editable .docx file;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Original figure files, where available;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>Any supplementary material required for production.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Final
+                                    editable .docx file;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span
+                                    class="list-bullet"></span><span>Original figure files, where available;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>Any
+                                    supplementary material required for production.</span></li>
                         </ul>
                         <p class="text-secondary fst-italic mb-4">Macro-enabled .docm files should not be submitted.</p>
-                        <p class="text-secondary mb-0"><strong>Note:</strong> Springer requires the final PDF together with all editable manuscript source files and associated figures, bibliography files, and supporting files.</p>
+                        <p class="text-secondary mb-0"><strong>Note:</strong> Springer requires the final PDF together
+                            with all editable manuscript source files and associated figures, bibliography files, and
+                            supporting files.</p>
                     </div>
 
-                    <h4 class="mb-4 mt-5 fw-bold" style="color: var(--brand-blue);">C. Springer Nature Copyright Form</h4>
-                    <div class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white mb-4">
+                    <h4 class="mb-4 mt-5 fw-bold" style="color: var(--brand-blue);">C. Springer Nature Copyright Form
+                    </h4>
+                    <div
+                        class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white mb-4">
                         <p class="text-secondary mb-4" style="font-size: 1.2rem;">
-                            The corresponding author must complete and sign the Springer Nature Copyright form on behalf of all authors. Copyright form can be downloaded here (<a href="https://docs.google.com/document/d/1raQmVgo3mRFyHqGkPyjY1V2tCzhIlzky/edit" target="_blank" style="color: var(--brand-accent);">Word</a> / <a href="https://drive.google.com/file/d/1ZQcmYAMkJC8X6JYNBglpHn2ePuyyRBi2/view" target="_blank" style="color: var(--brand-accent);">PDF</a>).
+                            The corresponding author must complete and sign the Springer Nature Copyright form on behalf
+                            of all authors. Copyright form can be downloaded here (<a
+                                href="https://docs.google.com/document/d/1raQmVgo3mRFyHqGkPyjY1V2tCzhIlzky/edit"
+                                target="_blank" style="color: var(--brand-accent);">Word</a> / <a
+                                href="https://drive.google.com/file/d/1ZQcmYAMkJC8X6JYNBglpHn2ePuyyRBi2/view"
+                                target="_blank" style="color: var(--brand-accent);">PDF</a>).
                         </p>
                         <ul class="list-unstyled lh-base text-secondary custom-list m-0">
                             <li class="d-flex align-items-start gap-3 mb-3">
                                 <span class="list-bullet"></span>
-                                <span>Fill the following details as per the information submitted earlier to CVIP 2026.<br>
-                                <strong>First Page:</strong> Proposed title of the contribution; Author(s) Full Name(s); and Corresponding Author Name.<br>
-                                <strong>Last Page:</strong> Sign the copyright form and fill the other details such as date, address, E-mail id, name, etc.</span>
+                                <span>Fill the following details as per the information submitted earlier to CVIP
+                                    2026.<br>
+                                    <strong>First Page:</strong> Proposed title of the contribution; Author(s) Full
+                                    Name(s); and Corresponding Author Name.<br>
+                                    <strong>Last Page:</strong> Sign the copyright form and fill the other details such
+                                    as date, address, E-mail id, name, etc.</span>
                             </li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>The paper title on the form exactly matches the final manuscript;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>The author names are accurate and complete;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>The form is signed by the corresponding author;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Permission has been obtained from all co-authors;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Please don't change any pre-filled information in the copyright form.</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The completed form is clear and readable.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>The
+                                    paper title on the form exactly matches the final manuscript;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>The
+                                    author names are accurate and complete;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>The
+                                    form is signed by the corresponding author;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span
+                                    class="list-bullet"></span><span>Permission has been obtained from all
+                                    co-authors;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span
+                                    class="list-bullet"></span><span>Please don't change any pre-filled information in
+                                    the copyright form.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-3"><span class="list-bullet"></span><span>The
+                                    completed form is clear and readable.</span></li>
                         </ul>
                         <p class="text-secondary mb-0 mt-3" style="font-size: 1.2rem;">
-                            The signed form must be saved as: <strong>Copyright_XXX.pdf</strong> (Example: <strong>Copyright_048.pdf</strong>)
+                            The signed form must be saved as: <strong>Copyright_XXX.pdf</strong> (Example:
+                            <strong>Copyright_048.pdf</strong>)
                         </p>
                     </div>
 
                     <h4 class="mb-4 mt-5 fw-bold" style="color: var(--brand-blue);">D. Response to Reviewers</h4>
                     <div class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white">
                         <p class="text-secondary mb-4" style="font-size: 1.2rem;">
-                            Authors are strongly encouraged to submit a concise point-by-point response explaining how the reviewers’ comments have been addressed. The response file must be named: <strong>Response_XXX.pdf</strong> (Example: <strong>Response_048.pdf</strong>)
+                            Authors are strongly encouraged to submit a concise point-by-point response explaining how
+                            the reviewers’ comments have been addressed. The response file must be named:
+                            <strong>Response_XXX.pdf</strong> (Example: <strong>Response_048.pdf</strong>)
                         </p>
                         <p class="text-secondary fw-bold mb-2">The document should contain:</p>
                         <ul class="list-unstyled lh-base text-secondary custom-list m-0">
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Paper ID and paper title;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Reviewer comment or suggestion;</span></li>
-                            <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>Author response.</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Paper
+                                    ID and paper title;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-2"><span
+                                    class="list-bullet"></span><span>Reviewer comment or suggestion;</span></li>
+                            <li class="d-flex align-items-start gap-3 mb-0"><span
+                                    class="list-bullet"></span><span>Author response.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -691,34 +966,50 @@
 
     <section class="section-padding bg-white">
         <div class="container">
-            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header" style="color: var(--brand-blue);">
+            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header"
+                style="color: var(--brand-blue);">
                 4. Camera-Ready Submission Through CMT
             </h2>
             <div class="row reveal-text">
                 <div class="col-lg-11 mx-auto">
                     <p class="text-secondary lh-lg mb-4 text-justify" style="font-size: 1.2rem;">
-                        The camera-ready files must be uploaded through the <a href="https://cmt3.research.microsoft.com/CVIP2026" target="_blank" style="color: var(--brand-accent); font-weight: 600;">CVIP 2026 Microsoft CMT portal</a>. Authors should follow these steps:
+                        The camera-ready files must be uploaded through the <a
+                            href="https://cmt3.research.microsoft.com/CVIP2026" target="_blank"
+                            style="color: var(--brand-accent); font-weight: 600;">CVIP 2026 Microsoft CMT portal</a>.
+                        Authors should follow these steps:
                     </p>
-                    <div class="p-4 p-md-5 rounded-4 shadow-sm border border-slate-100 content-card" style="background-color: var(--slate-50);">
+                    <div class="p-4 p-md-5 rounded-4 shadow-sm border border-slate-100 content-card"
+                        style="background-color: var(--slate-50);">
                         <ul class="list-unstyled lh-base text-secondary custom-list m-0">
-                            <li class="mb-3"><span><strong>1.</strong> Log in to the CVIP 2026 CMT portal using the account associated with the original submission.</span></li>
+                            <li class="mb-3"><span><strong>1.</strong> Log in to the CVIP 2026 CMT portal using the
+                                    account associated with the original submission.</span></li>
                             <li class="mb-3"><span><strong>2.</strong> Open the Author Console.</span></li>
                             <li class="mb-3"><span><strong>3.</strong> Locate the accepted paper.</span></li>
-                            <li class="mb-3"><span><strong>4.</strong> Select the Create Camera-Ready Submission or Edit Camera-Ready Submission option.</span></li>
-                            <li class="mb-3"><span><strong>5.</strong> Verify the paper title, abstract, author names, affiliations, email addresses, and author order.</span></li>
+                            <li class="mb-3"><span><strong>4.</strong> Select the Create Camera-Ready Submission or Edit
+                                    Camera-Ready Submission option.</span></li>
+                            <li class="mb-3"><span><strong>5.</strong> Verify the paper title, abstract, author names,
+                                    affiliations, email addresses, and author order.</span></li>
                             <li class="mb-3"><span><strong>6.</strong> Upload the final camera-ready PDF.</span></li>
-                            <li class="mb-3"><span><strong>7.</strong> Upload the complete editable source ZIP file.</span></li>
+                            <li class="mb-3"><span><strong>7.</strong> Upload the complete editable source ZIP
+                                    file.</span></li>
                             <li class="mb-3"><span><strong>8.</strong> Upload the signed Copyright Form.</span></li>
-                            <li class="mb-3"><span><strong>9.</strong> Upload the Response to Reviewers PDF, where applicable.</span></li>
-                            <li class="mb-3"><span><strong>10.</strong> Enter or verify the corresponding-author information.</span></li>
-                            <li class="mb-3"><span><strong>11.</strong> Complete all required camera-ready submission fields.</span></li>
+                            <li class="mb-3"><span><strong>9.</strong> Upload the Response to Reviewers PDF, where
+                                    applicable.</span></li>
+                            <li class="mb-3"><span><strong>10.</strong> Enter or verify the corresponding-author
+                                    information.</span></li>
+                            <li class="mb-3"><span><strong>11.</strong> Complete all required camera-ready submission
+                                    fields.</span></li>
                             <li class="mb-3"><span><strong>12.</strong> Click Save or Submit.</span></li>
-                            <li class="mb-0"><span><strong>13.</strong> Reopen the camera-ready submission and verify that every file has been uploaded successfully.</span></li>
+                            <li class="mb-0"><span><strong>13.</strong> Reopen the camera-ready submission and verify
+                                    that every file has been uploaded successfully.</span></li>
                         </ul>
                     </div>
                     <p class="text-secondary lh-lg mt-4 text-justify" style="font-size: 1.2rem;">
-                        <strong>Important:</strong> Authors should not assume that the submission is complete merely because a file has been selected. They must verify that the uploaded filenames are visible in the CMT Author Console.<br><br>
-                        Revised files may be uploaded before the deadline by using the Edit Camera-Ready Submission option. The most recently saved version at the deadline will be treated as the final submission.
+                        <strong>Important:</strong> Authors should not assume that the submission is complete merely
+                        because a file has been selected. They must verify that the uploaded filenames are visible in
+                        the CMT Author Console.<br><br>
+                        Revised files may be uploaded before the deadline by using the Edit Camera-Ready Submission
+                        option. The most recently saved version at the deadline will be treated as the final submission.
                     </p>
                 </div>
             </div>
@@ -727,7 +1018,8 @@
 
     <section class="section-padding" style="background-color: var(--slate-50);">
         <div class="container">
-            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header" style="color: var(--brand-blue);">
+            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header"
+                style="color: var(--brand-blue);">
                 5. Final Submission Checklist
             </h2>
             <div class="row reveal-text">
@@ -738,57 +1030,113 @@
 
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <div class="p-4 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white h-100">
+                            <div
+                                class="p-4 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white h-100">
                                 <h4 class="mb-4 fw-bold" style="color: var(--brand-blue);">Manuscript</h4>
-                                <ul class="list-unstyled lh-base text-secondary custom-list m-0" style="font-size: 1rem;">
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Reviewer comments have been addressed.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Springer LNCS/CCIS template has been used without modification.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Author names, order, affiliations, and email addresses are correct.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Corresponding author is clearly identified.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Abstract and keywords are included.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Figures and tables are legible and correctly referenced.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>References are complete and consistently formatted.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Acknowledgements and funding details are correct.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>No tracked changes, comments, highlighting, or anonymous placeholders remain.</span></li>
+                                <ul class="list-unstyled lh-base text-secondary custom-list m-0"
+                                    style="font-size: 1rem;">
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Reviewer comments have been
+                                            addressed.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Springer LNCS/CCIS template has been used
+                                            without modification.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Author names, order, affiliations, and
+                                            email addresses are correct.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Corresponding author is clearly
+                                            identified.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Abstract and keywords are included.</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Figures and tables are legible and
+                                            correctly referenced.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>References are complete and consistently
+                                            formatted.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Acknowledgements and funding details are
+                                            correct.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-0"><span
+                                            class="list-bullet"></span><span>No tracked changes, comments, highlighting,
+                                            or anonymous placeholders remain.</span></li>
                                 </ul>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
-                            <div class="p-4 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white h-100">
+                            <div
+                                class="p-4 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white h-100">
                                 <h4 class="mb-4 fw-bold" style="color: var(--brand-blue);">PDF</h4>
-                                <ul class="list-unstyled lh-base text-secondary custom-list m-0" style="font-size: 1rem;">
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>PDF filename follows the prescribed naming convention.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>File size does not exceed 10 MB.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>All fonts are embedded.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>PDF opens correctly on another computer.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>No password or security restriction has been applied.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Images do not contain unsupported transparency.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>No page numbers or manually added headers and footers are present.</span></li>
+                                <ul class="list-unstyled lh-base text-secondary custom-list m-0"
+                                    style="font-size: 1rem;">
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>PDF filename follows the prescribed naming
+                                            convention.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>File size does not exceed 10 MB.</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>All fonts are embedded.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>PDF opens correctly on another
+                                            computer.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>No password or security restriction has
+                                            been applied.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Images do not contain unsupported
+                                            transparency.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-0"><span
+                                            class="list-bullet"></span><span>No page numbers or manually added headers
+                                            and footers are present.</span></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="p-4 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white h-100">
+                            <div
+                                class="p-4 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white h-100">
                                 <h4 class="mb-4 fw-bold" style="color: var(--brand-blue);">Source Package</h4>
-                                <ul class="list-unstyled lh-base text-secondary custom-list m-0" style="font-size: 1rem;">
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Editable source ZIP has been uploaded.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>All figures, bibliography files, and supporting files are included.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>LaTeX source compiles without errors, where applicable.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>Microsoft Word source is provided in .docx rather than .docm format.</span></li>
+                                <ul class="list-unstyled lh-base text-secondary custom-list m-0"
+                                    style="font-size: 1rem;">
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Editable source ZIP has been
+                                            uploaded.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>All figures, bibliography files, and
+                                            supporting files are included.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>LaTeX source compiles without errors, where
+                                            applicable.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-0"><span
+                                            class="list-bullet"></span><span>Microsoft Word source is provided in .docx
+                                            rather than .docm format.</span></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="p-4 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white h-100">
-                                <h4 class="mb-4 fw-bold" style="color: var(--brand-blue);">Publication Documentation</h4>
-                                <ul class="list-unstyled lh-base text-secondary custom-list m-0" style="font-size: 1rem;">
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Copyright Form is complete and signed.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Paper title and author information on the form match the final manuscript.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-2"><span class="list-bullet"></span><span>Response to Reviewers has been prepared and uploaded, where applicable.</span></li>
-                                    <li class="d-flex align-items-start gap-3 mb-0"><span class="list-bullet"></span><span>CMT metadata exactly matches the final manuscript.</span></li>
+                            <div
+                                class="p-4 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white h-100">
+                                <h4 class="mb-4 fw-bold" style="color: var(--brand-blue);">Publication Documentation
+                                </h4>
+                                <ul class="list-unstyled lh-base text-secondary custom-list m-0"
+                                    style="font-size: 1rem;">
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Copyright Form is complete and
+                                            signed.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Paper title and author information on the
+                                            form match the final manuscript.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-2"><span
+                                            class="list-bullet"></span><span>Response to Reviewers has been prepared and
+                                            uploaded, where applicable.</span></li>
+                                    <li class="d-flex align-items-start gap-3 mb-0"><span
+                                            class="list-bullet"></span><span>CMT metadata exactly matches the final
+                                            manuscript.</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -800,14 +1148,18 @@
 
     <section class="section-padding bg-white">
         <div class="container">
-            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header" style="color: var(--brand-blue);">
+            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header"
+                style="color: var(--brand-blue);">
                 6. Author Registration
             </h2>
             <div class="row reveal-text">
                 <div class="col-lg-11 mx-auto">
-                    <div class="p-4 p-md-5 rounded-4 shadow-sm border border-slate-100 content-card text-center" style="background-color: var(--slate-50);">
+                    <div class="p-4 p-md-5 rounded-4 shadow-sm border border-slate-100 content-card text-center"
+                        style="background-color: var(--slate-50);">
                         <p class="text-secondary lh-lg m-0" style="font-size: 1.2rem;">
-                            At least one author of each accepted manuscript must register for the conference. Detailed information regarding registration fees, payment procedures, and deadlines will be announced shortly.
+                            At least one author of each accepted manuscript must register for the conference. Detailed
+                            information regarding registration fees, payment procedures, and deadlines will be announced
+                            shortly.
                         </p>
                     </div>
                 </div>
@@ -817,16 +1169,19 @@
 
     <section class="section-padding" style="background-color: var(--slate-50);">
         <div class="container">
-            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header" style="color: var(--brand-blue);">
+            <h2 class="text-center font-inter fw-bold tracking-tight mb-5 section-header"
+                style="color: var(--brand-blue);">
                 Contact
             </h2>
             <div class="row reveal-text">
                 <div class="col-lg-11 mx-auto">
-                    <div class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white text-center">
+                    <div
+                        class="p-4 p-md-5 rounded-4 shadow-sm border-top border-4 border-info content-card bg-white text-center">
                         <p class="text-secondary lh-lg mb-3" style="font-size: 1.2rem;">
                             For camera-ready submission queries, authors may contact:<br>
                             <strong>CVIP 2026 Organizing Committee</strong><br>
-                            Email: <a href="mailto:cvip_2026@nitc.ac.in" style="color: var(--brand-accent); font-weight: 600;">cvip_2026@nitc.ac.in</a>
+                            Email: <a href="mailto:cvip_2026@nitc.ac.in"
+                                style="color: var(--brand-accent); font-weight: 600;">cvip_2026@nitc.ac.in</a>
                         </p>
                         <p class="text-secondary lh-lg m-0" style="font-size: 1.2rem; font-style: italic;">
                             Authors must include their paper ID and paper title in all correspondence.
@@ -841,42 +1196,52 @@
         <div class="dotted-overlay"></div>
         <div class="container position-relative z-1">
             <div class="row g-4 g-lg-5 align-items-center justify-content-center">
-                
-                <div class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+
+                <div
+                    class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
                     <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
                         <img src="assets/images/nitc.png" height="50" alt="NITC Logo">
                     </div>
 
                     <div>
-                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">National Institute of Technology Calicut</h3>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">National Institute of Technology
+                            Calicut</h3>
                         <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
-                        <a href="https://www.instagram.com/nitcofficial" target="_blank" class="text-white opacity-75 hover-opacity-100">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/NIT.Calicut.Kerala/" target="_blank" class="text-white opacity-75 hover-opacity-100">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/school/national-institute-of-technology-calicut/" target="_blank" class="text-white opacity-75 hover-opacity-100">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                    </div>
+                            <a href="https://www.instagram.com/nitcofficial" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/NIT.Calicut.Kerala/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/school/national-institute-of-technology-calicut/"
+                                target="_blank" class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                <div
+                    class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
                     <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
                         <img src="assets/images/ntnu.svg" height="40" alt="NTNU Logo">
                     </div>
                     <div>
-                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">Norwegian University of Science and Technology</h3>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">Norwegian University of Science and
+                            Technology</h3>
                         <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
-                            <a href="https://www.instagram.com/ntnu/" target="_blank" class="text-white opacity-75 hover-opacity-100">
+                            <a href="https://www.instagram.com/ntnu/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href="https://www.facebook.com/ntnu.no/" target="_blank" class="text-white opacity-75 hover-opacity-100">
+                            <a href="https://www.facebook.com/ntnu.no/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
                                 <i class="fa-brands fa-facebook-f"></i>
                             </a>
-                            <a href="https://www.linkedin.com/school/ntnu/" target="_blank" class="text-white opacity-75 hover-opacity-100">
+                            <a href="https://www.linkedin.com/school/ntnu/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
                                 <i class="fa-brands fa-linkedin-in"></i>
                             </a>
                         </div>
@@ -886,10 +1251,16 @@
 
                 <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end">
                     <nav class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-4 fs-6 fw-bold">
-                        <a href="cfp.html" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Call for Papers</a>
-                        <a href="registration.html" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Registration</a>
-                        <a href="important-dates.html" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Dates</a>
-                        <a href="mailto:cvip_2026@nitc.ac.in" class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Contact Email : cvip_2026@nitc.ac.in </a>
+                        <a href="cfp.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Call
+                            for Papers</a>
+                        <a href="registration.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Registration</a>
+                        <a href="important-dates.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Dates</a>
+                        <a href="mailto:cvip_2026@nitc.ac.in"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Contact
+                            Email : cvip_2026@nitc.ac.in </a>
                     </nav>
                 </div>
             </div>
@@ -903,12 +1274,13 @@
     </footer>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script>
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
-        </script>
-    </body>
-    </html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

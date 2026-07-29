@@ -1,0 +1,328 @@
+/* =========================================================================
+   REVAMP.CSS — CVIP 2026
+   Typography + Committee cards (CVIP 2025 style)
+   Load AFTER Bootstrap and zoom-fix.css
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ─── TYPOGRAPHY ─────────────────────────────────────────────────────── */
+:root {
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+html body {
+    font-family: var(--font-sans) !important;
+    font-size: 1.125rem !important; /* 18px base for better readability */
+    line-height: 1.75 !important;
+    letter-spacing: -0.011em;
+}
+
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6 {
+    font-family: var(--font-heading) !important;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+}
+
+/* Force DM Sans on all body text — higher specificity beats inline <style> */
+html body p,
+html body span,
+html body a,
+html body li,
+html body td,
+html body th,
+html body div,
+html body label,
+html body input,
+html body textarea,
+html body .font-montserrat,
+html body .font-inter,
+html body .text-secondary,
+html body .fs-5,
+html body .fs-6,
+html body .lh-lg,
+html body .text-justify {
+    font-family: var(--font-sans) !important;
+}
+
+/* Section titles — slightly smaller, cleaner */
+.display-5 {
+    font-family: var(--font-heading) !important;
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em;
+}
+
+.fs-5 {
+    font-size: 1.125rem !important;
+    line-height: 1.75 !important;
+}
+
+p, li, span, div {
+    line-height: 1.75;
+}
+
+/* Hero text */
+.hero-slider .hero-title {
+    font-family: var(--font-heading) !important;
+}
+
+.page-hero h1 {
+    font-family: var(--font-heading) !important;
+    font-size: 3rem !important;
+    line-height: 1.2 !important;
+}
+
+.hero-slider h1.fs-3,
+.hero-slider h1.h5 {
+    font-family: var(--font-heading) !important;
+}
+
+.section-header {
+    font-family: var(--font-heading) !important;
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em;
+}
+
+/* Committee group title */
+.group-title {
+    font-family: var(--font-heading) !important;
+    font-size: 2.25rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   COMMITTEE CARDS — CVIP 2025 STYLE
+   Small white cards, square photo that FITS fully, white bg space
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Card — small, white, clean */
+.member-card {
+    background: #ffffff !important;
+    border-radius: 4px !important; /* Reduced rounding */
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: none !important; /* Flat design */
+    max-width: 230px !important;
+    margin: 0 auto;
+    text-align: center;
+    height: 100% !important; /* Force equal heights */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.member-card:hover {
+    box-shadow: none !important; /* Flat design, no projection */
+    /* Remove translateY so it doesn't float up */
+}
+
+/* Image Container — white bg with padding, image sits inside */
+.image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    background: #ffffff !important;
+    background-image: none !important;
+    padding: 32px 32px 16px 32px !important;
+    box-sizing: border-box;
+    height: auto !important;
+    aspect-ratio: auto !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SCROLLING MARQUEE
+   Make it clean, modern, and readable
+   ═══════════════════════════════════════════════════════════════════════ */
+html body .marquee-content {
+    font-family: var(--font-heading) !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important; /* Overrides chunky fw-bold (700+) */
+    letter-spacing: 0.08em !important; /* Wide, aesthetic spacing */
+    text-transform: uppercase !important;
+}
+
+/* Photo — square, fits entirely, no cropping */
+.member-photo {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    display: block !important;
+    border-radius: 2px !important; /* Reduced rounding */
+    border: none !important;
+    box-shadow: none !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.member-card:hover .member-photo {
+    transform: scale(1.03) !important;
+}
+
+/* Hide the dotted overlay inside cards */
+.image-container .dotted-overlay {
+    display: none !important;
+}
+
+/* View Profile Overlay — PRESERVED */
+.profile-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 23, 31, 0.4);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 3;
+}
+
+.member-card:hover .profile-overlay {
+    opacity: 1;
+}
+
+.view-profile-btn {
+    background: #ffffff;
+    color: #00171F;
+    padding: 6px 12px;
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    text-decoration: none;
+    transform: translateY(12px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.member-card:hover .view-profile-btn {
+    transform: translateY(0);
+}
+
+.view-profile-btn:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    color: #007EA7;
+}
+
+/* Card Body — compact */
+.card-body {
+    padding: 0.6rem 0.7rem 0.85rem !important;
+    flex-grow: 1 !important; /* Push card body to fill remaining vertical space */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
+/* Role Tag — hidden */
+.role-tag {
+    display: none !important;
+}
+
+/* Name */
+.member-name {
+    font-family: var(--font-sans) !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #171717 !important;
+    margin-bottom: 4px;
+    line-height: 1.25;
+}
+
+/* Accent Line — hidden */
+.accent-line {
+    display: none !important;
+}
+
+/* Affiliation */
+.member-affil {
+    font-size: 0.85rem !important;
+    color: #555 !important; /* Slightly darker grey for readability */
+    font-weight: 400;
+    line-height: 1.35;
+    margin-bottom: 0;
+}
+
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────── */
+
+@media (max-width: 992px) {
+    .member-card {
+        max-width: 170px !important;
+    }
+
+    .image-container {
+        padding: 12px 12px 6px 12px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .member-card {
+        max-width: 150px !important;
+    }
+
+    .image-container {
+        padding: 10px 10px 5px 10px !important;
+    }
+
+    .card-body {
+        padding: 0.5rem 0.4rem 0.7rem !important;
+    }
+
+    .member-name {
+        font-size: 0.7rem !important;
+    }
+
+    .member-affil {
+        font-size: 0.6rem !important;
+    }
+
+    .role-tag {
+        font-size: 7px;
+        padding: 1px 5px;
+    }
+
+    .view-profile-btn {
+        padding: 5px 10px;
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 400px) {
+    .member-card {
+        max-width: 135px !important;
+    }
+
+    .image-container {
+        padding: 8px 8px 4px 8px !important;
+    }
+
+    .member-affil {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
