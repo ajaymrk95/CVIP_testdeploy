@@ -352,47 +352,228 @@
             }
         }
 
-        /* --- SPECIFIC FIX FOR IPHONE 8 / UNDER 400PX --- */
-        @media (max-width: 400px) {
+        /* --- ADVANCED RESPONSIVE FEE TABLES (IPHONE 15 PRO MAX & SMALLER) --- */
+        .fee-table {
+            width: 100%;
+            table-layout: auto;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
 
+        .fee-curr {
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        .fee-amt {
+            display: inline-block;
+        }
+
+        .bank-label {
+            width: 175px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 992px) {
+            .section-padding {
+                padding: 3.5rem 1rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .fee-table {
+                table-layout: fixed !important;
+                width: 100% !important;
+                min-width: 0 !important;
+            }
+
+            .fee-table col.col-cat { width: 28% !important; }
+            .fee-table col.col-mem { width: 30% !important; }
+            .fee-table col.col-ind { width: 22% !important; }
+            .fee-table col.col-for { width: 20% !important; }
+
+            .fee-table th,
+            .fee-table td {
+                padding: 9px 5px !important;
+                vertical-align: middle !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                hyphens: auto !important;
+            }
+
+            .fee-table thead th {
+                font-size: 0.80rem !important;
+                line-height: 1.25 !important;
+                letter-spacing: 0 !important;
+                padding-top: 10px !important;
+                padding-bottom: 10px !important;
+            }
+
+            .fee-table tbody td {
+                font-size: 0.90rem !important;
+                line-height: 1.35 !important;
+            }
+
+            .fee-table .price-cell {
+                font-size: 0.90rem !important;
+                font-weight: 700 !important;
+                text-align: center !important;
+            }
+        }
+
+        /* Fully visible on iPhone 15 Pro Max (430px) and down to 360px/320px */
+        @media (max-width: 576px) {
+            .section-padding {
+                padding: 2.25rem 0.4rem !important;
+            }
+
+            .container {
+                padding-left: 6px !important;
+                padding-right: 6px !important;
+            }
+
+            .container > .row {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            .container > .row > [class*="col-"] {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
 
             .table-responsive {
                 border-radius: 12px !important;
-                margin: 0 -5px;
-                /* Buy tiny bit of horizontal room */
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding: 0 !important;
+                overflow-x: hidden !important; /* Table fits 100% of screen with zero horizontal scroll */
             }
 
-            .table th,
-            .table td {
-                padding: 10px 6px !important;
-                /* Tightest possible padding */
+            .fee-table {
+                table-layout: fixed !important;
+                width: 100% !important;
             }
 
-            .small-text {
+            .fee-table col.col-cat { width: 27% !important; }
+            .fee-table col.col-mem { width: 30% !important; }
+            .fee-table col.col-ind { width: 22% !important; }
+            .fee-table col.col-for { width: 21% !important; }
+
+            .fee-table th,
+            .fee-table td {
+                padding: 8px 3px !important;
+            }
+
+            .fee-table thead th {
+                font-size: 0.76rem !important;
+                padding: 8px 3px !important;
+                line-height: 1.2 !important;
+            }
+
+            .fee-table tbody td {
+                font-size: 0.88rem !important;
+                line-height: 1.25 !important;
+            }
+
+            .fee-table .price-cell {
+                font-size: 0.88rem !important;
+            }
+
+            .fee-curr {
+                display: block !important;
+                font-size: 0.74rem !important;
+                line-height: 1.1 !important;
+                font-weight: 700 !important;
+                opacity: 0.85 !important;
+                margin-right: 0 !important;
+                margin-bottom: 2px !important;
+                text-transform: uppercase;
+            }
+
+            .fee-amt {
+                display: block !important;
+                font-size: 0.90rem !important;
+                font-weight: 800 !important;
+                line-height: 1.15 !important;
+            }
+
+            /* Bank Details Box on Mobile */
+            .bank-details-card {
+                padding: 1.25rem 1rem !important;
+            }
+
+            .bank-table {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .bank-table tbody {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .bank-table tr {
+                display: flex !important;
+                flex-direction: column !important;
+                margin-bottom: 0.7rem !important;
+                padding-bottom: 0.6rem !important;
+                border-bottom: 1px dashed var(--slate-200) !important;
+            }
+
+            .bank-table tr:last-child {
+                margin-bottom: 0 !important;
+                padding-bottom: 0 !important;
+                border-bottom: none !important;
+            }
+
+            .bank-table td.bank-label {
+                width: 100% !important;
+                font-size: 0.84rem !important;
+                color: var(--slate-500) !important;
+                padding: 0 0 2px 0 !important;
+                white-space: normal !important;
+            }
+
+            .bank-table td.bank-value {
+                width: 100% !important;
+                font-size: 0.94rem !important;
+                padding: 0 !important;
+                word-break: break-word !important;
+            }
+        }
+
+        /* Tightest screens (<= 380px, e.g. iPhone SE 1st Gen, older 360px phones) */
+        @media (max-width: 380px) {
+            .section-padding {
+                padding: 2rem 0.2rem !important;
+            }
+
+            .container {
+                padding-left: 4px !important;
+                padding-right: 4px !important;
+            }
+
+            .fee-table th,
+            .fee-table td {
+                padding: 6px 2px !important;
+            }
+
+            .fee-table thead th {
                 font-size: 0.68rem !important;
-                letter-spacing: 0;
+                padding: 7px 2px !important;
             }
 
-            .small-text-body td {
-                font-size: 0.72rem !important;
+            .fee-table tbody td {
+                font-size: 0.80rem !important;
             }
 
-            /* Prevent "Category" column from squashing prices */
-            .table td:first-child {
-                min-width: 125px !important;
-                width: 40%;
+            .fee-curr {
+                font-size: 0.68rem !important;
             }
 
-            /* Center the "TBD" columns */
-            .table th:not(:first-child),
-            .table td:not(:first-child) {
-                text-align: center;
-                min-width: 75px !important;
-            }
-
-            /* Adjust Heading size to prevent wrapping */
-            .section-padding h3 {
-                font-size: 1.25rem !important;
+            .fee-amt {
+                font-size: 0.83rem !important;
             }
         }
 
@@ -454,15 +635,17 @@
             font-weight: 700;
         }
 
-        /* Enhanced Table Legibility */
-        .table thead th {
-            font-size: 1.02rem !important;
-            letter-spacing: 0.04em;
-        }
+        /* Enhanced Table Legibility for Large Displays */
+        @media (min-width: 993px) {
+            .table thead th {
+                font-size: 1.02rem !important;
+                letter-spacing: 0.04em;
+            }
 
-        .table tbody td {
-            font-size: 1.15rem !important;
-            color: #1e293b;
+            .table tbody td {
+                font-size: 1.15rem !important;
+                color: #1e293b;
+            }
         }
 
         @media (max-width: 992px) {
@@ -503,13 +686,6 @@
                 margin-bottom: 1.1rem !important;
             }
 
-            .table thead th {
-                font-size: 0.85rem !important;
-            }
-
-            .table tbody td {
-                font-size: 0.95rem !important;
-            }
         }
 
         @media (max-width: 480px) {
@@ -665,43 +841,58 @@
                         <div class="mb-5">
                             <h4 class="font-inter fw-bold mb-3" style="color: var(--brand-accent); font-size: 1.45rem;">Early Bird Registration</h4>
                             <div class="table-responsive rounded-4 shadow-sm border border-slate-200 overflow-hidden bg-white">
-                                <table class="table table-hover mb-0 align-middle">
+                                <table class="table table-hover mb-0 align-middle fee-table">
+                                    <colgroup>
+                                        <col class="col-cat">
+                                        <col class="col-mem">
+                                        <col class="col-ind">
+                                        <col class="col-for">
+                                    </colgroup>
                                     <thead style="background-color: var(--brand-blue); color: white; border-bottom: 4px solid var(--brand-light);">
                                         <tr>
-                                            <th class="p-3 p-md-4 small-text text-uppercase border-0">Category</th>
-                                            <th class="p-3 p-md-4 small-text text-uppercase border-0">Membership Type</th>
-                                            <th class="p-3 p-md-4 small-text text-uppercase text-center border-0">Indian Delegates</th>
-                                            <th class="p-3 p-md-4 small-text text-uppercase text-center border-0">Foreign Delegates</th>
+                                            <th class="p-2 p-md-3 p-lg-4 small-text text-uppercase border-0">Category</th>
+                                            <th class="p-2 p-md-3 p-lg-4 small-text text-uppercase border-0">
+                                                <span class="d-none d-sm-inline">Membership Type</span>
+                                                <span class="d-sm-none">Membership<br>Type</span>
+                                            </th>
+                                            <th class="p-2 p-md-3 p-lg-4 small-text text-uppercase text-center border-0">
+                                                <span class="d-none d-sm-inline">Indian Delegates</span>
+                                                <span class="d-sm-none">Indian<br>Delegates</span>
+                                            </th>
+                                            <th class="p-2 p-md-3 p-lg-4 small-text text-uppercase text-center border-0">
+                                                <span class="d-none d-sm-inline">Foreign Delegates</span>
+                                                <span class="d-sm-none">Foreign<br>Delegates</span>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody class="small-text-body">
                                         <tr>
-                                            <td rowspan="2" class="p-3 p-md-4 fw-bold border-end">Author: Student</td>
-                                            <td class="p-3 p-md-4">IAPR/IUPRAI Member</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 9,440</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 250</td>
+                                            <td rowspan="2" class="p-2 p-md-3 p-lg-4 fw-bold border-end">Author: Student</td>
+                                            <td class="p-2 p-md-3 p-lg-4">IAPR/<wbr>IUPRAI Member</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">9,440</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">250</span></td>
                                         </tr>
                                         <tr>
-                                            <td class="p-3 p-md-4">Non-IAPR/IUPRAI Member</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 10,620</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 300</td>
+                                            <td class="p-2 p-md-3 p-lg-4">Non-IAPR/<wbr>IUPRAI Member</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">10,620</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">300</span></td>
                                         </tr>
                                         <tr class="border-top">
-                                            <td rowspan="2" class="p-3 p-md-4 fw-bold border-end">Author: Faculty/Academic/Industry</td>
-                                            <td class="p-3 p-md-4">IAPR/IUPRAI Member</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 12,980</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 350</td>
+                                            <td rowspan="2" class="p-2 p-md-3 p-lg-4 fw-bold border-end">Author: Faculty/<wbr>Academic/<wbr>Industry</td>
+                                            <td class="p-2 p-md-3 p-lg-4">IAPR/<wbr>IUPRAI Member</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">12,980</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">350</span></td>
                                         </tr>
                                         <tr>
-                                            <td class="p-3 p-md-4">Non-IAPR/IUPRAI Member</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 14,160</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 400</td>
+                                            <td class="p-2 p-md-3 p-lg-4">Non-IAPR/<wbr>IUPRAI Member</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">14,160</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">400</span></td>
                                         </tr>
                                         <tr class="border-top">
-                                            <td class="p-3 p-md-4 fw-bold border-end">Non-Author</td>
-                                            <td class="p-3 p-md-4">All Categories</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 5,900</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 200</td>
+                                            <td class="p-2 p-md-3 p-lg-4 fw-bold border-end">Non-Author</td>
+                                            <td class="p-2 p-md-3 p-lg-4">All Categories</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">5,900</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">200</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -712,43 +903,58 @@
                         <div class="mb-2">
                             <h4 class="font-inter fw-bold mb-3" style="color: var(--brand-accent); font-size: 1.45rem;">Regular Registration</h4>
                             <div class="table-responsive rounded-4 shadow-sm border border-slate-200 overflow-hidden bg-white">
-                                <table class="table table-hover mb-0 align-middle">
+                                <table class="table table-hover mb-0 align-middle fee-table">
+                                    <colgroup>
+                                        <col class="col-cat">
+                                        <col class="col-mem">
+                                        <col class="col-ind">
+                                        <col class="col-for">
+                                    </colgroup>
                                     <thead style="background-color: var(--brand-blue); color: white; border-bottom: 4px solid var(--brand-light);">
                                         <tr>
-                                            <th class="p-3 p-md-4 small-text text-uppercase border-0">Category</th>
-                                            <th class="p-3 p-md-4 small-text text-uppercase border-0">Membership Type</th>
-                                            <th class="p-3 p-md-4 small-text text-uppercase text-center border-0">Indian Delegates</th>
-                                            <th class="p-3 p-md-4 small-text text-uppercase text-center border-0">Foreign Delegates</th>
+                                            <th class="p-2 p-md-3 p-lg-4 small-text text-uppercase border-0">Category</th>
+                                            <th class="p-2 p-md-3 p-lg-4 small-text text-uppercase border-0">
+                                                <span class="d-none d-sm-inline">Membership Type</span>
+                                                <span class="d-sm-none">Membership<br>Type</span>
+                                            </th>
+                                            <th class="p-2 p-md-3 p-lg-4 small-text text-uppercase text-center border-0">
+                                                <span class="d-none d-sm-inline">Indian Delegates</span>
+                                                <span class="d-sm-none">Indian<br>Delegates</span>
+                                            </th>
+                                            <th class="p-2 p-md-3 p-lg-4 small-text text-uppercase text-center border-0">
+                                                <span class="d-none d-sm-inline">Foreign Delegates</span>
+                                                <span class="d-sm-none">Foreign<br>Delegates</span>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody class="small-text-body">
                                         <tr>
-                                            <td rowspan="2" class="p-3 p-md-4 fw-bold border-end">Author: Student</td>
-                                            <td class="p-3 p-md-4">IAPR/IUPRAI Member</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 10,620</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 300</td>
+                                            <td rowspan="2" class="p-2 p-md-3 p-lg-4 fw-bold border-end">Author: Student</td>
+                                            <td class="p-2 p-md-3 p-lg-4">IAPR/<wbr>IUPRAI Member</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">10,620</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">300</span></td>
                                         </tr>
                                         <tr>
-                                            <td class="p-3 p-md-4">Non-IAPR/IUPRAI Member</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 11,800</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 350</td>
+                                            <td class="p-2 p-md-3 p-lg-4">Non-IAPR/<wbr>IUPRAI Member</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">11,800</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">350</span></td>
                                         </tr>
                                         <tr class="border-top">
-                                            <td rowspan="2" class="p-3 p-md-4 fw-bold border-end">Author: Faculty/Academic/Industry</td>
-                                            <td class="p-3 p-md-4">IAPR/IUPRAI Member</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 14,160</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 400</td>
+                                            <td rowspan="2" class="p-2 p-md-3 p-lg-4 fw-bold border-end">Author: Faculty/<wbr>Academic/<wbr>Industry</td>
+                                            <td class="p-2 p-md-3 p-lg-4">IAPR/<wbr>IUPRAI Member</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">14,160</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">400</span></td>
                                         </tr>
                                         <tr>
-                                            <td class="p-3 p-md-4">Non-IAPR/IUPRAI Member</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 15,340</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 450</td>
+                                            <td class="p-2 p-md-3 p-lg-4">Non-IAPR/<wbr>IUPRAI Member</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">15,340</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">450</span></td>
                                         </tr>
                                         <tr class="border-top">
-                                            <td class="p-3 p-md-4 fw-bold border-end">Non-Author</td>
-                                            <td class="p-3 p-md-4">All Categories</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">INR 7,080</td>
-                                            <td class="p-3 p-md-4 text-center text-dark fw-bold">USD 250</td>
+                                            <td class="p-2 p-md-3 p-lg-4 fw-bold border-end">Non-Author</td>
+                                            <td class="p-2 p-md-3 p-lg-4">All Categories</td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">INR</span><span class="fee-amt">7,080</span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 text-center text-dark fw-bold price-cell"><span class="fee-curr">USD</span><span class="fee-amt">250</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -782,38 +988,38 @@
                                     </div>
 
                                     <!-- Bank Account Details Box -->
-                                    <div class="mb-3 p-4 rounded-4 bg-white border shadow-sm"
+                                    <div class="mb-3 p-4 rounded-4 bg-white border shadow-sm bank-details-card"
                                         style="border-color: var(--slate-200); max-width: 680px;">
                                         <h5 class="fw-bold mb-3 d-flex align-items-center gap-2" style="color: var(--brand-blue); font-size: 1.15rem;">
                                             <i class="fa-solid fa-building-columns" style="color: var(--brand-accent);"></i>
                                             Bank Account Details 
                                         </h5>
                                         <div class="table-responsive">
-                                            <table class="table table-sm table-borderless align-middle mb-0" style="font-size: 1.05rem;">
+                                            <table class="table table-sm table-borderless align-middle mb-0 bank-table" style="font-size: 1.05rem;">
                                                 <tbody>
                                                     <tr>
-                                                        <td class="text-secondary fw-semibold py-1 ps-0" style="width: 180px;">Beneficiary Name:</td>
-                                                        <td class="text-dark fw-bold py-1">Director NIT Calicut CCESD</td>
+                                                        <td class="text-secondary fw-semibold py-1 ps-0 bank-label">Beneficiary Name:</td>
+                                                        <td class="text-dark fw-bold py-1 bank-value">Director NIT Calicut CCESD</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-secondary fw-semibold py-1 ps-0">Bank Name:</td>
-                                                        <td class="text-dark py-1">State Bank of India</td>
+                                                        <td class="text-secondary fw-semibold py-1 ps-0 bank-label">Bank Name:</td>
+                                                        <td class="text-dark py-1 bank-value">State Bank of India</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-secondary fw-semibold py-1 ps-0">Branch Address:</td>
-                                                        <td class="text-dark py-1">NIT Campus, Chathamangalam, Kozhikode, Kerala - 673601</td>
+                                                        <td class="text-secondary fw-semibold py-1 ps-0 bank-label">Branch Address:</td>
+                                                        <td class="text-dark py-1 bank-value">NIT Campus, Chathamangalam, Kozhikode, Kerala - 673601</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-secondary fw-semibold py-1 ps-0">Account Number:</td>
-                                                        <td class="text-dark fw-bold py-1"><span class="font-monospace text-primary">43189409019</span></td>
+                                                        <td class="text-secondary fw-semibold py-1 ps-0 bank-label">Account Number:</td>
+                                                        <td class="text-dark fw-bold py-1 bank-value"><span class="font-monospace text-primary">43189409019</span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-secondary fw-semibold py-1 ps-0">IFSC:</td>
-                                                        <td class="text-dark fw-bold py-1"><span class="font-monospace">SBIN0002207</span></td>
+                                                        <td class="text-secondary fw-semibold py-1 ps-0 bank-label">IFSC:</td>
+                                                        <td class="text-dark fw-bold py-1 bank-value"><span class="font-monospace">SBIN0002207</span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-secondary fw-semibold py-1 ps-0">SWIFT Code:</td>
-                                                        <td class="text-dark fw-bold py-1"><span class="font-monospace">SBININBB392</span></td>
+                                                        <td class="text-secondary fw-semibold py-1 ps-0 bank-label">SWIFT Code:</td>
+                                                        <td class="text-dark fw-bold py-1 bank-value"><span class="font-monospace">SBININBB392</span></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -838,10 +1044,14 @@
                                 <div class="w-100">
                                     <span>Complete the CVIP 2026 Registration Form using the link provided below:</span>
                                     <div class="my-3">
-                                        <span class="btn btn-outline-primary px-4 py-2 fw-semibold disabled"
-                                            style="border-color: var(--brand-blue); color: var(--brand-blue); cursor: not-allowed;">
-                                            <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>[Registration Form – LINK TO BE ADDED]
-                                        </span>
+                                        <a href="https://confmanagement.xyz/login" target="_blank" rel="noopener noreferrer"
+                                            class="btn btn-primary px-4 py-2 fw-semibold shadow-sm text-white text-decoration-none"
+                                            style="background-color: var(--brand-blue); border-color: var(--brand-blue);">
+                                            <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>CVIP 2026 Registration Form
+                                        </a>
+                                        <div class="mt-2 text-secondary" style="font-size: 0.98rem;">
+                                            <i class="fa-solid fa-circle-info me-1" style="color: var(--brand-accent);"></i>Login to the registration portal and fill &ldquo;CVIP 2026 Registration Form&rdquo;
+                                        </div>
                                     </div>
                                 </div>
                             </li>
