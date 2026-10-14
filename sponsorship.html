@@ -1,218 +1,723 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
-    <title>Sponsorship Opportunities | CVIP 2026</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script defer src="assets/js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Sponsors | CVIP 2026</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/zoom-fix.css">
+    <link rel="stylesheet" href="assets/css/revamp.css">
+    <style>
+        /* --- BRAND IDENTITY CONFIGURATION --- */
+        :root {
+            --brand-blue: #003459;
+            --brand-accent: #007EA7;
+            --brand-dark: #00171F;
+            --brand-light: #00A8E8;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--brand-blue);
+            background-color: var(--slate-50);
+            overflow-x: hidden;
+        }
+
+        .font-montserrat {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .font-inter {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .logo-text {
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        /* UNIFIED NAVIGATION */
+        .navbar {
+            min-height: 96px;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--slate-100);
+            z-index: 1050;
+        }
+
+        .nav-link,
+        .dropdown-toggle,
+        .dropdown-item {
+            font-weight: 700 !important;
+            font-size: 17px !important;
+            color: var(--brand-blue) !important;
+            padding: 0.5rem 0.75rem !important;
+            display: flex !important;
+            align-items: center;
+            transition: all 0.2s ease;
+            background: transparent !important;
+        }
+
+        .nav-link:hover,
+        .dropdown:hover>.nav-link,
+        .dropdown-item:hover,
+        .nav-active {
+            color: var(--brand-accent) !important;
+            background: transparent !important;
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .dropdown-menu {
+            border: 1px solid var(--slate-100);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 12px 0;
+            margin-top: 0;
+            border-top: 4px solid var(--brand-accent);
+        }
+
+        /* PAGE HERO */
+        .page-hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--brand-dark);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.023em;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-line {
+            height: 6px;
+            width: 100px;
+            background-color: var(--brand-accent);
+            margin: 15px auto;
+            border-radius: 50px;
+        }
+
+        /* SECTIONS */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* SPONSOR GRID & CARD STYLES */
+        .flex {
+            display: flex !important;
+        }
+        .flex-wrap {
+            flex-wrap: wrap !important;
+        }
+        .justify-center {
+            justify-content: center !important;
+        }
+        .items-center {
+            align-items: center !important;
+        }
+        .gap-8 {
+            gap: 2rem !important;
+        }
+        .bg-white {
+            background-color: #ffffff !important;
+        }
+        .rounded-lg {
+            border-radius: 14px !important;
+        }
+        .shadow-md {
+            box-shadow: 0 4px 18px rgba(0, 23, 31, 0.07) !important;
+            border: 1px solid rgba(0, 35, 50, 0.08) !important;
+        }
+        .transition-shadow {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .cursor-pointer {
+            cursor: pointer !important;
+        }
+        .max-h-24 {
+            max-height: 105px !important;
+        }
+        .w-auto {
+            width: auto !important;
+        }
+        .mx-auto {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .w-full {
+            width: 100% !important;
+        }
+
+        .sponsor-card-link {
+            min-height: 140px;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none !important;
+            padding: 0.75rem 1rem !important;
+            background: #ffffff !important;
+            overflow: hidden;
+        }
+
+        .sponsor-card-link:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 14px 28px rgba(0, 126, 167, 0.18) !important;
+            border-color: var(--brand-accent) !important;
+        }
+
+        .sponsor-card-link img {
+            max-width: 90%;
+            max-height: 100px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .sponsor-card-link:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Optical sizing adjustment for logos with transparent canvas padding */
+        .sponsor-card-link img[alt*="infineon" i] {
+            max-height: 115px;
+            transform: scale(1.22);
+        }
+        .sponsor-card-link:hover img[alt*="infineon" i] {
+            transform: scale(1.28);
+        }
+
+        .sponsor-card-link img[alt*="mathworks" i] {
+            max-height: 108px;
+            max-width: 96%;
+            transform: scale(1.18);
+        }
+        .sponsor-card-link:hover img[alt*="mathworks" i] {
+            transform: scale(1.24);
+        }
+
+        @media (max-width: 575.98px) {
+            .sponsor-card-link,
+            .w-full {
+                width: 100% !important;
+            }
+            .gap-8 {
+                gap: 1.25rem !important;
+            }
+            .sponsor-card-link {
+                min-height: 115px;
+                padding: 0.5rem 0.75rem !important;
+            }
+            .sponsor-card-link img {
+                max-height: 80px;
+            }
+            .sponsor-card-link img[alt*="infineon" i] {
+                max-height: 95px;
+                transform: scale(1.18);
+            }
+            .sponsor-card-link img[alt*="mathworks" i] {
+                max-height: 85px;
+                transform: scale(1.15);
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 991.98px) {
+            .sponsor-card-link,
+            .sm\:w-\[calc\(50\%-1rem\)\],
+            .md\:w-\[calc\(50\%-1rem\)\] {
+                width: calc(50% - 1rem) !important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .sponsor-card-link,
+            .lg\:w-\[calc\(25\%-1\.5rem\)\] {
+                width: calc(25% - 1.5rem) !important;
+            }
+        }
+
+        /* WHY SPONSOR CARDS */
+        .reason-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid var(--slate-100);
+            box-shadow: 0 4px 20px rgba(0, 23, 31, 0.05);
+            padding: 2.25rem 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--brand-accent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(0, 52, 89, 0.12);
+        }
+
+        .reason-card:hover::before {
+            opacity: 1;
+        }
+
+        .reason-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: rgba(0, 126, 167, 0.1);
+            color: var(--brand-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* SPONSORSHIP TIERS TABLE */
+        .tier-table-wrapper {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 23, 31, 0.06);
+            border: 1px solid var(--slate-200);
+            overflow: hidden;
+        }
+
+        .tier-table {
+            margin-bottom: 0;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .tier-table thead th {
+            background: var(--brand-blue);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            border: none;
+            letter-spacing: 0.02em;
+        }
+
+        .tier-table thead th:first-child {
+            text-align: left;
+            padding-left: 1.5rem;
+        }
+
+        .tier-table tbody td {
+            padding: 1.1rem 1rem;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--slate-100);
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .tier-table tbody td:first-child {
+            text-align: left;
+            padding-left: 1.5rem;
+        }
+
+        .tier-table tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .badge-platinum {
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: #3730a3;
+            font-weight: 800;
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .badge-diamond {
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            color: #0369a1;
+            font-weight: 800;
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .badge-gold {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #b45309;
+            font-weight: 800;
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .badge-silver {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            color: #475569;
+            font-weight: 800;
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .badge-bronze {
+            background: linear-gradient(135deg, #ffedd5, #fed7aa);
+            color: #c2410c;
+            font-weight: 800;
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .badge-special {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            color: #6d28d9;
+            font-weight: 800;
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .check-yes {
+            color: #16a34a;
+            font-weight: 700;
+        }
+
+        .cross-no {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(to bottom right, #00171F, #002A45, #00171F);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .dotted-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        @media (max-width: 992px) {
+            .section-padding {
+                padding: 4rem 1.5rem !important;
+            }
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+            .page-hero {
+                height: 60vh !important;
+                min-height: 480px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                height: auto !important;
+                min-height: 50vh;
+                padding-top: 130px !important;
+                padding-bottom: 60px !important;
+            }
+            .hero-title {
+                font-size: 2rem !important;
+                line-height: 1.2;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <div class="logo-container">
-            <img src="assets/images/nitc.svg" alt="NITC" class="nav-logo">
-            <img src="assets/images/ntnu.svg" alt="NTNU" class="nav-logo">
+    <!-- UNIFIED NAVIGATION -->
+    <nav class="navbar navbar-expand-xl fixed-top shadow-sm">
+        <div class="container-fluid px-lg-5">
+            <div class="d-flex align-items-center gap-3 gap-md-4">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="assets/images/nitc.png" alt="NITC" height="60" class="brightness-0">
+                    <img src="assets/images/ntnu.svg" alt="NTNU" height="55">
+                </div>
+                <div class="vr d-none d-md-block mx-2" style="height: 48px; color: var(--slate-200); opacity: 1;"></div>
+                <a class="logo-text font-inter text-decoration-none" href="index.html"
+                    style="color: var(--brand-blue); font-size: 2rem; font-weight: 800;">CVIP 2026</a>
+            </div>
 
-            <a href="index.html" class="logo-text">CVIP 2026</a>
-        </div>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="mobile-menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="keynoteDrop" role="button"
-                    data-bs-toggle="dropdown">Keynotes & Tutorials</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="keynotes.html">Keynotes</a></li>
-                    <li><a class="dropdown-item" href="tutorials.html">Tutorials</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="committee.html" class="dropbtn">Committee</a>
-                <ul class="dropdown-content">
-                    <li><a href="committee.html">Organizing Committee</a></li>
-                    <li><a href="steering-committee.html">Steering Committee</a></li>
-                    <li><a href="advisory.html#international">International Advisory Committee</a></li>
-                    <li><a href="advisory.html#national">National Advisory Committee</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="cfp.html" class="dropbtn">Call for Papers</a>
-                <ul class="dropdown-content">
-                    <li><a href="cfp.html">Topics & Tracks</a></li>
-                    <li><a href="author-guidelines.html">Author Guidelines</a></li>
-                </ul>
-            </li>
-
-            <li><a href="sponsorship.html">Sponsorship</a></li>
-
-            <li><a href="venue.html">Venue</a></li>
-            <li><a href="important-dates.html">Dates</a></li>
-            <li><a href="registration.html">Registration</a></li>
-
-            <li>
-                <a href="#" class="dropbtn">Archive</a>
-                <ul class="dropdown-content">
-                    <li><a href="https://link.springer.com/conference/cvip" target="_blank">Past Proceedings
-                            (Springer)</a></li>
-                    <li><a href="https://iitrpr.ac.in/cvip2025" target="_blank">CVIP 2025 (IIT Ropar)</a></li>
-                    <li><a href="https://cvip2024.iiitdm.ac.in/" target="_blank">CVIP 2024 (IIITDM Kancheepuram)</a>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="keynoteDrop" role="button"
+                            data-bs-toggle="dropdown">Keynotes & Tutorials</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="keynotes.html">Keynotes</a></li>
+                            <li><a class="dropdown-item" href="tutorials.html">Tutorials</a></li>
+                        </ul>
                     </li>
-                    <li><a href="https://iitjammu.ac.in/cvip2023/" target="_blank">CVIP 2023 (IIT Jammu)</a></li>
-                    <li><a href="https://vnit.ac.in/cvip2022/index.php" target="_blank">CVIP 2022 (VNIT Nagpur)</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="commDrop" role="button"
+                            data-bs-toggle="dropdown">Committee</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="committee.html">Organizing Committee</a></li>
+                            <li><a class="dropdown-item" href="steering-committee.html">Steering Committee</a></li>
+                            <li><a class="dropdown-item" href="advisory.html">International Advisory Committee</a></li>
+                            <li><a class="dropdown-item" href="national-advisory.html">National Advisory Committee</a></li>
+                            <li><a class="dropdown-item" href="area-chairs.html">Area Chairs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cfpDrop" role="button"
+                            data-bs-toggle="dropdown">Submissions</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cfp.html">Topics & Tracks</a></li>
+                            <li><a class="dropdown-item" href="author-guidelines.html">Author Guidelines</a></li>
+                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                            <li><a class="dropdown-item"
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqojPoT-AQWQFLswwtOcFY9wKVv9l2XtiwMitJC2wQxZD72Q/viewform"
+                                    target="_blank">Call for Reviews</a></li>
+                            <li><a class="dropdown-item" href="camera-ready-submissions.html">Camera-Ready Submissions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="program.html">Program</a></li>
+                    <li class="nav-item"><a class="nav-link nav-active" href="sponsors.html">Sponsors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="venue.html">Venue</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="archDrop" role="button"
+                            data-bs-toggle="dropdown">Archive</a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="https://link.springer.com/conference/cvip" target="_blank">Past Proceedings (Springer)</a></li>
+                            <li><a class="dropdown-item" href="https://iitrpr.ac.in/cvip2025" target="_blank">CVIP 2025 (IIT Ropar)</a></li>
+                            <li><a class="dropdown-item" href="https://cvip2024.iiitdm.ac.in/" target="_blank">CVIP 2024 (IIITDM)</a></li>
+                            <li><a class="dropdown-item" href="https://iitjammu.ac.in/cvip2023/" target="_blank">CVIP 2023 (IIT Jammu)</a></li>
+                            <li><a class="dropdown-item" href="https://vnit.ac.in/cvip2022/index.php" target="_blank">CVIP 2022 (VNIT)</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-        </ul>
+            </div>
+        </div>
     </nav>
-    <div class="marquee">
-        <div class="marquee-content">Paper submission opens on 26 January 2026! &nbsp;&bull;&nbsp; … Conference Dates:
-            Dec 9-12, 2026 &nbsp;&bull;&nbsp; Jointly Organized by NIT Calicut & NTNU Norway</div>
+
+    <div style="padding-top: 96px;"></div>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero"
+        style="position: relative; height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #00171F;">
+        <div style="position: absolute; inset: 0; 
+                background-image: url('assets/images/slide4.jpg'); 
+                background-size: cover; 
+                background-position: center; 
+                opacity: 0.5;
+                z-index: 1;">
+        </div>
+        <div style="position: absolute; inset: 0; 
+                background: linear-gradient(rgba(0,23,31,0.4), rgba(0,23,31,0.8)); 
+                z-index: 2;">
+        </div>
+
+        <div class="container position-relative text-center" style="z-index: 3;">
+            <h1 class="reveal-text font-montserrat hero-title">
+                Our Sponsors
+            </h1>
+            <div class="hero-line"></div>
+        </div>
     </div>
 
-    <div class="page-hero">
-        <h1>Sponsorship & Exhibitor Opportunities</h1>
-    </div>
+    <!-- SECTION: OUR SPONSORS -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center mb-5 reveal-text">
+                <h2 class="font-inter fw-bold tracking-tight mb-3" style="color: var(--brand-blue); font-size: 2.8rem;">
+                    Our Sponsors
+                </h2>
+                <p class="text-secondary fs-4 mt-4 max-w-2xl mx-auto" style="max-width: 800px;">
+                    We are honored to have the support of these prestigious projects and organizations driving
+                    innovation in Computer Vision and Image Processing.
+                </p>
+            </div>
 
-    <section class="section">
-        <h2 class="section-title reveal-text">Reasons Why You Should Take Part In CVIP 2026</h2>
+            <!-- SPONSORS GRID -->
+            <div class="flex flex-wrap justify-center gap-8 items-center reveal-text mb-5">
+                <a href="./sponsorship.html" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="CapsNetwork" class="max-h-24 w-auto mx-auto" src="assets/images/capsnet.png">
+                </a>
+                 <a href="https://www.infineon.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="infineon" class="max-h-24 w-auto mx-auto" src="assets/images/infineon-logo.png">
+                </a>
+                 <a href="https://www.mathworks.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="Mathworks" class="max-h-24 w-auto mx-auto" src="assets/images/mathworks.png">
+                </a>
+                 <a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="NPTEL" class="max-h-24 w-auto mx-auto" src="assets/images/NPTEL.png">
+                </a>
+                <a href="https://www.google.com/aclk?sa=L&pf=1&ai=DChsSEwiQ8-OFqrmXAxVQkEsFHbKpAOsYACICCAEQABoCc2Y&co=1&ase=2&gclid=CjwKCAjw0LzWBhBOEiwAKQd0cCxaP0Zp8_7D556kHG6oeaTPwOXth2jH9xAOVv8NUurz4rowfc6HahoCIagQAvD_BwE&cid=CAASWuRoUj7DaUiu5f_cORBlgvsPFwOqC8s_YMPSLMM0vSORwSaqsVH-dn6NlwLHOra-hntuycrN2aTOsQlIwiBvwvKR998JpljFZZ-IqvIIBp6bTp38fVA_f1UwWA&cce=2&category=acrcp_v1_32&sig=AOD64_34A4FXEczdtvwDPGrK1NJX-QgCEg&q&nis=4&adurl=https://link.springer.com/journal/40543?gad_source%3D1%26gad_campaignid%3D23690730402%26gbraid%3D0AAAABDOEA4zrkntbLBS_XkLWYqahYQYXW%26gclid%3DCjwKCAjw0LzWBhBOEiwAKQd0cCxaP0Zp8_7D556kHG6oeaTPwOXth2jH9xAOVv8NUurz4rowfc6HahoCIagQAvD_BwE&ved=2ahUKEwiHo92FqrmXAxUijOEIHcS2DrYQ0Qx6BAgPEAE" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="Springer" class="max-h-24 w-auto mx-auto" src="assets/images/Springer.jpg">
+                </a>
+                <a href="https://iapr.org/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="IAPR" class="max-h-24 w-auto mx-auto" src="assets/images/IAPR.png">
+                </a>
+                 <a href="https://link.springer.com/series/558" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="LNCS" class="max-h-24 w-auto mx-auto" src="assets/images/LNCS.png">
+                </a>
+                 <a href="https://link.springer.com/series/7899" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="CCIS" class="max-h-24 w-auto mx-auto" src="assets/images/ccis.png">
+                </a>
+                
+            </div>
 
-        <div class="reveal-text" style="max-width: 900px; margin: 0 auto; font-size: 1.05rem;">
-            <ul style="list-style-type: disc; padding-left: 20px; line-height: 2; color: #444;">
-                <li><strong>Grow Your Audience:</strong> Cultivate new business leads by showcasing your offerings at a
-                    prestigious event that attracts industry professionals from around the globe.</li>
-                <li><strong>Networking:</strong> Build and nurture relationships with industry leaders, innovators, and
-                    decision-makers who can help propel your business forward.</li>
-                <li><strong>Increase Brand Awareness:</strong> Position your company as a thought leader and gain
-                    maximum exposure through our event's extensive publicity.</li>
-                <li><strong>Drive Innovation:</strong> Discover cutting-edge technologies and creative solutions that
-                    can fuel the next phase of your company's growth.</li>
-                <li><strong>Enhance Competitive Edge:</strong> Gain insights from industry experts and leverage our
-                    platform to boost your market presence and stay ahead of the competition.</li>
-            </ul>
+            <div class="mt-20 p-5 rounded-5 text-center reveal-text"
+                style="background-color: var(--brand-dark); color: white; position: relative; overflow: hidden;">
+                <div
+                    style="position: absolute; inset: 0; opacity: 0.1; background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 30px 30px;">
+                </div>
+
+                <div class="position-relative z-1">
+                    <h4 class="font-inter fw-bold mb-3">Interested in Sponsoring CVIP 2026?</h4>
+                    <p class="opacity-75 mb-4 max-w-xl mx-auto">Join a global community of researchers and industry
+                        leaders. Showcase your brand to over 500+ international delegates.</p>
+                    <a href="mailto:cvip_2026@nitc.ac.in"
+                        class="btn btn-info text-white fw-bold px-5 py-3 rounded-pill text-uppercase tracking-wider">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section class="section" style="background: #f8f9fa;">
-        <h2 class="section-title reveal-text">Sponsorship Tiers</h2>
-        <div class="dates-table-container reveal-text" style="max-width: 1200px; overflow-x: auto;">
-            <table class="dates-table">
-                <thead>
-                    <tr>
-                        <th>Type of Sponsorship</th>
-                        <th>Fund (â‚¹) [excl. GST]</th>
-                        <th>Complimentary Pass</th>
-                        <th>Table/Stall</th>
-                        <th>Website/ Branding</th>
-                        <th>Brochure Branding</th>
-                        <th>Participation in Industry Session</th>
-                        <th>Branding During Breaks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="font-weight: 700; color: var(--primary-color);">Platinum</td>
-                        <td>7 Lacs</td>
-                        <td>7</td>
-                        <td>Stall</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 700; color: var(--primary-color);">Diamond</td>
-                        <td>5 Lacs</td>
-                        <td>4</td>
-                        <td>Stall</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 700; color: var(--primary-color);">Gold</td>
-                        <td>3 Lacs</td>
-                        <td>3</td>
-                        <td>Table</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 700; color: var(--primary-color);">Silver</td>
-                        <td>1.5 Lacs</td>
-                        <td>2</td>
-                        <td>Table</td>
-                        <td>Yes</td>
-                        <td>No</td>
-                        <td>No</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 700; color: var(--primary-color);">Bronze</td>
-                        <td>75 K</td>
-                        <td>1</td>
-                        <td>No</td>
-                        <td>Yes</td>
-                        <td>No</td>
-                        <td>No</td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 700; color: var(--primary-color);">Awards and Session Sponsorship</td>
-                        <td>Discussion with organizers</td>
-                        <td>1</td>
-                        <td>No</td>
-                        <td>Yes</td>
-                        <td>No</td>
-                        <td>No</td>
-                        <td>No</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <!-- UNIFIED FOOTER -->
+    <footer class="position-relative overflow-hidden">
+        <div class="dotted-overlay"></div>
+        <div class="container position-relative z-1">
+            <div class="row g-4 g-lg-5 align-items-center justify-content-center">
 
-        <div class="reveal-text" style="text-align: center; margin-top: 40px;">
-            <p style="margin-bottom: 20px;">CVIP 2026 attracts decision-makers looking for the next generation of
-                products, solutions, and advanced industry perspectives. Put yourself in the position to meet them by
-                supporting CVIP 2026! Send an email now to cvip2026@nitc.ac.in.</p>
-            <a href="mailto:cvip2026@nitc.ac.in" class="btn">Secure Your Sponsorship Today</a>
-        </div>
-    </section>
+                <div
+                    class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                    <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                        <img src="assets/images/nitc.png" height="50" alt="NITC Logo">
+                    </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>CVIP 2026</h4>
-                <p>NIT Calicut & NTNU Norway</p>
-                <p>Dec 9â€“12, 2026</p>
+                    <div>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">National Institute of Technology Calicut</h3>
+                        <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
+                            <a href="https://www.instagram.com/nitcofficial" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/NIT.Calicut.Kerala/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/school/national-institute-of-technology-calicut/"
+                                target="_blank" class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                    <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                        <img src="assets/images/ntnu.svg" height="40" alt="NTNU Logo">
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">Norwegian University of Science and Technology</h3>
+                        <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
+                            <a href="https://www.instagram.com/ntnu/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/ntnu.no/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/school/ntnu/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end">
+                    <nav class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-4 fs-6 fw-bold">
+                        <a href="cfp.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Submissions</a>
+                        <a href="registration.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Registration</a>
+                        <a href="important-dates.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Dates</a>
+                        <a href="mailto:cvip_2026@nitc.ac.in"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Contact Email : cvip_2026@nitc.ac.in</a>
+                    </nav>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Links</h4>
-                <ul style="list-style:none;">
-                    <li><a href="cfp.html">Call for Papers</a></li>
-                    <li><a href="registration.html">Registration</a></li>
-                    <li><a href="venue.html">Venue</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p>Email: cvip2026@nitc.ac.in</p>
+
+            <div class="mt-5 pt-4 border-top border-white border-opacity-10 text-center">
+                <p class="small text-uppercase tracking-widest opacity-50 mb-0">
+                    &copy; 2026 <span class="text-info fw-bold">CVIP Conference</span>. All rights reserved.
+                </p>
             </div>
         </div>
-        <div style="text-align:center; margin-top:40px; padding-top:20px; border-top:1px solid #333;">&copy; 2026 CVIP
-            Conference.</div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>

@@ -410,6 +410,139 @@
             }
         }
 
+        /* --- SPONSOR GRID & CARD STYLES --- */
+        .flex {
+            display: flex !important;
+        }
+        .flex-wrap {
+            flex-wrap: wrap !important;
+        }
+        .justify-center {
+            justify-content: center !important;
+        }
+        .items-center {
+            align-items: center !important;
+        }
+        .gap-8 {
+            gap: 2rem !important;
+        }
+        .bg-white {
+            background-color: #ffffff !important;
+        }
+        .rounded-lg {
+            border-radius: 14px !important;
+        }
+        .shadow-md {
+            box-shadow: 0 4px 18px rgba(0, 23, 31, 0.07) !important;
+            border: 1px solid rgba(0, 35, 50, 0.08) !important;
+        }
+        .transition-shadow {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .cursor-pointer {
+            cursor: pointer !important;
+        }
+        .max-h-24 {
+            max-height: 105px !important;
+        }
+        .w-auto {
+            width: auto !important;
+        }
+        .mx-auto {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        .w-full {
+            width: 100% !important;
+        }
+
+        .sponsor-card-link {
+            min-height: 140px;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none !important;
+            padding: 0.75rem 1rem !important;
+            background: #ffffff !important;
+            overflow: hidden;
+        }
+
+        .sponsor-card-link:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 14px 28px rgba(0, 126, 167, 0.18) !important;
+            border-color: var(--brand-accent) !important;
+        }
+
+        .sponsor-card-link img {
+            max-width: 90%;
+            max-height: 100px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .sponsor-card-link:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Optical sizing adjustment for logos with transparent canvas padding */
+        .sponsor-card-link img[alt*="infineon" i] {
+            max-height: 115px;
+            transform: scale(1.22);
+        }
+        .sponsor-card-link:hover img[alt*="infineon" i] {
+            transform: scale(1.28);
+        }
+
+        .sponsor-card-link img[alt*="mathworks" i] {
+            max-height: 108px;
+            max-width: 96%;
+            transform: scale(1.18);
+        }
+        .sponsor-card-link:hover img[alt*="mathworks" i] {
+            transform: scale(1.24);
+        }
+
+        @media (max-width: 575.98px) {
+            .sponsor-card-link,
+            .w-full {
+                width: 100% !important;
+            }
+            .gap-8 {
+                gap: 1.25rem !important;
+            }
+            .sponsor-card-link {
+                min-height: 115px;
+                padding: 0.5rem 0.75rem !important;
+            }
+            .sponsor-card-link img {
+                max-height: 80px;
+            }
+            .sponsor-card-link img[alt*="infineon" i] {
+                max-height: 95px;
+                transform: scale(1.18);
+            }
+            .sponsor-card-link img[alt*="mathworks" i] {
+                max-height: 85px;
+                transform: scale(1.15);
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 991.98px) {
+            .sponsor-card-link,
+            .sm\:w-\[calc\(50\%-1rem\)\],
+            .md\:w-\[calc\(50\%-1rem\)\] {
+                width: calc(50% - 1rem) !important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .sponsor-card-link,
+            .lg\:w-\[calc\(25\%-1\.5rem\)\] {
+                width: calc(25% - 1.5rem) !important;
+            }
+        }
+
         /* --- SPONSORS CARD MOBILE QUERIES (Under 992px) --- */
         @media (max-width: 992px) {
             .section-padding {
@@ -591,7 +724,7 @@
         <div class="container">
             <div class="text-center mb-16 reveal-text">
                 <h2 class="font-inter fw-bold tracking-tight mb-3" style="color: var(--brand-blue); font-size: 2.8rem;">
-                    Conference Sponsors
+                    Our Sponsors
                 </h2>
 
                 <p class="text-secondary fs-5 mt-4 max-w-2xl mx-auto">
@@ -600,28 +733,31 @@
                 </p>
             </div>
 
-            <div class="row g-5 justify-content-center align-items-center reveal-text mb-5">
-
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="p-5 rounded-4 shadow-sm border border-slate-100 bg-white h-100 d-flex flex-column align-items-center justify-content-center transition-all hover-translate-y"
-                        style="transition: transform 0.3s ease;">
-                        <img src="assets/images/capsnet.png" alt="Capsnetwork Project" class="img-fluid"
-                            style="max-height: 120px; width: auto;">
-
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 text-center">
-                    <div class="p-5 rounded-4 shadow-sm border border-slate-100 bg-light h-100 d-flex flex-column align-items-center justify-content-center transition-all hover-translate-y"
-                        style="transition: transform 0.3s ease; border-top: 6px solid var(--brand-accent) !important;">
-                        <h3 class="font-inter fw-bold mb-0"
-                            style="color: var(--brand-blue); font-size: 1.8rem; letter-spacing: -0.02em;">
-                            Capstrain Project
-                        </h3>
-
-                    </div>
-                </div>
-
+            <div class="flex flex-wrap justify-center gap-8 items-center reveal-text mb-5">
+                <a href="./sponsorship.html" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="CapsNetwork" class="max-h-24 w-auto mx-auto" src="assets/images/capsnet.png">
+                </a>
+                 <a href="https://www.infineon.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="infineon" class="max-h-24 w-auto mx-auto" src="assets/images/infineon-logo.png">
+                </a>
+                 <a href="https://www.mathworks.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="Mathworks" class="max-h-24 w-auto mx-auto" src="assets/images/mathworks.png">
+                </a>
+                 <a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="NPTEL" class="max-h-24 w-auto mx-auto" src="assets/images/NPTEL.png">
+                </a>
+                <a href="https://www.google.com/aclk?sa=L&pf=1&ai=DChsSEwiQ8-OFqrmXAxVQkEsFHbKpAOsYACICCAEQABoCc2Y&co=1&ase=2&gclid=CjwKCAjw0LzWBhBOEiwAKQd0cCxaP0Zp8_7D556kHG6oeaTPwOXth2jH9xAOVv8NUurz4rowfc6HahoCIagQAvD_BwE&cid=CAASWuRoUj7DaUiu5f_cORBlgvsPFwOqC8s_YMPSLMM0vSORwSaqsVH-dn6NlwLHOra-hntuycrN2aTOsQlIwiBvwvKR998JpljFZZ-IqvIIBp6bTp38fVA_f1UwWA&cce=2&category=acrcp_v1_32&sig=AOD64_34A4FXEczdtvwDPGrK1NJX-QgCEg&q&nis=4&adurl=https://link.springer.com/journal/40543?gad_source%3D1%26gad_campaignid%3D23690730402%26gbraid%3D0AAAABDOEA4zrkntbLBS_XkLWYqahYQYXW%26gclid%3DCjwKCAjw0LzWBhBOEiwAKQd0cCxaP0Zp8_7D556kHG6oeaTPwOXth2jH9xAOVv8NUurz4rowfc6HahoCIagQAvD_BwE&ved=2ahUKEwiHo92FqrmXAxUijOEIHcS2DrYQ0Qx6BAgPEAE" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="Springer" class="max-h-24 w-auto mx-auto" src="assets/images/Springer.jpg">
+                </a>
+                <a href="https://iapr.org/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="IAPR" class="max-h-24 w-auto mx-auto" src="assets/images/IAPR.png">
+                </a>
+                 <a href="https://link.springer.com/series/558" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="LNCS" class="max-h-24 w-auto mx-auto" src="assets/images/IAPR.png">
+                </a>
+                 <a href="https://link.springer.com/series/7899" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="CCIS" class="max-h-24 w-auto mx-auto" src="assets/images/ccis.png">
+                </a>
             </div>
 
             <div class="mt-20 p-5 rounded-5 text-center reveal-text"
