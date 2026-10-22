@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation | CVIP 2026</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/zoom-fix.css">
+    <link rel="stylesheet" href="assets/css/revamp.css">
+    <style>
+        /* --- BRAND IDENTITY CONFIGURATION --- */
+        :root {
+            --brand-blue: #003459;
+            --brand-accent: #007EA7;
+            --brand-dark: #00171F;
+            --brand-light: #00A8E8;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-500: #64748b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--brand-blue);
+            background-color: var(--slate-50);
+            overflow-x: hidden;
+        }
+
+        .font-montserrat {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .font-inter {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .logo-text {
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        /* UNIFIED NAVIGATION */
+        .navbar {
+            min-height: 96px;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--slate-100);
+            z-index: 1050;
+        }
+
+        .nav-link,
+        .dropdown-toggle,
+        .dropdown-item {
+            font-weight: 700 !important;
+            font-size: 17px !important;
+            color: var(--brand-blue) !important;
+            padding: 0.5rem 0.75rem !important;
+            display: flex !important;
+            align-items: center;
+            transition: all 0.2s ease;
+            background: transparent !important;
+        }
+
+        .nav-link:hover,
+        .dropdown:hover>.nav-link,
+        .dropdown-item:hover,
+        .nav-active {
+            color: var(--brand-accent) !important;
+            background: transparent !important;
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .dropdown-menu {
+            border: 1px solid var(--slate-100);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 12px 0;
+            margin-top: 0;
+            border-top: 4px solid var(--brand-accent);
+        }
+
+        /* SECTIONS */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(to bottom right, #00171F, #002A45, #00171F);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .dotted-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        @media (min-width: 1200px) and (max-width: 1435px) {
+            .navbar .logo-text {
+                font-size: 1.8rem !important;
+            }
+
+            .navbar img[alt="NITC"] {
+                height: 50px !important;
+            }
+
+            .navbar img[alt="NTNU"] {
+                height: 45px !important;
+            }
+
+            .navbar .d-flex.align-items-center.gap-3.gap-md-4 {
+                gap: 0.75rem !important;
+            }
+
+            .nav-link,
+            .dropdown-toggle {
+                font-size: 15px !important;
+                padding: 0.4rem 0.5rem !important;
+            }
+
+            .navbar-nav {
+                gap: 2px !important;
+            }
+
+            .container-fluid.px-lg-5 {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .navbar-collapse .dropdown-item {
+                font-size: 14px !important;
+                padding: 0.5rem 1rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                min-height: 80px;
+            }
+
+            .navbar .logo-text {
+                font-size: 1.7rem !important;
+            }
+
+            .navbar img[alt="NITC"] {
+                height: 48px !important;
+            }
+
+            .navbar img[alt="NTNU"] {
+                height: 42px !important;
+            }
+
+            .navbar .vr {
+                height: 38px !important;
+                margin-left: 5px !important;
+                margin-right: 5px !important;
+            }
+
+            .navbar .container-fluid {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .nav-link,
+            .dropdown-toggle {
+                font-size: 16px !important;
+                padding: 0.4rem 0.5rem !important;
+            }
+
+            .navbar-collapse .dropdown-item {
+                font-size: 16px !important;
+                padding: 0.5rem 1rem !important;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .navbar .logo-text {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .section-padding {
+                padding: 3.5rem 1rem !important;
+            }
+
+            .page-hero h1 {
+                font-size: 2.8rem !important;
+            }
+
+            .page-hero {
+                height: 60vh !important;
+                min-height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                height: auto !important;
+                min-height: 55vh;
+                padding-top: 130px !important;
+                padding-bottom: 60px !important;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem !important;
+                line-height: 1.2;
+            }
+        }
+
+        /* Hero Image Fix */
+        div[style*="background-image"] {
+            background-attachment: scroll !important;
+            background-size: cover !important;
+            background-position: center center !important;
+        }
+
+        /* --- CONTENT TEXT --- */
+        .accommodation-lead-text {
+            font-size: 1.22rem;
+            line-height: 1.75;
+            color: #334155;
+        }
+
+        /* --- RESPONSIVE HOTEL TABLES (matches Registration fee tables) --- */
+        .table-responsive {
+            -webkit-overflow-scrolling: touch;
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: rgba(0, 126, 167, 0.03) !important;
+        }
+
+        .hotel-table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .hotel-table col.col-hotel { width: 24%; }
+        .hotel-table col.col-loc { width: 36%; }
+        .hotel-table col.col-contact { width: 22%; }
+        .hotel-table col.col-dist { width: 18%; }
+
+        .hotel-table th,
+        .hotel-table td {
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .hotel-table tbody tr + tr td {
+            border-top: 1px solid var(--slate-200);
+        }
+
+        .hotel-table .hotel-name {
+            font-weight: 700;
+            color: var(--brand-blue);
+        }
+
+        .hotel-table .contact-line {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .hotel-table .contact-line a {
+            color: #1e293b;
+            text-decoration: none;
+        }
+
+        .hotel-table .contact-line a:hover {
+            color: var(--brand-accent);
+        }
+
+        .hotel-table .dist-cell {
+            font-weight: 700;
+            color: var(--brand-blue);
+            white-space: nowrap;
+        }
+
+        /* Enhanced Table Legibility for Large Displays */
+        @media (min-width: 993px) {
+            .table thead th {
+                font-size: 1.02rem !important;
+                letter-spacing: 0.04em;
+            }
+
+            .table tbody td {
+                font-size: 1.1rem !important;
+                color: #1e293b;
+            }
+
+            .hotel-table .hotel-name,
+            .hotel-table .dist-cell {
+                color: var(--brand-blue) !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .section-header {
+                font-size: 2.1rem !important;
+            }
+
+            .hotel-table th,
+            .hotel-table td {
+                padding: 12px 10px !important;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Mobile: each hotel becomes a clean stacked card */
+        @media (max-width: 768px) {
+            .section-header {
+                font-size: 1.8rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            .accommodation-lead-text {
+                font-size: 1.08rem !important;
+                line-height: 1.65 !important;
+            }
+
+            .table-responsive {
+                overflow-x: hidden !important;
+            }
+
+            .hotel-table,
+            .hotel-table tbody,
+            .hotel-table tr,
+            .hotel-table td {
+                display: block !important;
+                width: 100% !important;
+            }
+
+            .hotel-table colgroup,
+            .hotel-table thead {
+                display: none !important;
+            }
+
+            .hotel-table tbody tr {
+                padding: 0.9rem 1rem !important;
+                border-bottom: 1px solid var(--slate-200);
+            }
+
+            .hotel-table tbody tr:last-child {
+                border-bottom: none;
+            }
+
+            .hotel-table tbody tr + tr td {
+                border-top: none;
+            }
+
+            .hotel-table td {
+                display: flex !important;
+                gap: 0.75rem;
+                padding: 0.3rem 0 !important;
+                font-size: 0.95rem !important;
+                line-height: 1.4;
+                border: none !important;
+            }
+
+            .hotel-table td::before {
+                content: attr(data-label);
+                flex: 0 0 96px;
+                font-size: 0.74rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.03em;
+                color: var(--slate-500);
+                padding-top: 2px;
+            }
+
+            .hotel-table td.hotel-name {
+                font-size: 1.05rem !important;
+                padding-bottom: 0.45rem !important;
+            }
+
+            .hotel-table td.hotel-name::before {
+                display: none;
+            }
+
+            .hotel-table .contact-wrap {
+                display: block;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-padding {
+                padding: 2.25rem 0.4rem !important;
+            }
+
+            .container {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+            }
+
+            .section-header {
+                font-size: 1.55rem !important;
+            }
+
+            .hotel-table td::before {
+                flex-basis: 84px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-xl fixed-top shadow-sm">
+        <div class="container-fluid px-lg-5">
+            <div class="d-flex align-items-center gap-3 gap-md-4">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="assets/images/nitc.png" alt="NITC" height="60" class="brightness-0">
+                    <img src="assets/images/ntnu.svg" alt="NTNU" height="55">
+                </div>
+                <div class="vr d-none d-md-block mx-2" style="height: 48px; color: var(--slate-200); opacity: 1;"></div>
+                <a class="logo-text font-inter text-decoration-none" href="index.html"
+                    style="color: var(--brand-blue); font-size: 2rem; font-weight: 800;">CVIP 2026</a>
+            </div>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="keynoteDrop" role="button"
+                            data-bs-toggle="dropdown">Keynotes &amp; Tutorials</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="keynotes.html">Keynotes</a></li>
+                            <li><a class="dropdown-item" href="tutorials.html">Tutorials</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="commDrop" role="button"
+                            data-bs-toggle="dropdown">Committee</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="committee.html">Organizing Committee</a></li>
+                            <li><a class="dropdown-item" href="steering-committee.html">Steering Committee</a></li>
+                            <li><a class="dropdown-item" href="advisory.html">International Advisory Committee</a></li>
+                            <li><a class="dropdown-item" href="national-advisory.html">National Advisory Committee</a>
+                            </li>
+                            <li><a class="dropdown-item" href="area-chairs.html">Area Chairs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cfpDrop" role="button"
+                            data-bs-toggle="dropdown">Submissions</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cfp.html">Topics &amp; Tracks</a></li>
+                            <li><a class="dropdown-item" href="author-guidelines.html">Author Guidelines</a></li>
+                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                            <li><a class="dropdown-item"
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqojPoT-AQWQFLswwtOcFY9wKVv9l2XtiwMitJC2wQxZD72Q/viewform"
+                                    target="_blank">Call for Reviews</a></li>
+                            <li><a class="dropdown-item" href="camera-ready-submissions.html">Camera-Ready
+                                    Submissions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
+                    <li class="nav-item"><a class="nav-link" href="program.html">Program</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="sponsors.html">Sponsors</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-active" href="#" id="venueDrop" role="button"
+                            data-bs-toggle="dropdown">Venue</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="venue.html">Venue</a></li>
+                            <li><a class="dropdown-item" href="nearby-attractions.html">Nearby Attractions</a></li>
+                            <li><a class="dropdown-item" href="accommodation.html">Accommodation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="archDrop" role="button"
+                            data-bs-toggle="dropdown">Archive</a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="https://link.springer.com/conference/cvip">Past
+                                    Proceedings (Springer)</a></li>
+                            <li><a class="dropdown-item" href="https://iitrpr.ac.in/cvip2025">CVIP 2025 (IIT Ropar)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://cvip2024.iiitdm.ac.in/">CVIP 2024 (IIITDM)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://iitjammu.ac.in/cvip2023/">CVIP 2023 (IIT
+                                    Jammu)</a></li>
+                            <li><a class="dropdown-item" href="https://vnit.ac.in/cvip2022/index.php">CVIP 2022
+                                    (VNIT)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding-top: 96px;"></div>
+
+    <div class="page-hero"
+        style="position: relative; height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #00171F;">
+
+        <div style="position: absolute; inset: 0;
+                    background-image: url('assets/images/slide4.jpg');
+                    background-size: cover;
+                    background-position: center;
+                    opacity: 0.5;
+                    z-index: 1;">
+        </div>
+
+        <div style="position: absolute; inset: 0;
+                    background: linear-gradient(rgba(0,23,31,0.4), rgba(0,23,31,0.8));
+                    z-index: 2;">
+        </div>
+
+        <div class="container position-relative text-center" style="z-index: 3;">
+            <h1 class="reveal-text font-montserrat"
+                style="font-size: 3.5rem; font-weight: 900; color: white; letter-spacing: -0.023em; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+                Accommodation
+            </h1>
+            <div class="reveal-text"
+                style="height: 6px; width: 100px; background-color: #00A8E8; margin: 1.5rem auto 0; border-radius: 50px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN ACCOMMODATION CONTENT SECTION -->
+    <section class="section-padding bg-white">
+        <div class="container px-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-11">
+
+                    <div class="reveal-text mb-5">
+                        <div class="mb-4">
+                            <h2 class="font-inter fw-bold tracking-tight mb-2 section-header"
+                                style="color: var(--brand-blue); font-size: 2.35rem;">
+                                Hotels in Calicut
+                            </h2>
+                            <p class="accommodation-lead-text mb-0">Hotels near the NIT Calicut campus and hotels in Kozhikode city</p>
+                        </div>
+
+                        <!-- 1. HOTELS NEAR NIT CALICUT -->
+                        <div class="mb-5">
+                            <h4 class="font-inter fw-bold mb-3" style="color: var(--brand-accent); font-size: 1.45rem;">1. Hotels Near NIT Calicut</h4>
+                            <div class="table-responsive rounded-4 shadow-sm border border-slate-200 overflow-hidden bg-white">
+                                <table class="table table-hover mb-0 align-middle hotel-table">
+                                    <colgroup>
+                                        <col class="col-hotel">
+                                        <col class="col-loc">
+                                        <col class="col-contact">
+                                        <col class="col-dist">
+                                    </colgroup>
+                                    <thead style="background-color: var(--brand-blue); color: white; border-bottom: 4px solid var(--brand-light);">
+                                        <tr>
+                                            <th class="p-2 p-md-3 p-lg-4 text-uppercase border-0">Hotel</th>
+                                            <th class="p-2 p-md-3 p-lg-4 text-uppercase border-0">Location</th>
+                                            <th class="p-2 p-md-3 p-lg-4 text-uppercase border-0">Contact No.</th>
+                                            <th class="p-2 p-md-3 p-lg-4 text-uppercase border-0">Distance from NITC</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">VR Residency</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">NH 212, Wayanad Road, Karanthur, Kunnamangalam</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:7736709781">7736709781</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 6 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Miracle Hotel &amp; Resorts</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Mukkam Road, near 220KV Substation, Kunnamangalam</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:09846222898">098462 22898</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 8 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Hotel Haaz Grande Calicut</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kunnamangalam</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:9895792162">9895792162</a></span><span class="contact-line"><a href="tel:7907522636">7907522636</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 7.2 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Le Candles Resort</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">East Malayamma Road, Kattangal</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:9561788855">9561788855</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 2 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Hotel Malayoram Gateway</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Areekode Road, Mukkam, Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:04952293121">0495-229 31 21</a></span><span class="contact-line"><a href="tel:9745007060">9745007060</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 3.8 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Hotel Indraprastha</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Location to be confirmed</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:9946012302">9946012302</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 6 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Hotel Monad</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Karanthur, Kunnamangalam</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:08606410011">086064 10011</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 7 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Sanketam Motel</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Mampetta, P.O. Mukkam, Kozhikode District</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:09846099423">098460 99423</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 5 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Oakleaf Residency</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kattangal, near NIT Calicut</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:8086033548">80860 33548</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx 500 m</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Redstone Villa</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Exact property/location to be verified</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:08330050531">083300 50531</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 6 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Hotel Springway</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Wayanad Road, Kunnamangalam</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:08593961133">085939 61133</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 7 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Chaithanya Residency</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Chethukadavu&ndash;Kuttikatoor Road, near IIM, Kunnamangalam</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:09497257619">094972 57619</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 4 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- 2. HOTELS IN KOZHIKODE CITY -->
+                        <div class="mb-2">
+                            <h4 class="font-inter fw-bold mb-3" style="color: var(--brand-accent); font-size: 1.45rem;">2. Hotels in Kozhikode City</h4>
+                            <div class="table-responsive rounded-4 shadow-sm border border-slate-200 overflow-hidden bg-white">
+                                <table class="table table-hover mb-0 align-middle hotel-table">
+                                    <colgroup>
+                                        <col class="col-hotel">
+                                        <col class="col-loc">
+                                        <col class="col-contact">
+                                        <col class="col-dist">
+                                    </colgroup>
+                                    <thead style="background-color: var(--brand-blue); color: white; border-bottom: 4px solid var(--brand-light);">
+                                        <tr>
+                                            <th class="p-2 p-md-3 p-lg-4 text-uppercase border-0">Hotel</th>
+                                            <th class="p-2 p-md-3 p-lg-4 text-uppercase border-0">Location</th>
+                                            <th class="p-2 p-md-3 p-lg-4 text-uppercase border-0">Contact No.</th>
+                                            <th class="p-2 p-md-3 p-lg-4 text-uppercase border-0">Distance from NITC</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Sea Queen Hotel</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:9468093793">9468093793</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 22 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">KPM Tripenta Hotel</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Mini Bypass Road, Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:6235996607">62359 96607</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 20 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">The Raviz Calicut</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:8086404223">8086404223</a></span><span class="contact-line"><a href="tel:04952221111">0495 222 1111</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 20 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">The Gateway Hotel Calicut</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:9149581300">9149581300</a></span><span class="contact-line"><a href="tel:04956613000">0495 661 3000</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 22 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Treebo Casino</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:09322800100">093228 00100</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 22 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Grand Plaza Suites</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:09495768787">094957 68787</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 21 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Royal Plaza Inn</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">P. T. Usha Road, Vellayil, Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:8152923377">8152923377</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 21 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Hotel Yash International Calicut</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Mavoor Road, Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:04954011444">0495 401 1444</a></span><span class="contact-line"><a href="tel:7994443304">799 444 33 04</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 20 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Hotel Paramount Tower</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:04952728801">0495 272 8801</a></span><span class="contact-line"><a href="tel:9387335513">9387335513</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 22 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Westway Hotel</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:04952768888">0495 276 8888</a></span><span class="contact-line"><a href="tel:04952768111">0495 2768111</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 22 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Nextay Kassaba Inn</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:8089405333">8089405333</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 20 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Gokulam Grand Hotel &amp; Spa</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Arayidathupalam, Mavoor Road, Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:7250493330">7250493330</a></span><span class="contact-line"><a href="tel:04953530000">0495 353 0000</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 20 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Hyson Heritage</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Bank Road, Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:8943155111">8943155111</a></span><span class="contact-line"><a href="tel:08943885599">089438 85599</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 21 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Hotel Dimora Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:7025500044">7025500044</a></span><span class="contact-line"><a href="tel:04956665333">0495 666 5333</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 20 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Beach Heritage Inn</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Kozhikode City / beach area</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:9492270555">9492270555</a></span><span class="contact-line"><a href="tel:04952762055">0495 276 2055</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 22 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Oshin Calicut</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Bank Road, Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:07559961234">075599 61234</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 21 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Manuelsons Malabar Palace</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">GH Road / Manuelsons Junction, Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:08593884499">085938 84499</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 22 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Explora Calicut by Nova</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Jaffer Khan Colony Road, opposite Planetarium, Kozhikode</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:8086739993">8086739993</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 22 km</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2 p-md-3 p-lg-4 hotel-name" data-label="Hotel">Neelagiri Heritage Hotel</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Location">Annie Hall Road, opposite Kozhikode Railway Station</td>
+                                            <td class="p-2 p-md-3 p-lg-4" data-label="Contact No."><span class="contact-wrap"><span class="contact-line"><a href="tel:08075838228">080758 38228</a></span></span></td>
+                                            <td class="p-2 p-md-3 p-lg-4 dist-cell" data-label="Distance">Approx. 22 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="position-relative overflow-hidden">
+        <div class="dotted-overlay"></div>
+        <div class="container position-relative z-1">
+            <div class="row g-4 g-lg-5 align-items-center justify-content-center">
+                <div
+                    class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                    <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                        <img src="assets/images/nitc.png" height="50" alt="NITC Logo">
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">National Institute of Technology
+                            Calicut</h3>
+                        <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
+                            <a href="https://www.instagram.com/nitcofficial" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/NIT.Calicut.Kerala/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/school/national-institute-of-technology-calicut/"
+                                target="_blank" class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                    <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                        <img src="assets/images/ntnu.svg" height="40" alt="NTNU Logo">
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">Norwegian University of Science and
+                            Technology</h3>
+                        <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
+                            <a href="https://www.instagram.com/ntnu/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/ntnu.no/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/school/ntnu/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end">
+                    <nav class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-4 fs-6 fw-bold">
+                        <a href="cfp.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Call
+                            for Papers</a>
+                        <a href="registration.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Registration</a>
+                        <a href="important-dates.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Dates</a>
+                        <a href="mailto:cvip_2026@nitc.ac.in"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Contact
+                            Email : cvip_2026@nitc.ac.in </a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-top border-white border-opacity-10 text-center">
+                <p class="small text-uppercase tracking-widest opacity-50 mb-0">
+                    &copy; 2026 <span class="text-info fw-bold">CVIP Conference</span>. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
+
