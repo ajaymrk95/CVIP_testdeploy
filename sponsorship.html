@@ -216,12 +216,14 @@
             transform: scale(1.28);
         }
 
-        .sponsor-card-link img[alt*="mathworks" i] {
+        .sponsor-card-link img[alt*="mathworks" i],
+        .sponsor-card-link img[alt*="vehant" i] {
             max-height: 108px;
             max-width: 96%;
             transform: scale(1.18);
         }
-        .sponsor-card-link:hover img[alt*="mathworks" i] {
+        .sponsor-card-link:hover img[alt*="mathworks" i],
+        .sponsor-card-link:hover img[alt*="vehant" i] {
             transform: scale(1.24);
         }
 
@@ -526,7 +528,14 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="program.html">Program</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="programDrop" role="button"
+                            data-bs-toggle="dropdown">Program</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="program.html">Conference Program</a></li>
+                            <li><a class="dropdown-item" href="https://forms.gle/PgnrY8wF1Z3R8qDz7" target="_blank">CVIP 2027 Bidding</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link nav-active" href="sponsors.html">Sponsors</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="venueDrop" role="button"
@@ -548,7 +557,6 @@
                             <li><a class="dropdown-item" href="https://cvip2024.iiitdm.ac.in/" target="_blank">CVIP 2024 (IIITDM)</a></li>
                             <li><a class="dropdown-item" href="https://iitjammu.ac.in/cvip2023/" target="_blank">CVIP 2023 (IIT Jammu)</a></li>
                             <li><a class="dropdown-item" href="https://vnit.ac.in/cvip2022/index.php" target="_blank">CVIP 2022 (VNIT)</a></li>
-                            <li><a class="dropdown-item" href="https://forms.gle/PgnrY8wF1Z3R8qDz7" target="_blank">CVIP 2027 Bidding</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -607,6 +615,12 @@
                 </a>
                  <a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
                     <img alt="NPTEL" class="max-h-24 w-auto mx-auto" src="assets/images/NPTEL.png">
+                </a>
+                 <a href="https://sangraha.nitc.ac.in/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="Sangraha CoEUPD - NITC" class="max-h-24 w-auto mx-auto" src="assets/images/sangraha.png">
+                </a>
+                 <a href="https://www.vehant.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card-link bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer w-full sm:w-[calc(50%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]" style="opacity: 1; transform: none;">
+                    <img alt="Vehant Technologies" class="max-h-24 w-auto mx-auto" src="assets/images/vehant.jpeg">
                 </a>
             </div>
 
