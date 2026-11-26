@@ -282,17 +282,6 @@
             opacity: 0.55;
         }
 
-        .showcase-decor-lens {
-            position: absolute;
-            top: -58px;
-            right: -58px;
-            width: 280px;
-            height: 280px;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.82;
-        }
-
         .showcase-decor-pixels-left,
         .showcase-decor-pixels-right {
             position: absolute;
@@ -1123,24 +1112,6 @@
                     <circle cx="28" cy="210" r="4" />
                     <circle cx="122" cy="198" r="4" />
                 </g>
-            </svg>
-
-            <!-- Top-right concentric vision lens SVG -->
-            <svg class="showcase-decor-lens" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                    <radialGradient id="lensGlow" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.85" />
-                        <stop offset="48%" stop-color="#4f46e5" stop-opacity="0.55" />
-                        <stop offset="78%" stop-color="#a855f7" stop-opacity="0.28" />
-                        <stop offset="100%" stop-color="#c084fc" stop-opacity="0" />
-                    </radialGradient>
-                </defs>
-                <circle cx="150" cy="130" r="120" fill="url(#lensGlow)" />
-                <circle cx="150" cy="130" r="108" stroke="#6366f1" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="28 14" />
-                <circle cx="150" cy="130" r="88" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="3" />
-                <circle cx="150" cy="130" r="68" stroke="#c084fc" stroke-opacity="0.55" stroke-width="1.8" />
-                <circle cx="150" cy="130" r="46" fill="#0f2557" fill-opacity="0.72" stroke="#93c5fd" stroke-opacity="0.6" stroke-width="2" />
-                <circle cx="150" cy="130" r="20" fill="#1e1b4b" />
             </svg>
 
             <div class="showcase-decor-pixels-left" aria-hidden="true"></div>
