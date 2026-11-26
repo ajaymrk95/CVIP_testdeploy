@@ -138,7 +138,7 @@
             display: flex;
             gap: 2rem;
             white-space: nowrap;
-            animation: marquee 30s linear infinite;
+            animation: marquee 40s linear infinite;
         }
 
         .marquee-wrapper:hover .marquee-content {
@@ -935,6 +935,54 @@
             height: auto;
             margin: auto;
         }
+
+        /* Keynote panel 6: staggered layout, responsive */
+        .keynote-stagger {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .keynote-stagger .ks-item {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .keynote-stagger .ks-a { grid-column: 1; grid-row: 1; }
+        .keynote-stagger .ks-b { grid-column: 1; grid-row: 2; }
+        .keynote-stagger .ks-c { grid-column: 2; grid-row: 1 / span 2; }
+        .keynote-stagger .ks-d { grid-column: 3; grid-row: 1; }
+        .keynote-stagger .ks-e { grid-column: 3; grid-row: 2; }
+
+        /* Tablet: 2 columns, last speaker centered */
+        @media (max-width: 991.98px) {
+            .keynote-stagger {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .keynote-stagger .ks-item {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .keynote-stagger .ks-e {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* Mobile: single column */
+        @media (max-width: 575.98px) {
+            .keynote-stagger {
+                grid-template-columns: 1fr;
+            }
+
+            .keynote-stagger .ks-e {
+                grid-column: auto;
+            }
+        }
     </style>
 </head>
 
@@ -1044,8 +1092,8 @@
 
     <div class="marquee-wrapper">
         <div class="marquee-content fw-bold text-uppercase small px-3">
-            <span>Tentative presentation Schedule is published: <a href="https://docs.google.com/spreadsheets/d/1W7VzFOVwOyadQ1FLGnCZvSUV57pEG2tb/edit?usp=sharing&ouid=109985862335827127073&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Link</a> &bull; Non author registration is extended till 20th November 2026 &bull; CVIP 2027 bidding is open. Interested institutions kindly fill the google form: <a href="https://forms.gle/PgnrY8wF1Z3R8qDz7" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Link</a> &bull; Conference Dates: Dec 9-12, 2026 &bull; Jointly Organized by NIT Calicut and NTNU Norway</span>
-            <span>Tentative presentation Schedule is published: <a href="https://docs.google.com/spreadsheets/d/1W7VzFOVwOyadQ1FLGnCZvSUV57pEG2tb/edit?usp=sharing&ouid=109985862335827127073&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Link</a> &bull; Non author registration is extended till 20th November 2026 &bull; CVIP 2027 bidding is open. Interested institutions kindly qfill the google form: <a href="https://forms.gle/PgnrY8wF1Z3R8qDz7" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Link</a> &bull; Conference Dates: Dec 9-12, 2026 &bull; Jointly Organized by NIT Calicut and NTNU Norway</span>
+            <span>Tentative presentation Schedule is published: <a href="https://docs.google.com/spreadsheets/d/1W7VzFOVwOyadQ1FLGnCZvSUV57pEG2tb/edit?usp=sharing&ouid=109985862335827127073&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Link</a> &bull; Non author registration is extended till 20th November 2026 &bull; <a href="https://forms.gle/Q2kLzs5PUrbCRUwS6" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Register for Tutorial / Workshop (on 9th December 2026)</a> &bull; CVIP 2027 bidding is open. Interested institutions kindly fill the google form: <a href="https://forms.gle/PgnrY8wF1Z3R8qDz7" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Link</a> &bull; Conference Dates: Dec 9-12, 2026 &bull; Jointly Organized by NIT Calicut and NTNU Norway</span>
+            <span>Tentative presentation Schedule is published: <a href="https://docs.google.com/spreadsheets/d/1W7VzFOVwOyadQ1FLGnCZvSUV57pEG2tb/edit?usp=sharing&ouid=109985862335827127073&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Link</a> &bull; Non author registration is extended till 20th November 2026 &bull; <a href="https://forms.gle/Q2kLzs5PUrbCRUwS6" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Register for Tutorial / Workshop (on 9th December 2026)</a> &bull; CVIP 2027 bidding is open. Interested institutions kindly fill the google form: <a href="https://forms.gle/PgnrY8wF1Z3R8qDz7" target="_blank" rel="noopener noreferrer" style="color: #4CC9F0; text-decoration: underline;">Link</a> &bull; Conference Dates: Dec 9-12, 2026 &bull; Jointly Organized by NIT Calicut and NTNU Norway</span>
         </div>
     </div>
 
@@ -1364,96 +1412,55 @@
                         </div>
                     </div>
 
-                    <!-- PANEL 6: KEYNOTE SPEAKERS SET 2 (STAGGERED 2-1-2 LAYOUT MATCHING SLIDE) -->
+                    <!-- PANEL 6: KEYNOTE SPEAKERS SET 2 (STAGGERED 2-1-2 LAYOUT, RESPONSIVE GRID) -->
                     <div class="showcase-slide" data-slide="5">
                         <div class="text-center mb-4">
                             <span class="showcase-header-pill">Meet Our Distinguished Keynote Speakers</span>
                         </div>
-                        <div class="row g-4 align-items-center justify-content-center">
-                            <!-- Left Column: Jaya Bindra & Fahad Shahbaz Khan -->
-                            <div class="col-12 col-md-6 col-lg-4 d-flex flex-column gap-4">
+                        <div class="keynote-stagger">
+                            <div class="ks-item ks-a">
                                 <div class="speaker-unit">
-                                    <div class="speaker-photo-box">
-                                        <img src="assets/images/JayaBindra.jpg" alt="Jaya Bindra">
-                                    </div>
-                                    <div class="speaker-plate-outer">
-                                        <div class="speaker-plate">
-                                            <div class="speaker-plate-inner">
-                                                <div class="speaker-plate-text">
-                                                    <h3 class="speaker-name">Jaya Bindra</h3>
-                                                    <p class="speaker-affil">Infineon Technologies</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="speaker-unit">
-                                    <div class="speaker-photo-box">
-                                        <img src="assets/images/FahadShahbazKhan.jpg" alt="Fahad Shahbaz Khan">
-                                    </div>
-                                    <div class="speaker-plate-outer">
-                                        <div class="speaker-plate">
-                                            <div class="speaker-plate-inner">
-                                                <div class="speaker-plate-text">
-                                                    <h3 class="speaker-name">Fahad Shahbaz Khan</h3>
-                                                    <p class="speaker-affil">Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), UAE</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="speaker-photo-box"><img src="assets/images/JayaBindra.jpg" alt="Jaya Bindra"></div>
+                                    <div class="speaker-plate-outer"><div class="speaker-plate"><div class="speaker-plate-inner"><div class="speaker-plate-text">
+                                        <h3 class="speaker-name">Jaya Bindra</h3>
+                                        <p class="speaker-affil">Infineon Technologies</p>
+                                    </div></div></div></div>
                                 </div>
                             </div>
-
-                            <!-- Center Column: P P Anilkumar -->
-                            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                            <div class="ks-item ks-b">
                                 <div class="speaker-unit">
-                                    <div class="speaker-photo-box">
-                                        <img src="assets/images/PPAnilKumar.png" alt="P. P. Anil Kumar">
-                                    </div>
-                                    <div class="speaker-plate-outer">
-                                        <div class="speaker-plate">
-                                            <div class="speaker-plate-inner">
-                                                <div class="speaker-plate-text">
-                                                    <h3 class="speaker-name">P. P. Anil Kumar</h3>
-                                                    <p class="speaker-affil">NIT Calicut</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="speaker-photo-box"><img src="assets/images/FahadShahbazKhan.jpg" alt="Fahad Shahbaz Khan"></div>
+                                    <div class="speaker-plate-outer"><div class="speaker-plate"><div class="speaker-plate-inner"><div class="speaker-plate-text">
+                                        <h3 class="speaker-name">Fahad Shahbaz Khan</h3>
+                                        <p class="speaker-affil">Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), UAE</p>
+                                    </div></div></div></div>
                                 </div>
                             </div>
-
-                            <!-- Right Column: Shree K. Nayar & R. Venkatesh Babu -->
-                            <div class="col-12 col-md-12 col-lg-4 d-flex flex-column flex-md-row flex-lg-column justify-content-center gap-4">
+                            <div class="ks-item ks-c">
                                 <div class="speaker-unit">
-                                    <div class="speaker-photo-box">
-                                        <img src="assets/images/ShreeKNayar.jpg" alt="Shree K. Nayar">
-                                    </div>
-                                    <div class="speaker-plate-outer">
-                                        <div class="speaker-plate">
-                                            <div class="speaker-plate-inner">
-                                                <div class="speaker-plate-text">
-                                                    <h3 class="speaker-name">Shree K. Nayar</h3>
-                                                    <p class="speaker-affil">Columbia University, USA</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="speaker-photo-box"><img src="assets/images/PPAnilKumar.png" alt="P. P. Anil Kumar"></div>
+                                    <div class="speaker-plate-outer"><div class="speaker-plate"><div class="speaker-plate-inner"><div class="speaker-plate-text">
+                                        <h3 class="speaker-name">P. P. Anil Kumar</h3>
+                                        <p class="speaker-affil">NIT Calicut</p>
+                                    </div></div></div></div>
                                 </div>
+                            </div>
+                            <div class="ks-item ks-d">
                                 <div class="speaker-unit">
-                                    <div class="speaker-photo-box">
-                                        <img src="assets/images/VenkateshBabu.jpg" alt="R. Venkatesh Babu">
-                                    </div>
-                                    <div class="speaker-plate-outer">
-                                        <div class="speaker-plate">
-                                            <div class="speaker-plate-inner">
-                                                <div class="speaker-plate-text">
-                                                    <h3 class="speaker-name">R. Venkatesh Babu</h3>
-                                                    <p class="speaker-affil">Indian Institute of Science (IISc), Bengaluru, India</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div class="speaker-photo-box"><img src="assets/images/ShreeKNayar.jpg" alt="Shree K. Nayar"></div>
+                                    <div class="speaker-plate-outer"><div class="speaker-plate"><div class="speaker-plate-inner"><div class="speaker-plate-text">
+                                        <h3 class="speaker-name">Shree K. Nayar</h3>
+                                        <p class="speaker-affil">Columbia University, USA</p>
+                                    </div></div></div></div>
+                                </div>
+                            </div>
+                            <div class="ks-item ks-e">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box"><img src="assets/images/VenkateshBabu.jpg" alt="R. Venkatesh Babu"></div>
+                                    <div class="speaker-plate-outer"><div class="speaker-plate"><div class="speaker-plate-inner"><div class="speaker-plate-text">
+                                        <h3 class="speaker-name">R. Venkatesh Babu</h3>
+                                        <p class="speaker-affil">Indian Institute of Science (IISc), Bengaluru, India</p>
+                                    </div></div></div></div>
                                 </div>
                             </div>
                         </div>
