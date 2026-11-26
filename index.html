@@ -251,6 +251,382 @@
             transform: scale(1.10);
         }
 
+        /* --- DISTINGUISHED SHOWCASE (CLEAN VERSION OF SLIDE PALETTE & GEOMETRY) --- */
+        .showcase-section {
+            background: #f4f7fc;
+            padding: 3.5rem 1rem 4rem;
+        }
+
+        .showcase-board {
+            max-width: 1220px;
+            margin: 0 auto;
+            border-radius: 22px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 6% 18%, rgba(125, 211, 252, 0.58) 0%, rgba(186, 230, 253, 0.28) 26%, transparent 52%),
+                radial-gradient(circle at 95% 14%, rgba(192, 132, 252, 0.50) 0%, rgba(216, 180, 254, 0.24) 28%, transparent 54%),
+                radial-gradient(circle at 50% 48%, #ffffff 0%, #f8fbff 64%, #eef4ff 100%);
+            box-shadow: 0 24px 60px rgba(8, 22, 58, 0.14);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .showcase-decor-net {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 340px;
+            height: 290px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.55;
+        }
+
+        .showcase-decor-lens {
+            position: absolute;
+            top: -58px;
+            right: -58px;
+            width: 280px;
+            height: 280px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.82;
+        }
+
+        .showcase-decor-pixels-left,
+        .showcase-decor-pixels-right {
+            position: absolute;
+            width: 140px;
+            height: 180px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.28;
+            background-image:
+                linear-gradient(90deg, rgba(59, 130, 246, 0.35) 55%, transparent 55%),
+                linear-gradient(rgba(59, 130, 246, 0.35) 55%, transparent 55%);
+            background-size: 18px 18px;
+        }
+
+        .showcase-decor-pixels-left {
+            left: 12px;
+            bottom: 95px;
+            mask-image: radial-gradient(circle at left center, black 25%, transparent 78%);
+            -webkit-mask-image: radial-gradient(circle at left center, black 25%, transparent 78%);
+        }
+
+        .showcase-decor-pixels-right {
+            right: 12px;
+            bottom: 95px;
+            background-image:
+                linear-gradient(90deg, rgba(147, 51, 234, 0.38) 55%, transparent 55%),
+                linear-gradient(rgba(147, 51, 234, 0.38) 55%, transparent 55%);
+            mask-image: radial-gradient(circle at right center, black 25%, transparent 78%);
+            -webkit-mask-image: radial-gradient(circle at right center, black 25%, transparent 78%);
+        }
+
+        .showcase-inner {
+            position: relative;
+            z-index: 2;
+            padding: 2.25rem 2rem 1.25rem;
+        }
+
+        .showcase-header-pill {
+            display: inline-block;
+            background: linear-gradient(180deg, #102a6b 0%, #07153a 55%, #0a1942 100%);
+            color: #ffffff;
+            padding: 0.8rem 2.8rem;
+            border-radius: 999px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 1.18rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 2px solid #c7d2fe;
+            box-shadow:
+                0 0 0 3px rgba(67, 56, 202, 0.32),
+                0 12px 26px rgba(7, 21, 58, 0.28),
+                inset 0 1px 0 rgba(255, 255, 255, 0.28);
+            max-width: 100%;
+        }
+
+        .showcase-stage {
+            position: relative;
+            min-height: 455px;
+            display: flex;
+            align-items: center;
+        }
+
+        .showcase-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.75s;
+            pointer-events: none;
+        }
+
+        .showcase-slide.active {
+            position: relative;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Speaker Unit: Cutout/Portrait tucked directly into angled Cyan-to-Violet Navy Plate */
+        .speaker-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-unit:hover {
+            transform: translateY(-5px);
+        }
+
+        .speaker-photo-box {
+            width: 132px;
+            height: 142px;
+            border-radius: 20px 20px 6px 6px;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(241, 245, 255, 0.96));
+            box-shadow: 0 8px 22px rgba(9, 25, 69, 0.12);
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            margin-bottom: -14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .speaker-photo-box.featured {
+            width: 178px;
+            height: 192px;
+            border-radius: 26px 26px 8px 8px;
+        }
+
+        .speaker-photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+
+        .speaker-plate-outer {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 295px;
+            padding: 0 8px;
+        }
+
+        .speaker-plate-outer.featured {
+            max-width: 380px;
+        }
+
+        .speaker-plate {
+            position: relative;
+            transform: skewX(-13deg);
+            border-radius: 14px;
+            padding: 2.5px;
+            background: linear-gradient(90deg, #00e1ff 0%, #38bdf8 30%, #818cf8 68%, #d946ef 100%);
+            box-shadow:
+                -6px 5px 0 rgba(2, 132, 199, 0.9),
+                6px -4px 0 rgba(168, 85, 247, 0.82),
+                0 12px 24px rgba(6, 18, 52, 0.28);
+        }
+
+        .speaker-plate-inner {
+            background: linear-gradient(135deg, #041238 0%, #0b235a 52%, #1b114a 100%);
+            border-radius: 12px;
+            padding: 0.72rem 1rem;
+            min-height: 76px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .speaker-plate-outer.featured .speaker-plate-inner {
+            padding: 0.95rem 1.35rem;
+            min-height: 92px;
+        }
+
+        .speaker-plate-text {
+            transform: skewX(13deg);
+            width: 100%;
+        }
+
+        .speaker-name {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 1.06rem;
+            color: #fde047;
+            margin-bottom: 0.2rem;
+            line-height: 1.25;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+        }
+
+        .speaker-plate-outer.featured .speaker-name {
+            font-size: 1.45rem;
+        }
+
+        .speaker-affil {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-style: italic;
+            font-size: 0.82rem;
+            color: #f8fafc;
+            line-height: 1.32;
+            margin-bottom: 0;
+        }
+
+        .speaker-plate-outer.featured .speaker-affil {
+            font-size: 0.98rem;
+        }
+
+        .showcase-sponsor-tile {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1.5px solid rgba(99, 102, 241, 0.22);
+            border-radius: 14px;
+            padding: 0.85rem;
+            height: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(11, 29, 69, 0.07);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .showcase-sponsor-tile:hover {
+            transform: translateY(-4px);
+            border-color: #38bdf8;
+            box-shadow: 0 12px 26px rgba(11, 29, 69, 0.13);
+        }
+
+        .showcase-sponsor-tile img {
+            max-height: 60px;
+            max-width: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .showcase-wave-wrap {
+            position: relative;
+            z-index: 1;
+            margin-top: 0.5rem;
+            line-height: 0;
+        }
+
+        .showcase-wave-svg {
+            width: 100%;
+            height: 58px;
+            display: block;
+        }
+
+        .showcase-footer-bar {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(90deg, #06184a 0%, #0d2b7a 55%, #3b0f78 100%);
+            color: #ffffff;
+            padding: 0.65rem 1.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-weight: 700;
+            font-size: 0.98rem;
+            letter-spacing: 0.01em;
+        }
+
+        .showcase-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.9rem;
+            margin-top: 1.35rem;
+        }
+
+        .showcase-nav-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid #c7d2fe;
+            background: #ffffff;
+            color: #0b2259;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(11, 29, 69, 0.08);
+            transition: all 0.25s ease;
+        }
+
+        .showcase-nav-btn:hover {
+            background: linear-gradient(135deg, #0b2259, #4338ca);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        .showcase-dots {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.45rem;
+        }
+
+        .showcase-dot {
+            width: 22px;
+            height: 6px;
+            border-radius: 999px;
+            background: #cbd5e1;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .showcase-dot.active {
+            width: 42px;
+            background: linear-gradient(90deg, #00b4d8, #9333ea);
+        }
+
+        @media (max-width: 768px) {
+            .showcase-inner {
+                padding: 1.5rem 1rem 1rem;
+            }
+
+            .showcase-header-pill {
+                font-size: 0.9rem;
+                padding: 0.65rem 1.25rem;
+            }
+
+            .speaker-photo-box {
+                width: 108px;
+                height: 118px;
+            }
+
+            .speaker-name {
+                font-size: 0.94rem;
+            }
+
+            .speaker-affil {
+                font-size: 0.75rem;
+            }
+
+            .showcase-footer-bar {
+                font-size: 0.82rem;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
         /* --- LAPTOP OPTIMIZATION (1200px to 1440px) --- */
         @media (min-width: 1200px) and (max-width: 1435px) {
 
@@ -637,6 +1013,7 @@
                             data-bs-toggle="dropdown">Program</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="program.html">Conference Program</a></li>
+                            <li><a class="dropdown-item" href="presentation-guidelines.html">Paper Presentation Guidelines</a></li>
                             <li><a class="dropdown-item" href="https://forms.gle/PgnrY8wF1Z3R8qDz7" target="_blank">CVIP 2027 Bidding</a></li>
                         </ul>
                     </li>
@@ -716,6 +1093,598 @@
                 style="background-color: var(--brand-accent); font-size: 1.1rem;">
                 <i class="fa-solid fa-file-pdf me-2"></i>CVIP 2026 Brochure
             </a>
+        </div>
+    </section>
+
+    <!-- DISTINGUISHED LEADERSHIP & SPEAKERS SHOWCASE -->
+    <section class="showcase-section" id="distinguishedShowcase">
+        <div class="showcase-board">
+            <!-- Top-left network constellation SVG -->
+            <svg class="showcase-decor-net" viewBox="0 0 340 290" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <g stroke="#0284c7" stroke-opacity="0.32" stroke-width="1.2">
+                    <line x1="20" y1="28" x2="96" y2="54" />
+                    <line x1="96" y1="54" x2="178" y2="24" />
+                    <line x1="96" y1="54" x2="62" y2="132" />
+                    <line x1="96" y1="54" x2="164" y2="112" />
+                    <line x1="178" y1="24" x2="252" y2="68" />
+                    <line x1="164" y1="112" x2="252" y2="68" />
+                    <line x1="62" y1="132" x2="164" y2="112" />
+                    <line x1="62" y1="132" x2="28" y2="210" />
+                    <line x1="62" y1="132" x2="122" y2="198" />
+                    <line x1="164" y1="112" x2="122" y2="198" />
+                </g>
+                <g fill="#0284c7" fill-opacity="0.55">
+                    <circle cx="20" cy="28" r="4.5" />
+                    <circle cx="96" cy="54" r="5.5" />
+                    <circle cx="178" cy="24" r="4" />
+                    <circle cx="252" cy="68" r="3.5" />
+                    <circle cx="62" cy="132" r="5" />
+                    <circle cx="164" cy="112" r="4.5" />
+                    <circle cx="28" cy="210" r="4" />
+                    <circle cx="122" cy="198" r="4" />
+                </g>
+            </svg>
+
+            <!-- Top-right concentric vision lens SVG -->
+            <svg class="showcase-decor-lens" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <radialGradient id="lensGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.85" />
+                        <stop offset="48%" stop-color="#4f46e5" stop-opacity="0.55" />
+                        <stop offset="78%" stop-color="#a855f7" stop-opacity="0.28" />
+                        <stop offset="100%" stop-color="#c084fc" stop-opacity="0" />
+                    </radialGradient>
+                </defs>
+                <circle cx="150" cy="130" r="120" fill="url(#lensGlow)" />
+                <circle cx="150" cy="130" r="108" stroke="#6366f1" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="28 14" />
+                <circle cx="150" cy="130" r="88" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="3" />
+                <circle cx="150" cy="130" r="68" stroke="#c084fc" stroke-opacity="0.55" stroke-width="1.8" />
+                <circle cx="150" cy="130" r="46" fill="#0f2557" fill-opacity="0.72" stroke="#93c5fd" stroke-opacity="0.6" stroke-width="2" />
+                <circle cx="150" cy="130" r="20" fill="#1e1b4b" />
+            </svg>
+
+            <div class="showcase-decor-pixels-left" aria-hidden="true"></div>
+            <div class="showcase-decor-pixels-right" aria-hidden="true"></div>
+
+            <div class="showcase-inner">
+                <div class="showcase-stage">
+                    <!-- PANEL 1: HONORARY GENERAL CHAIR - ANIL K JAIN -->
+                    <div class="showcase-slide active" data-slide="0">
+                        <div class="text-center mb-4">
+                            <span class="showcase-header-pill">Meet Our Distinguished Honorary General Chair</span>
+                        </div>
+                        <div class="d-flex justify-content-center py-3">
+                            <div class="speaker-unit">
+                                <div class="speaker-photo-box featured">
+                                    <img src="assets/images/AnilKJain.jpg" alt="Anil K Jain">
+                                </div>
+                                <div class="speaker-plate-outer featured">
+                                    <div class="speaker-plate">
+                                        <div class="speaker-plate-inner">
+                                            <div class="speaker-plate-text">
+                                                <h3 class="speaker-name">Anil K Jain</h3>
+                                                <p class="speaker-affil">Michigan State University, USA</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 2: HONORARY GENERAL CHAIR - B. B. CHAUDHURI -->
+                    <div class="showcase-slide" data-slide="1">
+                        <div class="text-center mb-4">
+                            <span class="showcase-header-pill">Meet Our Distinguished Honorary General Chair</span>
+                        </div>
+                        <div class="d-flex justify-content-center py-3">
+                            <div class="speaker-unit">
+                                <div class="speaker-photo-box featured">
+                                    <img src="assets/images/B. B. Chaudhuri.jpg" alt="B. B. Chaudhuri">
+                                </div>
+                                <div class="speaker-plate-outer featured">
+                                    <div class="speaker-plate">
+                                        <div class="speaker-plate-inner">
+                                            <div class="speaker-plate-text">
+                                                <h3 class="speaker-name">B. B. Chaudhuri</h3>
+                                                <p class="speaker-affil">Indian Statistical Institute (ISI), Kolkata, India</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 3: DISTINGUISHED GUEST - KARTHIK NANDAKUMAR -->
+                    <div class="showcase-slide" data-slide="2">
+                        <div class="text-center mb-4">
+                            <span class="showcase-header-pill">Meet Our Distinguished Guest</span>
+                        </div>
+                        <div class="d-flex justify-content-center py-3">
+                            <div class="speaker-unit">
+                                <div class="speaker-photo-box featured">
+                                    <img src="assets/images/KarthikNandakumar.jpg" alt="Karthik Nandakumar">
+                                </div>
+                                <div class="speaker-plate-outer featured">
+                                    <div class="speaker-plate">
+                                        <div class="speaker-plate-inner">
+                                            <div class="speaker-plate-text">
+                                                <h3 class="speaker-name">Karthik Nandakumar</h3>
+                                                <p class="speaker-affil">Michigan State University</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 4: GENERAL CHAIRS (3 TOP + 2 BOTTOM) -->
+                    <div class="showcase-slide" data-slide="3">
+                        <div class="text-center mb-4">
+                            <span class="showcase-header-pill">Meet Our Distinguished General Chairs</span>
+                        </div>
+                        <div class="row g-4 justify-content-center mb-3">
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/rajagopalan-an.jpg" alt="A. N. Rajagopalan">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">A. N. Rajagopalan</h3>
+                                                    <p class="speaker-affil">IIT Madras, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/AVBabu.png" alt="A. V. Babu">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">A. V. Babu</h3>
+                                                    <p class="speaker-affil">NIT Calicut, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/ChristopheCharrier.jpg" alt="Christophe Charrier">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Christophe Charrier</h3>
+                                                    <p class="speaker-affil">Universit&eacute; de Caen Normandie</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/Prasad.jpg" alt="Prasad Krishna">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Prasad Krishna</h3>
+                                                    <p class="speaker-affil">Director, NIT Calicut, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/Balasubramanian.jpg" alt="R. Balasubramanian">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">R. Balasubramanian</h3>
+                                                    <p class="speaker-affil">IIT Roorkee, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 5: KEYNOTE SPEAKERS SET 1 (2x2 SPACED LAYOUT) -->
+                    <div class="showcase-slide" data-slide="4">
+                        <div class="text-center mb-4">
+                            <span class="showcase-header-pill">Meet Our Distinguished Keynote Speakers</span>
+                        </div>
+                        <div class="row g-4 justify-content-around">
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/Tanusree.jpg" alt="Smt. Tanusree Deb Barma, IAS">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Smt. Tanusree Deb Barma, IAS</h3>
+                                                    <p class="speaker-affil">WDAT Technology Centre, Bengaluru</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/ThamarSolorio.jpg" alt="Thamar Solorio">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Thamar Solorio</h3>
+                                                    <p class="speaker-affil">Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), UAE</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/TapanKumarGandhi.jpg" alt="Tapan Kumar Gandhi">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Tapan Kumar Gandhi</h3>
+                                                    <p class="speaker-affil">Indian Institute of Technology, Delhi, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/XiaomingLiu.jpg" alt="Xiaoming Liu">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Xiaoming Liu</h3>
+                                                    <p class="speaker-affil">University of North Carolina at Chapel Hill, USA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 6: KEYNOTE SPEAKERS SET 2 (STAGGERED 2-1-2 LAYOUT MATCHING SLIDE) -->
+                    <div class="showcase-slide" data-slide="5">
+                        <div class="text-center mb-4">
+                            <span class="showcase-header-pill">Meet Our Distinguished Keynote Speakers</span>
+                        </div>
+                        <div class="row g-4 align-items-center justify-content-center">
+                            <!-- Left Column: Jaya Bindra & Fahad Shahbaz Khan -->
+                            <div class="col-12 col-md-6 col-lg-4 d-flex flex-column gap-4">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/JayaBindra.jpg" alt="Jaya Bindra">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Jaya Bindra</h3>
+                                                    <p class="speaker-affil">Infineon Technologies</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/FahadShahbazKhan.jpg" alt="Fahad Shahbaz Khan">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Fahad Shahbaz Khan</h3>
+                                                    <p class="speaker-affil">Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), UAE</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Center Column: P P Anilkumar -->
+                            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/PPAnilKumar.png" alt="P. P. Anil Kumar">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">P. P. Anil Kumar</h3>
+                                                    <p class="speaker-affil">NIT Calicut</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Shree K. Nayar & R. Venkatesh Babu -->
+                            <div class="col-12 col-md-12 col-lg-4 d-flex flex-column flex-md-row flex-lg-column justify-content-center gap-4">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/ShreeKNayar.jpg" alt="Shree K. Nayar">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Shree K. Nayar</h3>
+                                                    <p class="speaker-affil">Columbia University, USA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/VenkateshBabu.jpg" alt="R. Venkatesh Babu">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">R. Venkatesh Babu</h3>
+                                                    <p class="speaker-affil">Indian Institute of Science (IISc), Bengaluru, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 7: TUTORIAL SPEAKERS (2x2 WITH STEVEN LE MOAN & SUCHENDRA M. BHANDARKAR IMAGES) -->
+                    <div class="showcase-slide" data-slide="6">
+                        <div class="text-center mb-4">
+                            <span class="showcase-header-pill">Meet Our Distinguished Tutorial Speakers</span>
+                        </div>
+                        <div class="row g-4 justify-content-around">
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/ArunRoss.jpg" alt="Prof. Arun Ross">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Prof. Arun Ross</h3>
+                                                    <p class="speaker-affil">Michigan State University, USA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/Santosh.jpg" alt="Dr. Santosh Kumar Vipparthi">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Dr. Santosh Kumar Vipparthi</h3>
+                                                    <p class="speaker-affil">Indian Institute of Technology, Ropar, India</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/StevenleMoan.png" alt="Steven Le Moan">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Steven Le Moan</h3>
+                                                    <p class="speaker-affil">Norwegian University of Science and Technology (NTNU), Norway</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-5">
+                                <div class="speaker-unit">
+                                    <div class="speaker-photo-box">
+                                        <img src="assets/images/SuchendraBhanarkar.png" alt="Suchendra M. Bhandarkar">
+                                    </div>
+                                    <div class="speaker-plate-outer">
+                                        <div class="speaker-plate">
+                                            <div class="speaker-plate-inner">
+                                                <div class="speaker-plate-text">
+                                                    <h3 class="speaker-name">Suchendra M. Bhandarkar</h3>
+                                                    <p class="speaker-affil">University of Georgia</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANEL 8: OUR SPONSORS -->
+                    <div class="showcase-slide" data-slide="7">
+                        <div class="text-center mb-4">
+                            <span class="showcase-header-pill">Our Sponsors</span>
+                        </div>
+                        <div class="row g-3 justify-content-center py-2">
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="./sponsorship.html" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/capsnet.png" alt="CapsNetwork">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://www.infineon.com/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/infineon-logo.png" alt="Infineon Technologies">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://www.mathworks.com/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/mathworks.png" alt="MathWorks">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/NPTEL.png" alt="NPTEL">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://www.vehant.com/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/vehant.jpeg" alt="Vehant Technologies">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://www.ugc.gov.in/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/UGC_India_Logo.png" alt="UGC India">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://hkdir.no/en" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/NDHES_NorwegianDirectorate.png" alt="NDHES">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://www.forskningsradet.no/en/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/Research_Council_of_Norway.svg" alt="The Research Council of Norway">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://www.zkteco.com/en/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/ZKTECO_logo.png" alt="ZKTeco" style="filter: drop-shadow(0 1px 3px rgba(15, 23, 42, 0.55)) drop-shadow(0 0 1px rgba(15, 23, 42, 0.35));">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://esslsecurity.com/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/esslogo.png" alt="eSSL Security">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://www.anrfonline.in/ANRF/HomePage" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/ANRF.jpeg" alt="ANRF">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://www.idemia.com/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/IDEMIA.jpeg" alt="IDEMIA">
+                                </a>
+                            </div>
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                <a href="https://sangraha.nitc.ac.in/" target="_blank" rel="noopener noreferrer" class="showcase-sponsor-tile text-decoration-none">
+                                    <img src="assets/images/sangraha.png" alt="Sangraha CoEUPD - NITC">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flowing Royal-Blue to Violet Wave SVG -->
+            <div class="showcase-wave-wrap" aria-hidden="true">
+                <svg class="showcase-wave-svg" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="waveGradBack" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35" />
+                            <stop offset="50%" stop-color="#2563eb" stop-opacity="0.32" />
+                            <stop offset="100%" stop-color="#9333ea" stop-opacity="0.4" />
+                        </linearGradient>
+                        <linearGradient id="waveGradFront" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#06184a" />
+                            <stop offset="55%" stop-color="#0d2b7a" />
+                            <stop offset="100%" stop-color="#3b0f78" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M0,25 C280,82 540,-10 880,45 C1120,82 1300,18 1440,34 L1440,90 L0,90 Z" fill="url(#waveGradBack)" />
+                    <path d="M0,48 C320,92 640,12 980,58 C1180,84 1330,44 1440,38 L1440,90 L0,90 Z" fill="url(#waveGradFront)" />
+                </svg>
+            </div>
+
+            <!-- Slide Footer Strip -->
+            <div class="showcase-footer-bar">
+                <span>11th International Conference on Computer Vision &amp; Image Processing - CVIP 2026</span>
+                <span>NIT Calicut</span>
+            </div>
+        </div>
+
+        <div class="showcase-controls">
+            <button class="showcase-nav-btn" type="button" id="showcasePrev" aria-label="Previous panel">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="showcase-dots" role="tablist" aria-label="Panel indicators">
+                <button class="showcase-dot active" type="button" data-slide="0" aria-label="Panel 1"></button>
+                <button class="showcase-dot" type="button" data-slide="1" aria-label="Panel 2"></button>
+                <button class="showcase-dot" type="button" data-slide="2" aria-label="Panel 3"></button>
+                <button class="showcase-dot" type="button" data-slide="3" aria-label="Panel 4"></button>
+                <button class="showcase-dot" type="button" data-slide="4" aria-label="Panel 5"></button>
+                <button class="showcase-dot" type="button" data-slide="5" aria-label="Panel 6"></button>
+                <button class="showcase-dot" type="button" data-slide="6" aria-label="Panel 7"></button>
+                <button class="showcase-dot" type="button" data-slide="7" aria-label="Panel 8"></button>
+            </div>
+            <button class="showcase-nav-btn" type="button" id="showcaseNext" aria-label="Next panel">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
@@ -955,7 +1924,7 @@
                     Proceedings By
                 </h3>
             </div>
-            <div class="row justify-content-center g-4 reveal-text">
+            <div class="row justify-content-center g-4 mb-5 reveal-text">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-4 d-flex justify-content-center">
                     <div class="sponsor-card">
                         <a href="https://link.springer.com/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
@@ -974,6 +1943,115 @@
                     <div class="sponsor-card">
                         <a href="https://link.springer.com/series/7899" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
                             <img src="assets/images/ccis.png" alt="CCIS">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Sponsors -->
+            <div class="text-center mb-4 mt-5 reveal-text">
+                <h3 class="font-inter fw-bold tracking-tight mb-4" style="color: var(--brand-blue); font-size: 2.2rem; letter-spacing: -0.02em;">
+                    Our Sponsors
+                </h3>
+            </div>
+            <div class="row justify-content-center g-4 mb-5 reveal-text">
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="./sponsorship.html" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/capsnet.png" alt="CapsNetwork">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://www.infineon.com/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/infineon-logo.png" alt="Infineon Technologies">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://www.mathworks.com/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/mathworks.png" alt="MathWorks">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://nptel.ac.in/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/NPTEL.png" alt="NPTEL">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://www.vehant.com/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/vehant.jpeg" alt="Vehant Technologies">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://www.ugc.gov.in/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/UGC_India_Logo.png" alt="UGC India">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://hkdir.no/en" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/NDHES_NorwegianDirectorate.png" alt="NDHES - Norwegian Directorate for Higher Education and Skills">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://www.forskningsradet.no/en/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/Research_Council_of_Norway.svg" alt="The Research Council of Norway">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://www.zkteco.com/en/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/ZKTECO_logo.png" alt="ZKTeco" style="filter: drop-shadow(0 1px 3px rgba(15, 23, 42, 0.55)) drop-shadow(0 0 1px rgba(15, 23, 42, 0.35));">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://esslsecurity.com/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/esslogo.png" alt="eSSL Security">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://www.anrfonline.in/ANRF/HomePage" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/ANRF.jpeg" alt="ANRF">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://www.idemia.com/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/IDEMIA.jpeg" alt="IDEMIA">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Educational Partner -->
+            <div class="text-center mb-4 mt-5 reveal-text">
+                <h3 class="font-inter fw-bold tracking-tight mb-4" style="color: var(--brand-blue); font-size: 2.2rem; letter-spacing: -0.02em;">
+                    Educational Partner
+                </h3>
+            </div>
+            <div class="row justify-content-center g-4 reveal-text">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-4 d-flex justify-content-center">
+                    <div class="sponsor-card">
+                        <a href="https://sangraha.nitc.ac.in/" target="_blank" rel="noopener noreferrer" class="d-flex align-items-center justify-content-center w-100 h-100 text-decoration-none">
+                            <img src="assets/images/sangraha.png" alt="Sangraha CoEUPD - NITC">
                         </a>
                     </div>
                 </div>
@@ -1078,6 +2156,56 @@
             current = (current + 1) % slides.length;
             slides[current].classList.add('active');
         }, 5000);
+
+        // Distinguished Leadership & Speakers fading showcase
+        (function () {
+            const showcase = document.getElementById('distinguishedShowcase');
+            if (!showcase) return;
+            const showcaseSlides = showcase.querySelectorAll('.showcase-slide');
+            const tabs = showcase.querySelectorAll('.showcase-tab');
+            const dots = showcase.querySelectorAll('.showcase-dot');
+            const prevBtn = document.getElementById('showcasePrev');
+            const nextBtn = document.getElementById('showcaseNext');
+            let activeIndex = 0;
+            let timer = null;
+
+            function showSlide(index) {
+                activeIndex = (index + showcaseSlides.length) % showcaseSlides.length;
+                showcaseSlides.forEach((s, i) => s.classList.toggle('active', i === activeIndex));
+                tabs.forEach((t, i) => t.classList.toggle('active', i === activeIndex));
+                dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+            }
+
+            function startAuto() {
+                stopAuto();
+                timer = setInterval(() => showSlide(activeIndex + 1), 6500);
+            }
+
+            function stopAuto() {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
+            }
+
+            tabs.forEach(tab => tab.addEventListener('click', () => {
+                showSlide(Number(tab.dataset.slide));
+                startAuto();
+            }));
+
+            dots.forEach(dot => dot.addEventListener('click', () => {
+                showSlide(Number(dot.dataset.slide));
+                startAuto();
+            }));
+
+            if (prevBtn) prevBtn.addEventListener('click', () => { showSlide(activeIndex - 1); startAuto(); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { showSlide(activeIndex + 1); startAuto(); });
+
+            showcase.addEventListener('mouseenter', stopAuto);
+            showcase.addEventListener('mouseleave', startAuto);
+
+            startAuto();
+        })();
     </script>
 </body>
 

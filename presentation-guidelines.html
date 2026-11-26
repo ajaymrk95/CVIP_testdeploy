@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Presentation Guidelines | CVIP 2026</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/zoom-fix.css">
+    <link rel="stylesheet" href="assets/css/revamp.css">
+    <style>
+        /* --- BRAND IDENTITY CONFIGURATION --- */
+        :root {
+            --brand-blue: #003459;
+            --brand-accent: #007EA7;
+            --brand-dark: #00171F;
+            --brand-light: #00A8E8;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--brand-blue);
+            background-color: var(--slate-50);
+            overflow-x: hidden;
+        }
+
+        .font-montserrat {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .font-inter {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .logo-text {
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        /* UNIFIED NAVIGATION */
+        .navbar {
+            min-height: 96px;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--slate-100);
+            z-index: 1050;
+        }
+
+        .nav-link,
+        .dropdown-toggle,
+        .dropdown-item {
+            font-weight: 700 !important;
+            font-size: 17px !important;
+            color: var(--brand-blue) !important;
+            padding: 0.5rem 0.75rem !important;
+            display: flex !important;
+            align-items: center;
+            transition: all 0.2s ease;
+            background: transparent !important;
+        }
+
+        .nav-link:hover,
+        .dropdown:hover>.nav-link,
+        .dropdown-item:hover,
+        .nav-active {
+            color: var(--brand-accent) !important;
+            background: transparent !important;
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .dropdown-menu {
+            border: 1px solid var(--slate-100);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 12px 0;
+            margin-top: 0;
+            border-top: 4px solid var(--brand-accent);
+        }
+
+        /* PAGE HERO */
+        .page-hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--brand-dark);
+        }
+
+        /* SECTIONS */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .guideline-card {
+            background: #ffffff;
+            border: 1px solid var(--slate-200);
+            border-top: 4px solid var(--brand-blue);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 52, 89, 0.06);
+        }
+
+        .guideline-list > li {
+            margin-bottom: 0.9rem;
+            line-height: 1.75;
+        }
+
+        .guideline-sublist {
+            margin-top: 0.45rem;
+            margin-bottom: 0.25rem;
+            padding-left: 1.25rem;
+            list-style-type: disc;
+        }
+
+        .guideline-sublist li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(to bottom right, #00171F, #002A45, #00171F);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .dotted-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (min-width: 1200px) and (max-width: 1435px) {
+            .navbar .logo-text {
+                font-size: 1.8rem !important;
+            }
+
+            .navbar img[alt="NITC"] {
+                height: 50px !important;
+            }
+
+            .navbar img[alt="NTNU"] {
+                height: 45px !important;
+            }
+
+            .navbar .d-flex.align-items-center.gap-3.gap-md-4 {
+                gap: 0.75rem !important;
+            }
+
+            .nav-link,
+            .dropdown-toggle {
+                font-size: 16px !important;
+                padding: 0.5rem 0.6rem !important;
+            }
+
+            .navbar-nav {
+                gap: 2px !important;
+            }
+
+            .container-fluid.px-lg-5 {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .navbar-collapse .dropdown-item {
+                font-size: 16px !important;
+                padding: 0.5rem 1rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                min-height: 80px;
+            }
+
+            .navbar .logo-text {
+                font-size: 1.7rem !important;
+            }
+
+            .navbar img[alt="NITC"] {
+                height: 48px !important;
+            }
+
+            .navbar img[alt="NTNU"] {
+                height: 42px !important;
+            }
+
+            .navbar .vr {
+                height: 38px !important;
+                margin-left: 5px !important;
+                margin-right: 5px !important;
+            }
+
+            .navbar .container-fluid {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .nav-link,
+            .dropdown-toggle {
+                font-size: 16px !important;
+                padding: 0.4rem 0.5rem !important;
+            }
+
+            .navbar-collapse .dropdown-item {
+                font-size: 16px !important;
+                padding: 0.5rem 1rem !important;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .navbar .logo-text {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .section-padding {
+                padding: 4rem 1rem;
+            }
+
+            .page-hero {
+                height: 60vh !important;
+                min-height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                height: auto !important;
+                min-height: 55vh;
+                padding-top: 130px !important;
+                padding-bottom: 60px !important;
+            }
+        }
+
+        .slide-bg,
+        .hero-bg,
+        div[style*="background-image"] {
+            background-attachment: scroll !important;
+            background-size: cover !important;
+            background-position: center center !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-xl fixed-top shadow-sm">
+        <div class="container-fluid px-lg-5">
+            <div class="d-flex align-items-center gap-3 gap-md-4">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="assets/images/nitc.png" alt="NITC" height="60" class="brightness-0">
+                    <img src="assets/images/ntnu.svg" alt="NTNU" height="55">
+                </div>
+                <div class="vr d-none d-md-block mx-2" style="height: 48px; color: var(--slate-200); opacity: 1;"></div>
+                <a class="logo-text font-inter text-decoration-none" href="index.html"
+                    style="color: var(--brand-blue); font-size: 2rem; font-weight: 800;">CVIP 2026</a>
+            </div>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="keynoteDrop" role="button"
+                            data-bs-toggle="dropdown">Keynotes & Tutorials</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="keynotes.html">Keynotes</a></li>
+                            <li><a class="dropdown-item" href="tutorials.html">Tutorials</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="commDrop" role="button"
+                            data-bs-toggle="dropdown">Committee</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="committee.html">Organizing Committee</a></li>
+                            <li><a class="dropdown-item" href="steering-committee.html">Steering Committee</a></li>
+                            <li><a class="dropdown-item" href="advisory.html">International Advisory Committee</a></li>
+                            <li><a class="dropdown-item" href="national-advisory.html">National Advisory Committee</a>
+                            </li>
+                            <li><a class="dropdown-item" href="area-chairs.html">Area Chairs</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cfpDrop" role="button"
+                            data-bs-toggle="dropdown">Submissions</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="cfp.html">Topics & Tracks</a></li>
+                            <li><a class="dropdown-item" href="author-guidelines.html">Author Guidelines</a></li>
+                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                            <li><a class="dropdown-item"
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSdqojPoT-AQWQFLswwtOcFY9wKVv9l2XtiwMitJC2wQxZD72Q/viewform"
+                                    target="_blank">Call for Reviews</a></li>
+                            <li><a class="dropdown-item" href="camera-ready-submissions.html">Camera-Ready
+                                    Submissions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="important-dates.html">Dates</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link nav-active dropdown-toggle" href="#" id="programDrop" role="button"
+                            data-bs-toggle="dropdown">Program</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="program.html">Conference Program</a></li>
+                            <li><a class="dropdown-item" href="presentation-guidelines.html">Paper Presentation Guidelines</a></li>
+                            <li><a class="dropdown-item" href="https://forms.gle/PgnrY8wF1Z3R8qDz7" target="_blank">CVIP 2027 Bidding</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="sponsors.html">Sponsors</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="venueDrop" role="button"
+                            data-bs-toggle="dropdown">Venue</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="venue.html">Venue</a></li>
+                            <li><a class="dropdown-item" href="nearby-attractions.html">Nearby Attractions</a></li>
+                            <li><a class="dropdown-item" href="accommodation.html">Accommodation</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="registration.html">Registration</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="archDrop" role="button"
+                            data-bs-toggle="dropdown">Archive</a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="https://link.springer.com/conference/cvip">Past
+                                    Proceedings (Springer)</a></li>
+                            <li><a class="dropdown-item" href="https://iitrpr.ac.in/cvip2025">CVIP 2025 (IIT Ropar)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://cvip2024.iiitdm.ac.in/">CVIP 2024 (IIITDM)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="https://iitjammu.ac.in/cvip2023/">CVIP 2023 (IIT
+                                    Jammu)</a></li>
+                            <li><a class="dropdown-item" href="https://vnit.ac.in/cvip2022/index.php">CVIP 2022
+                                    (VNIT)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding-top: 96px;"></div>
+
+    <!-- HERO -->
+    <div class="page-hero"
+        style="position: relative; height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background-color: #00171F;">
+        <div style="position: absolute; inset: 0; 
+                    background-image: url('assets/images/slide2.jpg'); 
+                    background-size: cover; 
+                    background-position: center; 
+                    opacity: 0.5;
+                    z-index: 1;">
+        </div>
+        <div style="position: absolute; inset: 0; 
+                    background: linear-gradient(rgba(0,23,31,0.4), rgba(0,23,31,0.8)); 
+                    z-index: 2;">
+        </div>
+        <div class="container position-relative text-center" style="z-index: 3;">
+            <h1 class="reveal-text font-montserrat"
+                style="font-size: 3.5rem; font-weight: 900; color: white; letter-spacing: -0.023em; text-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+                Paper Presentation Guidelines
+            </h1>
+            <p class="reveal-text mt-3 mb-0" style="font-size: 1.2rem; color: rgba(255,255,255,0.8);">December 9&ndash;12, 2026 | NIT Calicut, India</p>
+            <div class="reveal-text"
+                style="height: 6px; width: 100px; background-color:var(--brand-accent); margin: 1.5rem auto 0; border-radius: 50px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- GUIDELINES SECTION -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="row justify-content-center g-5">
+
+                <!-- ORAL PRESENTATION GUIDELINES -->
+                <div class="col-lg-10 reveal-text">
+                    <div class="guideline-card p-4 p-md-5">
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 pb-3 border-bottom">
+                            <h2 class="font-montserrat fw-bold mb-0" style="color: var(--brand-blue);">
+                                Oral Presentation Guidelines &ndash; CVIP 2026
+                            </h2>
+                            <a href="assets/CVIP_Oral_Template.pptx" download="CVIP_2026_Oral_Presentation_Template.pptx"
+                                class="btn btn-primary border-0 px-4 py-2 fw-bold text-white shadow-sm shrink-0"
+                                style="background-color: var(--brand-blue);">
+                                Download Template
+                            </a>
+                        </div>
+
+                        <p class="text-secondary fs-5 mb-4">
+                            All authors presenting papers at CVIP 2026 are requested to follow the guidelines below:
+                        </p>
+
+                        <ol class="guideline-list text-secondary fs-5 ps-3">
+                            <li>
+                                The total duration allotted for each paper presentation is <strong>15 minutes</strong>, including:
+                                <ul class="guideline-sublist">
+                                    <li>12 minutes for the presentation</li>
+                                    <li>3 minutes for questions and answers (Q&amp;A)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Each presentation should contain <strong>no more than 12 slides</strong>. Please ensure that the content is concise, clear, and readable.
+                            </li>
+                            <li>
+                                All presentations must be uploaded in <strong>PDF format only</strong>. Authors should convert their PowerPoint (PPT/PPTX) presentations to PDF before submission.
+                            </li>
+                            <li>
+                                The presentation file must be named <code>PIDXXXX.pdf</code>, where <code>XXXX</code> represents the four-digit Paper ID, with leading zeros if necessary.
+                                <div class="mt-2 small text-muted">Examples:</div>
+                                <ul class="guideline-sublist">
+                                    <li>Paper ID 12 &rarr; <code>PID0012.pdf</code></li>
+                                    <li>Paper ID 348 &rarr; <code>PID0348.pdf</code></li>
+                                    <li>Paper ID 1249 &rarr; <code>PID1249.pdf</code></li>
+                                </ul>
+                            </li>
+                            <li>
+                                The uploaded PDF file must <strong>not exceed 20 MB</strong>. Authors are requested to compress their files if necessary.
+                            </li>
+                            <li>
+                                Authors may update their presentations by submitting the Google Form again. Only the latest submission will be considered:
+                                <a href="https://forms.gle/RUnLcRzd95d33P117" target="_blank" rel="noopener noreferrer"
+                                    class="fw-semibold" style="color: var(--brand-accent);">
+                                    https://forms.gle/RUnLcRzd95d33P117
+                                </a>
+                            </li>
+                            <li class="mb-0">
+                                The presentation upload form will remain open until <strong>02/12/2026</strong>. No modifications will be accepted after the deadline.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- POSTER PRESENTATION GUIDELINES -->
+                <div class="col-lg-10 reveal-text">
+                    <div class="guideline-card p-4 p-md-5">
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 pb-3 border-bottom">
+                            <h2 class="font-montserrat fw-bold mb-0" style="color: var(--brand-blue);">
+                                Poster Presentation Guidelines &ndash; CVIP 2026
+                            </h2>
+                            <a href="assets/CVIP_Poster_Template.pptx" download="CVIP_2026_Poster_Presentation_Template.pptx"
+                                class="btn btn-primary border-0 px-4 py-2 fw-bold text-white shadow-sm shrink-0"
+                                style="background-color: var(--brand-blue);">
+                                Download Template
+                            </a>
+                        </div>
+
+                        <p class="text-secondary fs-5 mb-4">
+                            All authors assigned to poster presentation sessions at CVIP 2026 are requested to follow the guidelines below:
+                        </p>
+
+                        <ol class="guideline-list text-secondary fs-5 ps-3">
+                            <li>
+                                All posters must be prepared in <strong>A0 size (841 &times; 1189 mm)</strong> with <strong>vertical (portrait) orientation</strong>.
+                            </li>
+                            <li>
+                                Posters must be printed in colour on high-quality poster paper. Authors are requested to ensure that all text, figures, tables, and images are clear, readable, and of good print quality.
+                            </li>
+                            <li>
+                                Authors must bring their printed posters to the conference venue. Printing arrangements should be completed before arriving at the conference.
+                            </li>
+                            <li>
+                                Authors must display their posters in the designated poster presentation area at least <strong>15 minutes before</strong> the scheduled start of their session.
+                            </li>
+                            <li>
+                                Each poster session will last <strong>1.5 hours (90 minutes)</strong>. Posters must remain displayed throughout the entire session.
+                            </li>
+                            <li>
+                                Registered author(s) must remain available near the poster during the session to explain the research, answer questions, and interact with participants.
+                            </li>
+                            <li>
+                                Posters must not be removed before the scheduled poster session ends, even if the presentation or discussion has been completed earlier.
+                            </li>
+                            <li>
+                                Authors must remove their posters immediately after their assigned session concludes to make the display space available for the next poster presentation session.
+                            </li>
+                            <li>
+                                Authors are requested to carefully check their assigned poster session and reporting time on the official conference website. Conference Schedule:
+                                <a href="program.html" class="fw-semibold" style="color: var(--brand-accent);">
+                                    https://cvip2026.nitc.ac.in/program.html
+                                </a>
+                            </li>
+                            <li class="mb-0">
+                                <strong>Important:</strong> Authors are responsible for bringing, displaying, and removing their posters within the specified timings. All authors are requested to strictly follow these guidelines to ensure the smooth conduct of the poster sessions at CVIP 2026.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="position-relative overflow-hidden">
+        <div class="dotted-overlay"></div>
+        <div class="container position-relative z-1">
+            <div class="row g-4 g-lg-5 align-items-center justify-content-center">
+
+                <div
+                    class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                    <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                        <img src="assets/images/nitc.png" height="50" alt="NITC Logo">
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">National Institute of Technology
+                            Calicut</h3>
+                        <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
+                            <a href="https://www.instagram.com/nitcofficial" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/NIT.Calicut.Kerala/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/school/national-institute-of-technology-calicut/"
+                                target="_blank" class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="col-lg-4 d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start gap-4 text-center text-sm-start">
+                    <div class="bg-white p-2 rounded-2 shadow-sm shrink-0">
+                        <img src="assets/images/ntnu.svg" height="40" alt="NTNU Logo">
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-2 small text-uppercase tracking-wide">Norwegian University of Science and
+                            Technology</h3>
+                        <div class="d-flex gap-3 fs-5 justify-content-center justify-content-sm-start">
+                            <a href="https://www.instagram.com/ntnu/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com/ntnu.no/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/school/ntnu/" target="_blank"
+                                class="text-white opacity-75 hover-opacity-100">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end">
+                    <nav class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-4 fs-6 fw-bold">
+                        <a href="cfp.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Call
+                            for Papers</a>
+                        <a href="registration.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Registration</a>
+                        <a href="important-dates.html"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Dates</a>
+                        <a href="mailto:cvip_2026@nitc.ac.in"
+                            class="text-white text-decoration-none border-bottom border-transparent hover-border-white pb-1">Contact
+                            Email : cvip_2026@nitc.ac.in </a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-top border-white border-opacity-10 text-center">
+                <p class="small text-uppercase tracking-widest opacity-50 mb-0">
+                    &copy; 2026 <span class="text-info fw-bold">CVIP Conference</span>. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
