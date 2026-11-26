@@ -8,3 +8,122 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
+
+/* Responsive speaker showcase: let each panel size itself to its content instead of
+   forcing panels of very different heights into a fixed-height carousel stage. */
+#distinguishedShowcase .showcase-stage {
+    display: block;
+    min-height: 0;
+    height: auto;
+}
+
+#distinguishedShowcase .showcase-slide {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#distinguishedShowcase .showcase-slide.active {
+    position: relative;
+    inset: auto;
+    width: 100%;
+}
+
+#distinguishedShowcase .showcase-header-pill {
+    display: inline-block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+}
+
+#distinguishedShowcase .speaker-unit {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+#distinguishedShowcase .speaker-photo-box {
+    flex: 0 0 auto;
+}
+
+#distinguishedShowcase .speaker-plate-outer {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+}
+
+#distinguishedShowcase .speaker-plate-inner,
+#distinguishedShowcase .speaker-plate-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+#distinguishedShowcase .showcase-inner .row {
+    align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+    #distinguishedShowcase .showcase-inner {
+        padding: 1.25rem 0.75rem 1rem;
+    }
+
+    #distinguishedShowcase .showcase-stage {
+        padding-inline: 0.25rem;
+    }
+
+    #distinguishedShowcase .showcase-header-pill {
+        padding: 0.6rem 0.85rem;
+        font-size: clamp(0.75rem, 3.2vw, 0.9rem);
+        letter-spacing: 0.025em;
+    }
+
+    /* The featured portrait/label otherwise retain desktop dimensions on phones. */
+    #distinguishedShowcase .speaker-photo-box.featured {
+        width: clamp(112px, 38vw, 160px);
+        height: clamp(126px, 42vw, 172px);
+    }
+
+    #distinguishedShowcase .speaker-plate-outer.featured {
+        max-width: min(100%, 340px);
+    }
+
+    #distinguishedShowcase .speaker-plate-outer.featured .speaker-plate-inner {
+        padding: 0.75rem 0.9rem;
+    }
+
+    #distinguishedShowcase .speaker-plate-outer.featured .speaker-name {
+        font-size: clamp(1rem, 4.5vw, 1.3rem);
+    }
+
+    #distinguishedShowcase .speaker-plate-outer.featured .speaker-affil {
+        font-size: clamp(0.75rem, 3.4vw, 0.9rem);
+    }
+
+    #distinguishedShowcase .showcase-controls {
+        gap: 0.55rem;
+    }
+
+    #distinguishedShowcase .showcase-dots {
+        max-width: calc(100vw - 120px);
+    }
+}
+
+@media (max-width: 400px) {
+    #distinguishedShowcase .showcase-inner {
+        padding-inline: 0.5rem;
+    }
+
+    #distinguishedShowcase .speaker-plate {
+        transform: skewX(-7deg);
+    }
+
+    #distinguishedShowcase .speaker-plate-text {
+        transform: skewX(7deg);
+    }
+
+    #distinguishedShowcase .showcase-nav-btn {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+    }
+}
