@@ -211,6 +211,31 @@
             margin-bottom: 1rem;
         }
 
+        /* WORKSHOP LOGOS */
+        .keynote-card .workshop-logo {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* REGISTRATION BANNER */
+        .register-banner {
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-top: 5px solid var(--brand-accent);
+        }
+
+        .register-btn {
+            background: var(--brand-accent);
+            color: white;
+        }
+
+        .register-btn:hover {
+            background: var(--brand-blue);
+            color: white;
+        }
+
         /* FOOTER STYLES */
         footer {
             background: linear-gradient(to bottom right, #00171F, #002A45, #00171F);
@@ -510,6 +535,21 @@
 
     <section class="section-padding bg-white">
         <div class="container">
+            <!-- REGISTRATION BANNER -->
+            <div class="row justify-content-center">
+                <div class="col-lg-11 col-xl-10">
+                    <div class="register-banner reveal-text shadow-sm rounded-4 p-4 mb-5 text-center">
+                        <p class="fs-5 fw-bold mb-3" style="color: var(--brand-blue);">
+                            Tutorial/Workshop is scheduled on 9th December 2026
+                        </p>
+                        <a href="https://forms.gle/Q2kLzs5PUrbCRUwS6" target="_blank" rel="noopener noreferrer"
+                            class="btn register-btn fw-bold px-4 py-2">
+                            Register Here
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <div class="text-center mb-5 reveal-text">
                 <p class="fs-5 text-secondary mx-auto" style="max-width: 800px;">
                     CVIP 2026 is proud to present a series of comprehensive tutorials led by globally recognized
@@ -578,67 +618,7 @@
                     </div>
                 </div>
 
-                <!-- TUTORIAL 2: Dr. Salman Khan -->
-                <div class="col-lg-11 col-xl-10">
-                    <div class="keynote-card reveal-text shadow-sm border rounded-4 overflow-hidden mb-5">
-                        <div class="row g-0 align-items-center">
-                            <div class="col-lg-3 photo-col">
-                                <!-- Assumed image path. Please upload SalmanKhan.jpg to your assets folder -->
-                                <img src="assets/images/SalmanKhan.jpg" alt="Dr. Salman Khan" class="member-photo">
-                            </div>
-
-                            <div class="col-lg-9 text-col">
-                                <div class="mb-3">
-                                    <h2 class="member-name display-6 fw-bold mb-1" style="color: var(--brand-blue);">Dr.
-                                        Salman Khan</h2>
-                                    <p class="fw-bold mb-3" style="color: var(--brand-accent); font-size: 1.1rem;">
-                                        Mohamed bin Zayed University of Artificial Intelligence (MBZUAI), UAE & ANU,
-                                        Australia</p>
-
-                                    <div class="p-3 mb-3 rounded-3"
-                                        style="background-color: var(--slate-50);">
-                                        <h5 class="mb-0 text-dark" style="font-size: 1.1rem;"><span
-                                                style="color: var(--brand-accent);">Topic:</span> "Vision-Language
-                                            Models: Recent Advances"</h5>
-                                    </div>
-                                    <div class="accent-line"
-                                        style="width: 60px; height: 4px; background: var(--brand-light); border-radius: 2px;">
-                                    </div>
-                                </div>
-
-                                <div class="keynote-bio mb-4">
-                                    <p class="mb-3">
-                                        <strong>Salman H. Khan</strong> is an Associate Professor at Mohamed bin Zayed
-                                        University of Artificial Intelligence and an adjunct faculty at at College of
-                                        Electrical & Computer Science (CECS), Australian National University (ANU). His
-                                        research lies at the intersection of computer vision, machine learning, and
-                                        multimodal artificial intelligence, with major contributions in vision-language
-                                        models, continual learning, prompt learning, generative AI, and learning from
-                                        limited data. He has extensively worked on large multimodal models for image and
-                                        video understanding, robust and generalizable AI systems, and AI applications in
-                                        earth observation, climate science, and remote sensing. Prior to joining MBZUAI,
-                                        he served as a Senior Scientist at the Inception Institute of Artificial
-                                        Intelligence and as a Research Scientist at Data61-CSIRO, Australia. Prof. Khan
-                                        has authored more than 200 publications in leading AI conferences and journals
-                                        and has received several prestigious recognitions including the Fulbright
-                                        Scholarship, IPRS Scholarship, and multiple best paper and outstanding reviewer
-                                        awards.
-                                    </p>
-                                </div>
-
-                                <div
-                                    class="pt-3 border-top d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
-                                    <a href="https://mbzuai.ac.ae/study/faculty/salman-khan/" target="_blank"
-                                        rel="noopener noreferrer" class="fw-semibold" style="color: var(--brand-accent); text-underline-offset: 4px;">
-                                        Personal Website
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TUTORIAL 3: Dr. Santosh Kumar Vipparthi -->
+                <!-- TUTORIAL 2: Dr. Santosh Kumar Vipparthi -->
                 <div class="col-lg-11 col-xl-10">
                     <div class="keynote-card reveal-text shadow-sm border rounded-4 overflow-hidden mb-5">
                         <div class="row g-0 align-items-center">
@@ -681,7 +661,7 @@
                     </div>
                 </div>
 
-                <!-- TUTORIAL 4: Dr. Steven Le Moan -->
+                <!-- TUTORIAL 3: Dr. Steven Le Moan -->
                 <div class="col-lg-11 col-xl-10">
                     <div class="keynote-card reveal-text shadow-sm border rounded-4 overflow-hidden mb-5">
                         <div class="row g-0 align-items-center">
@@ -728,7 +708,7 @@
                     </div>
                 </div>
 
-                <!-- TUTORIAL 5: Prof. Suchendra M. Bhandarkar -->
+                <!-- TUTORIAL 4: Prof. Suchendra M. Bhandarkar -->
                 <div class="col-lg-11 col-xl-10">
                     <div class="keynote-card reveal-text shadow-sm border rounded-4 overflow-hidden mb-5">
                         <div class="row g-0 align-items-center">
@@ -773,6 +753,42 @@
                                         Personal Website
                                     </a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WORKSHOP 1: Infineon Technologies -->
+                <div class="col-lg-11 col-xl-10">
+                    <div class="keynote-card reveal-text shadow-sm border rounded-4 overflow-hidden mb-5">
+                        <div class="row g-0 align-items-center">
+                            <div class="col-lg-3 photo-col">
+                                <img src="assets/images/infineon-logo.png" alt="Infineon Technologies logo" class="workshop-logo">
+                            </div>
+
+                            <div class="col-lg-9 text-col">
+                                <h2 class="member-name display-6 fw-bold mb-1" style="color: var(--brand-blue);">
+                                    Infineon Technologies</h2>
+                                <p class="fw-bold mb-0" style="color: var(--brand-accent); font-size: 1.1rem;">
+                                    Industry–Academia Workshop</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WORKSHOP 2: MathWorks -->
+                <div class="col-lg-11 col-xl-10">
+                    <div class="keynote-card reveal-text shadow-sm border rounded-4 overflow-hidden mb-5">
+                        <div class="row g-0 align-items-center">
+                            <div class="col-lg-3 photo-col">
+                                <img src="assets/images/mathworks.png" alt="MathWorks logo" class="workshop-logo">
+                            </div>
+
+                            <div class="col-lg-9 text-col">
+                                <h2 class="member-name display-6 fw-bold mb-1" style="color: var(--brand-blue);">
+                                    MathWorks</h2>
+                                <p class="fw-bold mb-0" style="color: var(--brand-accent); font-size: 1.1rem;">
+                                    Industry–Academia Workshop</p>
                             </div>
                         </div>
                     </div>
